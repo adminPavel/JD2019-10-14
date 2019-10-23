@@ -14,19 +14,11 @@ Sum = 60
 */
 class TaskC1 {
     public static void main(String[] args) {
-        int Sum;
         Scanner sc = new Scanner(System.in);
         int i = sc.nextInt();
         int j = sc.nextInt();
 
-        Sum = i + j;
-        System.out.println("Sum = " + Sum);
-
-
+        int Sum = i + j;
+        System.out.printf("%s%d\n", "Sum = ", Sum);
     }
-
-
-
-
-
 }

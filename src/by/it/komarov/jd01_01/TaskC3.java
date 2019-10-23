@@ -42,8 +42,7 @@ class TaskC3 {
         System.out.println(getWeight(weight));
     }
 
-    public static double getWeight(int weight){
+    private static double getWeight(int weight){
         return Math.round((weight * g_Mars / g_Earth) * 100.0) / 100.0;
     }
-
 }
