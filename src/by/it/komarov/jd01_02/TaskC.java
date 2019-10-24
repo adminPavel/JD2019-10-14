@@ -22,10 +22,10 @@ public class TaskC {
         return array;
     }
 
-    public static void printArr(int[][] mas){
-        for (int i = 0; i < mas.length; i++) {
+    private static void printArr(int[][] mas){
+        for (int[] ma : mas) {
             for (int j = 0; j < mas.length; j++) {
-                System.out.printf("%d ", mas[i][j]);
+                System.out.printf("%d ", ma[j]);
             }
             System.out.println();
         }
