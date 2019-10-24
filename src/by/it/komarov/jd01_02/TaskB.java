@@ -18,13 +18,12 @@ public class TaskB {
 
     private static void step1() {
         for (int i = 0; i <= 25 ; i++) {
-            System.out.print(i + " ");
+            System.out.printf("%d ", i);
             if(i % 5 == 0) {
                 System.out.println();
             }
         }
     }
-
 
     private static void step2(int mounth) {
         switch (mounth){
