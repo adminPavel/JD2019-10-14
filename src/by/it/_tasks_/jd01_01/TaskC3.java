@@ -1,4 +1,6 @@
-package by.it._tasks_.jd01_01;
+package by.it.kazak.jd01_01;
+
+import java.util.Scanner;
 
 /*
 Ускорение свободного падения на Земле и Марсе таково:
@@ -31,4 +33,19 @@ package by.it._tasks_.jd01_01;
 */
 class TaskC3 {
 
+    private static final double G_EARTH = 9.81;
+    private static final double G_MARS = 3.86;
+
+
+    public static void main(final String[] args) {
+        final Scanner scanner = new Scanner(System.in);
+        final int weight = scanner.nextInt();
+        System.out.print(String.format("%.2f%n", getWeight(weight)).replace(',', '.'));
+    }
+
+    private static double getWeight(final int weight) {
+
+        return weight * G_MARS / G_EARTH;
+    }
 }
+
