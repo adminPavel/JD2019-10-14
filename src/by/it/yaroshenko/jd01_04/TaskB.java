@@ -17,7 +17,7 @@ public class TaskB {
 //Метод для ввода зарплаты
         int[][] array_salary = new int[n][k]; //двумерный итоговый массив зарплат
         int[] sum = new int[n]; //массив для суммы элементов
-        int[] new_int_array = new int[n*k];
+        int[] new_int_array = new int[n*k];////
         int[] array_sum = new int[array_salary.length];
         String[] new_array = new String[n]; //массив строк куда будем записывать зарплаты для работников
         int count=0;
