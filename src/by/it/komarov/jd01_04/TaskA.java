@@ -1,6 +1,5 @@
 package by.it.komarov.jd01_04;
 
-import java.nio.channels.ClosedByInterruptException;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -18,7 +17,7 @@ public class TaskA {
         buildOneDimArray(line2);
 
     }
-    static void printMulTable(){
+    private static void printMulTable(){
 
         for (int i = 2; i <= 9; i++) {
             for (int j = 2; j <= 9; j++) {
@@ -28,7 +27,7 @@ public class TaskA {
         }
     }
 
-    static void buildOneDimArray(String line) {
+    private static void buildOneDimArray(String line) {
 
         double[] array = InOut.getArray(line);
         System.out.println("Unsorted array");
@@ -37,7 +36,7 @@ public class TaskA {
         double last = array[array.length-1];
         Helper.sort(array);
         System.out.println("Sorted array");
-        InOut.printArray(array, "V", 4);
+        InOut.printArray(array, "v", 4);
 
         System.out.printf("%nIndex of first element=%d", Arrays.binarySearch(array, first));
         System.out.printf("%nIndex of last element=%d", Arrays.binarySearch(array, last));
