@@ -34,12 +34,12 @@ public class TaskB {
     /**
      * Распечатывает массив на экране
      */
-    static void printArrayTop (int K) {
+    private static void printArrayTop (int K) {
         System.out.println("------------------------------------------------------------");
 
         System.out.printf("%-15s%-10s%-10s%-10s%-10s%-10s\n", "Фамилия", "Квартал1", "Квартал2", "Квартал3", "Квартал4", "Итого" );
         }
-        static void printArrayMain(String[] array_name, int[][] array, int n, int K) {
+        private static void printArrayMain(String[] array_name, int[][] array, int n, int K) {
         System.out.println("------------------------------------------------------------");
         for (int j = 0; j < n; j++) {
             System.out.printf("%-15s",array_name[j]+":");
@@ -51,7 +51,7 @@ public class TaskB {
         System.out.printf("%-10d\n",sum);
         }
     }
-    static void printArraySumAverage (int total, double average) {
+    private static void printArraySumAverage (int total, double average) {
         System.out.println("------------------------------------------------------------");
         System.out.printf("%-15s%-10d\n%-15s%-10.5f", "Итого", total,"Средняя", average);
     }
