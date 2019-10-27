@@ -3,16 +3,15 @@ package by.it.komarov.jd01_04;
 class InOut {
 
     static double[] getArray(String line){
-        //line = line.trim(); // получаем строку
-        String[] strArray = line.trim().split(" "); // split преобразование в строку
-        // double[] array = new double[strArray.length]
+
+        String[] strArray = line.trim().split(" ");
         int sizeArray = strArray.length;
         double[] array = new double[sizeArray];
 
         for (int i = 0; i < strArray.length; i++) {
-            array[i] = Double.parseDouble(strArray[i]); // присваиваю значение массива строк, в массив типа double
+            array[i] = Double.parseDouble(strArray[i]);
         }
-        return array; //return null; stub - временная загушка.
+        return array;
     }
 
     static void printArray(double[] arr){
