@@ -7,33 +7,41 @@ public class TaskC {
     public static void main(String[] args) {
         String line = "12 43 -21 78 -145 123 9";
         buildOneDimArray(line);
-        //double[] array = InOut.getArray(line);
-        //InOut.printArray(array);
-        //InOut.printArray(array, "v", 6);
     }
 
     static void buildOneDimArray(String line) {
         double[] array = InOut.getArray(line);
+
+        double first = array[0];
+        double last = array[array.length-1];
+
         System.out.println("Unsorted array");
         InOut.printArray(array, "V", 5);
-        double[] mergesorted = new double[array.length];
-        mergesorted = mergeSort(array);
+        array = mergeSort(array);
         System.out.println("Sorted array");
-        InOut.printArray(mergesorted, "V", 5);
+        InOut.printArray(array, "V", 5);
 
-        //System.out.printf("Index of first element=%d\n", Arrays.binarySearch(array,first));
+        System.out.println("first element=" +binarySearch(array, first));
+        System.out.println("last element=" +binarySearch(array, last));
+    }
 
-        //System.out.printf("Index of last element=%d\n",Arrays.binarySearch(array, last));
+    static int binarySearch(double[] array, double value) {
+        int index = Arrays.binarySearch(array,value);
+        return index;
     }
 
     static double[] mergeSort(double[] array) {
-        int len = array.length;
-        if (len < 2) {
+        int right = array.length;
+        if (right < 2) {
             return array;
         }
-        int middle = len / 2;
-        return merge(mergeSort(Arrays.copyOfRange(array, 0, middle)),
-        mergeSort(Arrays.copyOfRange(array, middle, len)));
+        int left = right / 2;
+        double[] part1 = new double[array.length/2];
+        System.arraycopy(array, 0, part1,0, left);
+        double[] part2 = new double[array.length-array.length/2];
+        System.arraycopy(array, left, part2,0,
+                array.length-array.length/2);
+        return merge((mergeSort(part1)), (mergeSort(part2)));
     }
 
     static double[] merge(double[] part1, double[] part2) {
@@ -51,7 +59,6 @@ public class TaskC {
             } else {
                 result[i] = part1[a++];
             }
-
         }
         return result;
     }
