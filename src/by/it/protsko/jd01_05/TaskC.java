@@ -12,6 +12,9 @@ public class TaskC {
         double[] arrayB = createNewArray(arrayA);
         printArray(arrayB, "B");
         getAverageValueArrayElements(arrayB);
+
+        //task7
+
     }
 
     private static int getRundomNumber(int min, int max) {
