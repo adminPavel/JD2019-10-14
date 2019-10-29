@@ -19,9 +19,8 @@ public class TaskA {
         for (double a = -5; a <= 12; a += 3.75) {
             System.out.println("Значение функции при a=" + a + " равняется " + functionF(12.1, a));
         }
-
-
     }
+
 
     private static double zPartVersion(double a, double x) {
         double part1 = cos(pow((pow(x, 2) + PI / 6), 5));
