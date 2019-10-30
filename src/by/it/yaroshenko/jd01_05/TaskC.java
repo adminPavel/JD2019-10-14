@@ -3,7 +3,6 @@ import static java.lang.Math.*;
 public class TaskC {
         public static void main(String[] args) {
         double n_random = (Math.random() * 21 + 20);
-       // System.out.println("Рандомное число от 20 до 40 = "+n_random);
         double x = (9.0-5.33)/n_random;
         int array_size = (int)ceil(n_random);
         double[] array = new double[array_size];
@@ -16,7 +15,7 @@ public class TaskC {
             }
             count++;
         }
-            //System.out.println("count_new="+count_new);
+
 //цикл для нового массива, записали новый массив array_new, где z>3.5
            int index=0;
            double z;
@@ -28,7 +27,7 @@ public class TaskC {
                     index++;
                    }
                 }
-//
+
             printArray(array, "A", 5);
             System.out.println("\nМассив B[] из элементов массива A > 3.5\n");
             printArray(array_new, "B", 5);
@@ -42,10 +41,11 @@ public class TaskC {
             System.out.printf("%s[ %d ] = %.5f",name, i, array[i]);
             if((i+1)%(column)==0 || i==array.length-1) {
                 System.out.println();
+                }
             }
         }
     }
-}
+
 
 
 
