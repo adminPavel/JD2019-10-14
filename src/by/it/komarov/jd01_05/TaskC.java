@@ -21,9 +21,9 @@ public class TaskC {
     private static double[] setArrayB(double[] arrayA){
         double[] arraySecond = new double[30];
         int indexArray = 0;
-        for (int i = 0; i < arrayA.length; i++) {
-            if (arrayA[i] > 3.5){
-                arraySecond[indexArray++] = arrayA[i];
+        for (double element : arrayA) {
+            if (element > 3.5) {
+                arraySecond[indexArray++] = element;
             }
         }
         return arraySecond;
