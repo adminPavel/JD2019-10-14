@@ -3,11 +3,13 @@ package by.it.komarov.jd01_05;
 public class TaskC {
     public static void main(String[] args) {
         double[] arrayA = new double[30];
+        double[] arrayB = new double[30];
 
         setArrayA(arrayA);
         getArray(arrayA, "A");
-        getArray(setArrayB(arrayA), "B");
-
+        setArrayB(arrayA, arrayB);
+        getArray(arrayB, "B");
+        middleGeometricsValue(arrayB);
     }
 
     private static void setArrayA(double[] arrayA){
@@ -18,15 +20,13 @@ public class TaskC {
         }
     }
 
-    private static double[] setArrayB(double[] arrayA){
-        double[] arraySecond = new double[30];
+    private static void setArrayB(double[] arrayA, double[] arrayB){
         int indexArray = 0;
         for (double element : arrayA) {
             if (element > 3.5) {
-                arraySecond[indexArray++] = element;
+                arrayB[indexArray++] = element;
             }
         }
-        return arraySecond;
     }
 
     private static void getArray(double[] array, String name){
@@ -39,5 +39,13 @@ public class TaskC {
             }
         }
         System.out.println();
+    }
+
+    private static void middleGeometricsValue(double[] array){
+        double middleGeom = 0;
+        for (double element: array) {
+            middleGeom += element;
+        }
+        System.out.printf("Middle Geometrics Value: %3.6f", Math.sqrt(middleGeom));
     }
 }
