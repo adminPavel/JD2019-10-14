@@ -4,10 +4,9 @@ public class TaskC {
     public static void main(String[] args) {
         double[] arrayA = new double[30];
 
-
         setArrayA(arrayA);
-        getArray(arrayA);
-        getArray(setArrayB(arrayA));
+        getArray(arrayA, "A");
+        getArray(setArrayB(arrayA), "B");
 
     }
 
@@ -30,13 +29,13 @@ public class TaskC {
         return arraySecond;
     }
 
-    private static void getArray(double[] array){
+    private static void getArray(double[] array, String name){
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) {
-                System.out.printf("Array[%2d]=%3.6f ", i, array[i]);
                 if (i % 5 == 0) {
                     System.out.println();
                 }
+                System.out.printf("%s[%2d]=%3.6f  ", name,  i, array[i]);
             }
         }
         System.out.println();
