@@ -1,7 +1,7 @@
 package by.it.komarov.jd01_05;
 
-
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TaskC {
     public static void main(String[] args) {
@@ -14,6 +14,16 @@ public class TaskC {
         setArrayListSecond(arrayListFirst, arrayListSecond);
         getArrayList(arrayListSecond, "B");
         middleGeometricsValue(arrayListSecond);
+
+        int[] arrFirst = new int[31];
+        int[] arrSecond = new int[31];
+
+        setRandomArray(arrFirst);
+        printArray(arrFirst);
+        createSortArray(arrFirst, arrSecond);
+        printArray(arrSecond);
+
+
     }
 
     private static void setArrayListFirst(ArrayList<Double> arrayListFirst){
@@ -51,6 +61,26 @@ public class TaskC {
         for (double element: arrayList) {
             middleGeom += element;
         }
-        System.out.printf("Middle Geometrics Value: %3.6f", Math.sqrt(middleGeom));
+        System.out.printf("\nMiddle Geometrics Value: %3.6f\n", Math.sqrt(middleGeom));
+    }
+
+    private static void setRandomArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            array[i] = 103 + (int)(Math.random() * 405);
+        }
+    }
+
+    private static void createSortArray(int[] first, int[] second){
+        for (int i = 0; i < first.length; i++) {
+            second[i] = first[i];
+        }
+        Arrays.sort(second);
+    }
+
+    private static void printArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.printf("Array[%2d] = %3d", i, array[i]);
+        }
+        System.out.println();
     }
 }
