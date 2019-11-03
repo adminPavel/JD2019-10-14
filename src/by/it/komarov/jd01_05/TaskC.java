@@ -19,9 +19,9 @@ public class TaskC {
         int[] arrSecond = new int[31];
 
         setRandomArray(arrFirst);
-        printArray(arrFirst);
+        printArray(arrFirst, "First");
         createSortArray(arrFirst, arrSecond);
-        printArray(arrSecond);
+        printArray(arrSecond, "Second");
     }
 
     private static void setArrayListFirst(ArrayList<Double> arrayListFirst){
@@ -73,12 +73,12 @@ public class TaskC {
         Arrays.sort(second);
     }
 
-    private static void printArray(int[] array){
+    private static void printArray(int[] array, String name){
         for (int i = 0; i < array.length; i++) {
             if (i % 5 == 0) {
                 System.out.println();
             }
-            System.out.printf("Array[%2d] = %3d ", i, array[i]);
+            System.out.printf("%s[%2d] = %3d ", name, i, array[i]);
         }
         System.out.println();
     }
