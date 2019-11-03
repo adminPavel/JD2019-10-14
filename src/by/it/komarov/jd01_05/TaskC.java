@@ -9,11 +9,11 @@ public class TaskC {
         ArrayList<Double> arrayListFirst = new ArrayList<>();
         ArrayList<Double> arrayListSecond = new ArrayList<>();
 
-        double[] arrayA = new double[30];
-        double[] arrayB = new double[30];
-
         setArrayListFirst(arrayListFirst);
         getArrayList(arrayListFirst, "A");
+        setArrayListSecond(arrayListFirst, arrayListSecond);
+        getArrayList(arrayListSecond, "B");
+        middleGeometricsValue(arrayListSecond);
     }
 
     private static void setArrayListFirst(ArrayList<Double> arrayListFirst){
@@ -24,14 +24,16 @@ public class TaskC {
         }
     }
 
-    private static void setArrayB(double[] arrayA, double[] arrayB){
-        int indexArray = 0;
-        for (double element : arrayA) {
+    private static void setArrayListSecond(ArrayList<Double> arrayListFirst, ArrayList<Double> arrayListSecond){
+        int index = -1;
+        for (Double element : arrayListFirst) {
             if (element > 3.5) {
-                arrayB[indexArray++] = element;
+                index++;
+                arrayListSecond.add(index, element);
             }
         }
     }
+
     private static void getArrayList(ArrayList<Double> arrayList, String name){
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i) != 0) {
@@ -44,21 +46,9 @@ public class TaskC {
         System.out.println();
     }
 
-    private static void getArray(double[] array, String name){
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != 0) {
-                if (i % 5 == 0) {
-                    System.out.println();
-                }
-                System.out.printf("%s[%2d]=%3.6f  ", name,  i, array[i]);
-            }
-        }
-        System.out.println();
-    }
-
-    private static void middleGeometricsValue(double[] array){
+    private static void middleGeometricsValue(ArrayList<Double> arrayList){
         double middleGeom = 0;
-        for (double element: array) {
+        for (double element: arrayList) {
             middleGeom += element;
         }
         System.out.printf("Middle Geometrics Value: %3.6f", Math.sqrt(middleGeom));
