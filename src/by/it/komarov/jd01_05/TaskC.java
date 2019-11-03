@@ -22,8 +22,6 @@ public class TaskC {
         printArray(arrFirst);
         createSortArray(arrFirst, arrSecond);
         printArray(arrSecond);
-
-
     }
 
     private static void setArrayListFirst(ArrayList<Double> arrayListFirst){
@@ -77,7 +75,10 @@ public class TaskC {
 
     private static void printArray(int[] array){
         for (int i = 0; i < array.length; i++) {
-            System.out.printf("Array[%2d] = %3d", i, array[i]);
+            if (i % 5 == 0) {
+                System.out.println();
+            }
+            System.out.printf("Array[%2d] = %3d ", i, array[i]);
         }
         System.out.println();
     }
