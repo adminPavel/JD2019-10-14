@@ -71,9 +71,7 @@ public class TaskC {
     }
 
     private static void createSortArray(int[] first, int[] second){
-        for (int i = 0; i < first.length; i++) {
-            second[i] = first[i];
-        }
+        System.arraycopy(first, 0, second, 0, first.length);
         Arrays.sort(second);
     }
 
