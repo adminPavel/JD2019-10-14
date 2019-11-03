@@ -78,7 +78,7 @@ public class TaskC {
             if (i % 5 == 0) {
                 System.out.println();
             }
-            System.out.printf("%s[%2d] = %3d ", name, i, array[i]);
+            System.out.printf("%s[%2d]=%3d  ", name, i, array[i]);
         }
         System.out.println();
     }
