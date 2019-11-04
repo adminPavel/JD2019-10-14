@@ -24,21 +24,10 @@ public class TaskC {
     }
 
     static void mergeSort(double[ ] array) {
-        double left, right;
-        double[] tempArray;
-
-        //if 1 element
-        if (array.length == 1) {
-            tempArray = new double[1];
-        }
-        //tempArray creation
-        tempArray = new double[array.length/2];
-        for (int i = 0; i < tempArray.length; i++) {
-            tempArray[i] = array[i];
-        }
-
-        for (int i = 0; i < tempArray.length; i++) {
-            System.out.println(tempArray[i]);
+        // x = middle index
+        int x = array.length/2;
+        double[] left, right;
+        for (int i = 0; i < array.length-x; i++) {
         }
     }
 
@@ -47,10 +36,12 @@ public class TaskC {
     }
 
 //    private static double[ ] merge(double[ ] part1, double[ ] part2) {
+//        int l,r,x = 0;
+//        for (int i = 0; i < part1.length; i++) {
 //
+//        }
 //    }
 
-    static int binarySearch(double[ ] array, double value) {
-        return -1;
-    }
+//    static int binarySearch(double[ ] array, double value) {
+//    }
 }

@@ -30,8 +30,14 @@ package by.it.kharitonenko.jd01_01;
 
 */
 class TaskC3 {
+    public static void main(String[] args) {
+        System.out.println(getWeight(100));
+    }
     public static double getWeight(int weight) {
 
-        return (double) weight * 3.86 / 9.81;
+        double newWeight = (((double)weight * 3.86 / 9.81)*100.0);
+        int intWeight = (int) newWeight;
+        newWeight = (double) intWeight/100D;
+        return newWeight;
     }
 }
