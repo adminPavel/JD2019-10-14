@@ -1,11 +1,16 @@
 package by.it.bodukhin.jd01_05;
 
+import java.util.Arrays;
+
 public class TaskC {
     public static void main(String[] args) {
-        step1();
+        double[] mas = fillmas();
+        double[] masless = Arrays.copyOfRange(mas, 0 , mas.length);
+        less(masless);
+        mathavg(masless);
     }
 
-    static void step1() {
+    static double[] fillmas() {
         int minMas = 20;
         int maxMas = 40;
         double minX = 5.33;
@@ -26,41 +31,47 @@ public class TaskC {
                 System.out.println();
             }
         }
-
+        return mas;
+    }
+    static double[] less(double[] masless) {
         System.out.println();
         System.out.println("Массив B[] из элементов массива A > 3.5");
+        int columnCount = 5;
         int j = 0;
-        int elements = mas.length;
-        for (int i = 0; i < mas.length; i++) {
+        int elements = masless.length;
+        //double[] masless = Arrays.copyOfRange(mas,0, mas.length-1);
+        for (int i = 0; i < masless.length; i++) {
             boolean del = false;
             for (j = 0; j < elements; j++) {
-                if (mas[j] < 3.5) {
+                if (masless[j] < 3.5) {
                     del = true;
                     break;
                 }
             }
             for (int k = j; k < elements - 1; k++) {
-                mas[k] = mas[k + 1];
+                masless[k] = masless[k + 1];
             }
-            if(del) {
+            if (del) {
                 elements--;
             }
         }
         for (j = 0; j < elements; j++) {
-            System.out.printf("B[ %2d] = %-7.5f    ", j, mas[j]);
+            System.out.printf("B[ %2d] = %-7.5f    ", j, masless[j]);
             if ((j + 1) % columnCount == 0 || j == elements - 1) {
                 System.out.println();
             }
-
         }
         System.out.println();
-
+        return masless;
+    }
+    static double mathavg(double[] masless) {
         System.out.println("Среднее геометрическое значение");
         double mult=1;
-        for (j=0; j<elements; j++) {
-            mult=mult*mas[j];
+        for (int j=0; j<masless.length; j++) {
+            mult=mult*masless[j];
         }
-        System.out.println(Math.pow(mult, 1.0/elements));
+        System.out.println(Math.pow(mult, 1.0/masless.length));
+        return mult;
     }
 }
 
