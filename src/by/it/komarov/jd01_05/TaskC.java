@@ -75,7 +75,6 @@ public class TaskC {
                 index++;
                 second[index] = first[i];
             }
-
         }
         Arrays.sort(second);
     }
