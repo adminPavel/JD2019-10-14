@@ -42,7 +42,7 @@ public class Helper {
      *
      * @param arr одномерный массив
      */
-    static void sort(double[ ] arr) {
+    public static void sort(double[] arr) {
         Arrays.sort(arr);
         for (double i = 0; i < arr.length; i++) {
             System.out.print(arr[(int) i]+ " ");
