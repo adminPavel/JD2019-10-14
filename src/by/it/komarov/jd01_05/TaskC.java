@@ -10,9 +10,9 @@ public class TaskC {
         ArrayList<Double> arrayListSecond = new ArrayList<>();
 
         setArrayListFirst(arrayListFirst);
-        getArrayList(arrayListFirst, "A");
+        printArrayList(arrayListFirst, "A");
         setArrayListSecond(arrayListFirst, arrayListSecond);
-        getArrayList(arrayListSecond, "B");
+        printArrayList(arrayListSecond, "B");
         middleGeometricsValue(arrayListSecond);
 
         int[] arrFirst = new int[31];
@@ -42,7 +42,7 @@ public class TaskC {
         }
     }
 
-    private static void getArrayList(ArrayList<Double> arrayList, String name){
+    private static void printArrayList(ArrayList<Double> arrayList, String name){
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i) != 0) {
                 if (i % 5 == 0) {
@@ -69,7 +69,13 @@ public class TaskC {
     }
 
     private static void createSortArray(int[] first, int[] second){
-        System.arraycopy(first, 0, second, 0, first.length);
+        int index = -1;
+        for (int i = 0; i < first.length; i++) {
+            if (i < (first[i]/10)){
+                index++;
+                second[index] = first[i];
+            }
+        }
         Arrays.sort(second);
     }
 
