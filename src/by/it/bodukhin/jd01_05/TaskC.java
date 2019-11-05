@@ -6,8 +6,12 @@ public class TaskC {
     public static void main(String[] args) {
         double[] mas = fillmas();
         double[] masless = Arrays.copyOfRange(mas, 0 , mas.length);
-        less(masless);
-        mathavg(masless);
+        findless(masless);
+        findavg(masless);
+
+        double[] masA = new double[31];
+        fillmasA(masA);
+        findlessA(masA);
     }
 
     static double[] fillmas() {
@@ -33,13 +37,31 @@ public class TaskC {
         }
         return mas;
     }
-    static double[] less(double[] masless) {
+
+    static double[] fillmasA(double[] masA) {
+        int minX = 103;
+        int maxX = 450;
+
+        int columnCount = 5;
+        maxX -= minX;
+        System.out.println("Массив A[31]");
+        for (int i = 0; i < masA.length; i++) {
+            masA[i] = Math.round(Math.random() * (maxX + 1) + minX);
+            System.out.printf("A[%2d] = %-7.0f    ", i, masA[i]);
+            if ((i + 1) % columnCount == 0 || i == masA.length - 1) {
+                System.out.println();
+            }
+        }
+        return masA;
+    }
+
+    static double[] findless(double[] masless) {
         System.out.println();
         System.out.println("Массив B[] из элементов массива A > 3.5");
         int columnCount = 5;
         int j = 0;
         int elements = masless.length;
-        //double[] masless = Arrays.copyOfRange(mas,0, mas.length-1);
+
         for (int i = 0; i < masless.length; i++) {
             boolean del = false;
             for (j = 0; j < elements; j++) {
@@ -64,13 +86,54 @@ public class TaskC {
         System.out.println();
         return masless;
     }
-    static double mathavg(double[] masless) {
+
+    static double[] findlessA(double[] masA) {
+        System.out.println();
+        System.out.println("Массив B[] из элементов массива A * 0.1 > i");
+        int columnCount = 5;
+        int elements = masA.length;
+        int j = 0;
+
+        for (int i = 0; i < masA.length; i++) {
+            boolean del = false;
+            double indexA = masA[i] * 0.1;
+            if(indexA < i) {
+                del = true;
+            }
+            if (del) {
+                elements--;
+            }
+        }
+
+        double[] maslessB = new double[elements];
+        for (int i = 0; i < masA.length; i++) {
+            double indexA = masA[i] * 0.1;
+            if(indexA > i) {
+                maslessB[j] = masA[i];
+                j++;
+            }
+        }
+
+        Arrays.sort(maslessB);
+
+        for (int i = 0; i < elements; i++) {
+            System.out.printf("B[%2d] = %-7.0f    ", i, maslessB[i]);
+            if ((i + 1) % columnCount == 0 || i == elements - 1) {
+                System.out.println();
+            }
+        }
+        System.out.println();
+        return maslessB;
+    }
+
+    static double findavg(double[] masless) {
         System.out.println("Среднее геометрическое значение");
         double mult=1;
         for (int j=0; j<masless.length; j++) {
             mult=mult*masless[j];
         }
         System.out.println(Math.pow(mult, 1.0/masless.length));
+        System.out.println();
         return mult;
     }
 }
