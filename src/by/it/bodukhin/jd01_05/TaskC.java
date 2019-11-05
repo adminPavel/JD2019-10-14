@@ -117,7 +117,8 @@ public class TaskC {
         Arrays.sort(maslessB);
 
         for (int i = 0; i < elements; i++) {
-            System.out.printf("B[%2d] = %-7.0f    ", i, maslessB[i]);
+            //System.out.print("―――――――");
+            System.out.printf("|B[%2d] = %-3.0f|", i, maslessB[i]);
             if ((i + 1) % columnCount == 0 || i == elements - 1) {
                 System.out.println();
             }
