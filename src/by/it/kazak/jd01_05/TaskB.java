@@ -6,7 +6,7 @@ public class TaskB {
         step2();
     }
 
-    static void step1() {
+    private static void step1() {
         double q = 7;
         double y, sum = 0;
         for (double a = 0; a <= 2; a = a + 0.2) {
@@ -19,11 +19,7 @@ public class TaskB {
         }
     }
 
-    static void step2() {
-        
-
-
-
+    private static void step2() {
 
     }
 }
