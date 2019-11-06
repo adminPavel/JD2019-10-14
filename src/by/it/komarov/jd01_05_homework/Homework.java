@@ -23,8 +23,8 @@ public class Homework {
             line[i] = Integer.toString(array[i]);
         }
 
-        for (int i = 0; i < line.length; i++) {
-            System.out.printf("Line:%s\n", line[i]);
+        for (String element: line) {
+            System.out.printf("Line:%s\n", element);
         }
 
         int min = line[0].length();
