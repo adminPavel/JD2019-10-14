@@ -29,21 +29,21 @@ public class Homework {
 
         int min = line[0].length();
         int max = line[0].length();
-        for (int i = 0; i < line.length; i++) {
-            if(line[i].length() < min){
-                min = line[i].length();
-            } else if(line[i].length() > max){
-                max = line[i].length();
+        for (String element : line) {
+            if (element.length() < min) {
+                min = element.length();
+            } else if (element.length() > max) {
+                max = element.length();
             }
         }
         System.out.printf("Минимальная длинна элемента массива:%d\n", min);
         System.out.printf("Максимальная длинна элемента массива:%d\n", max);
 
-        for (int i = 0; i < line.length; i++) {
-            if (line[i].length() == min){
-                System.out.printf("Число: %s Длинна: %d\n", line[i], line[i].length());
-            } else if (line[i].length() == max){
-                System.out.printf("Число: %s Длинна: %d\n", line[i], line[i].length());
+        for (String element : line) {
+            if (element.length() == min) {
+                System.out.printf("Число: %s Длинна: %d\n", element, element.length());
+            } else if (element.length() == max) {
+                System.out.printf("Число: %s Длинна: %d\n", element, element.length());
             }
         }
 
