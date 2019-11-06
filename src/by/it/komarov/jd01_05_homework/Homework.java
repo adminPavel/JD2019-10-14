@@ -27,24 +27,17 @@ public class Homework {
             System.out.printf("Line:%s\n", line[i]);
         }
 
+        int min = line[0].length();
+        int max = line[0].length();
         for (int i = 0; i < line.length; i++) {
-            System.out.println(line[i].length());
+            if(line[i].length() < min){
+                min = line[i].length();
+            } else if(line[i].length() > max){
+                max = line[i].length();
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        System.out.println(min);
+        System.out.println(max);
     }
-
-
 }
