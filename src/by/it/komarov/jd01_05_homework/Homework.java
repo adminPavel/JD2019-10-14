@@ -36,7 +36,13 @@ public class Homework {
                 max = line[i].length();
             }
         }
-        
+        for (int i = 0; i < line.length; i++) {
+            if (line[i].length() == min){
+                System.out.printf("Число: %s Длинна: %d", line[i], line[i].length());
+            } else if (line[i].length() == max){
+                System.out.printf("Число: %s Длинна: %d", line[i], line[i].length());
+            }
+        }
         System.out.println(min);
         System.out.println(max);
     }
