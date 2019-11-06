@@ -6,13 +6,10 @@ public class Homework {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-
         System.out.print("Input size of array: ");
         int sizeArr = scanner.nextInt();
         int[] array = new int[sizeArr];
         String[] line = new String[array.length];
-
-
 
         System.out.print("Input elements of array: ");
         for (int i = 0; i < array.length; i++) {
@@ -29,6 +26,7 @@ public class Homework {
 
         int min = line[0].length();
         int max = line[0].length();
+
         for (String element : line) {
             if (element.length() < min) {
                 min = element.length();
@@ -46,6 +44,7 @@ public class Homework {
                 System.out.printf("Число:%s Длинна=%d\n", element, element.length());
             }
         }
+
 
     }
 }
