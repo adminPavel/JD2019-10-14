@@ -36,6 +36,9 @@ public class Homework {
                 max = line[i].length();
             }
         }
+        System.out.printf("Минимальная длинна числа: %d", min);
+        System.out.printf("Максимальная длинна числа: %d", max);
+
         for (int i = 0; i < line.length; i++) {
             if (line[i].length() == min){
                 System.out.printf("Число: %s Длинна: %d", line[i], line[i].length());
@@ -43,7 +46,6 @@ public class Homework {
                 System.out.printf("Число: %s Длинна: %d", line[i], line[i].length());
             }
         }
-        System.out.println(min);
-        System.out.println(max);
+
     }
 }
