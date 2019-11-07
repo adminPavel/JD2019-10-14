@@ -1,8 +1,5 @@
 package by.it.bodukhin.jd01_04;
 
-import java.util.Arrays;
-
-
 public class TaskC {
     public static void main(String[] args) {
         String line = "12 43 -21 78 -145 123 9";
@@ -17,17 +14,30 @@ public class TaskC {
 
         System.out.println("Unsorted array");
         InOut.printArray(array, "V", 5);
-        array = mergeSort(array);
+        double[] sortedarray = mergeSort(array);
         System.out.println("Sorted array");
-        InOut.printArray(array, "V", 5);
+        InOut.printArray(sortedarray, "V", 5);
 
-        System.out.println("first element=" +binarySearch(array, first));
-        System.out.println("last element=" +binarySearch(array, last));
+        System.out.println("first element=" +binarySearch(sortedarray, first));
+        System.out.println("last element=" +binarySearch(sortedarray, last));
     }
 
-    static int binarySearch(double[] array, double value) {
-        int index = Arrays.binarySearch(array,value);
-        return index;
+    static int binarySearch(double[] sortedarray, double value) {
+        int firstIndex = 0;
+        int lastIndex = sortedarray.length-1;
+        while (firstIndex <= lastIndex) {
+            int middleIndex = (firstIndex + lastIndex) / 2;
+            if(sortedarray[middleIndex] == value) {
+                return middleIndex;
+            }
+            else if (sortedarray[middleIndex] < value) {
+                firstIndex = middleIndex + 1;
+            }
+            else if (sortedarray[middleIndex] > value) {
+                lastIndex = middleIndex - 1;
+            }
+        }
+        return -1;
     }
 
     static double[] mergeSort(double[] array) {
