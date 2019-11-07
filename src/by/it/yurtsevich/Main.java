@@ -1,4 +1,4 @@
-package by.it.akhmelev.yurtsevich;
+package by.it.yurtsevich;
 
 public class Main {
 

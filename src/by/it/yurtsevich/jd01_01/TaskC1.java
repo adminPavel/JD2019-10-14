@@ -1,4 +1,4 @@
-package by.it.akhmelev.yurtsevich.jd01_01;
+package by.it.yurtsevich.jd01_01;
 
 import java.util.Scanner;
 

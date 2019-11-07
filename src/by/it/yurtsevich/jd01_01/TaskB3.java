@@ -1,4 +1,4 @@
-package by.it.akhmelev.yurtsevich.jd01_01;
+package by.it.yurtsevich.jd01_01;
 
 /*
         Уберите комментарии с части кода, чтобы на экран вывелось сообщение «C Новым Годом».
