@@ -14,7 +14,7 @@ public class TaskC {
 
         System.out.println("Unsorted array");
         InOut.printArray(array, "V", 5);
-        double[] sortedarray = mergeSort(array);
+        double[] sortedarray = mergeOk(array);
         System.out.println("Sorted array");
         InOut.printArray(sortedarray, "V", 5);
 
@@ -40,7 +40,13 @@ public class TaskC {
         return -1;
     }
 
-    static double[] mergeSort(double[] array) {
+    static double[] mergeSort(double[] a){
+        double[]result=mergeOk(a);
+        System.arraycopy(result,0,a, 0, result.length);
+        return a;
+    }
+
+    static double[] mergeOk(double[] array) {
         int right = array.length;
         if (right < 2) {
             return array;
@@ -51,7 +57,7 @@ public class TaskC {
         double[] part2 = new double[array.length-array.length/2];
         System.arraycopy(array, left, part2,0,
                 array.length-array.length/2);
-        return merge((mergeSort(part1)), (mergeSort(part2)));
+        return merge((mergeOk(part1)), (mergeOk(part2)));
     }
 
     static double[] merge(double[] part1, double[] part2) {
