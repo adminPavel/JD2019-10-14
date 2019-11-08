@@ -34,14 +34,14 @@ public class Homework {
                 max = element.length();
             }
         }
-        System.out.printf("Минимальная длинна элемента массива=%d\n", min);
-        System.out.printf("Максимальная длинна элемента массива=%d\n", max);
+        System.out.printf("Минимальная длинна элемента массива = %d\n", min);
+        System.out.printf("Максимальная длинна элемента массива = %d\n", max);
 
         for (String element : line) {
             if (element.length() == min) {
-                System.out.printf("Число:%s Длинна=%d\n", element, element.length());
+                System.out.printf("Число:%s Длинна = %d\n", element, element.length());
             } else if (element.length() == max) {
-                System.out.printf("Число:%s Длинна=%d\n", element, element.length());
+                System.out.printf("Число:%s Длинна = %d\n", element, element.length());
             }
         }
 
