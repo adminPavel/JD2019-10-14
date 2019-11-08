@@ -26,17 +26,17 @@ public class TaskB {
             if (-2 < xt && xt <= -1) {
                 b = sin(pow(x, 2));
                 a = log(abs(b+2.74));
-                System.out.printf("При x/2=%4.2f a = %8f\n", xt, a);
+                System.out.printf("При x/2=%4.2f a = %8e\n", xt, a);
             }
             else if (-1 < xt && xt < 0.2) {
                 b = cos(pow(x, 2));
                 a = log(abs(b+2.74));
-                System.out.printf("При x/2=%4.2f a = %8f\n", xt, a);
+                System.out.printf("При x/2=%4.2f a = %8e\n", xt, a);
             }
             else if(xt==0.2){
                 b = 1/tan(pow(x,2));
                 a = log(abs(b+2.74));
-                System.out.printf("При x/2=%4.2f a = %8f\n", xt, a);
+                System.out.printf("При x/2=%4.2f a = %8e\n", xt, a);
             }
             else {
                 System.out.printf("При x/2=%4.2f вычисления не определены\n", xt);
