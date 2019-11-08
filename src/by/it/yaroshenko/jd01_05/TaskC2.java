@@ -13,13 +13,14 @@ public class TaskC2 {
             array_A[i] = i_random_A;
             i_random_B = (double)i_random_A*0.1;
             if(i_random_B>i) {
+//                System.out.print("B="+array_A[i]+" ");
                 count++;
             }
         }
 
         int[] array_B = new int[count];
         int index=0;
-        System.out.println("count="+array_B.length);
+//        System.out.println("count="+array_B.length);
         for (int i = 0; i < n; i++) {
             i_random_B = (double)array_A[i] *0.1;
             if (i_random_B>i) {
