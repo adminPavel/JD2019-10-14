@@ -150,17 +150,7 @@ public class TaskC {
                 {
                     System.out.printf("%s", '\u2551');//конец каждой строки
                 }
-
-
             }
-           /* if(i+(columnCount-1)*rowCount >= arr.length){// && j>=arr.length){// && end != columnCount){
-                //for (int h = 0; h < end; h++) {
-                System.out.printf("%-14s", '\u2551');
-
-                // }
-            }*/
-
-
             if(i!=rowCount - 1){
                 System.out.printf("\n%s", '\u2560');//начало каждой между строки
             }
@@ -201,11 +191,12 @@ public class TaskC {
     private static void testTaskC1(double x_start, double x_end) {
         double[] mas = new double[28];
         double z = 0;
-        double x = 0;
+        double x = x_start;
         int count = 0;
+        double n = (x_end- x)/(mas.length-1);
         for (int i = 0; i < mas.length; i++) {
-            x = Math.random() * (x_end - x_start) + x_start;
             mas[i] = Math.pow(((Math.pow(x,2))+4.5),1.0/3);
+            x = x + n;
             if(mas[i] > 3.5)
             {
                 ++count;
@@ -237,7 +228,7 @@ public class TaskC {
 
     public static void printArray(double[] arr, String name, int columnCount) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.printf("%-1s[%3d] = %-8.3f", name, i, arr[i]);
+            System.out.printf("%-1s[%3d] = %-10.5f", name, i, arr[i]);
             if((i+1) % columnCount == 0 || i == arr.length - 1){
                 System.out.println();
             }
