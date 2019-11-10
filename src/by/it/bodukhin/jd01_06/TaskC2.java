@@ -2,8 +2,7 @@ package by.it.bodukhin.jd01_06;
 
 public class TaskC2 {
     public static void main(String[] args) {
-        String Ptext = Poem.text;
-        String text = randomGenerateText(Ptext);
+        String text = randomGenerateText(Poem.text);
 
         System.out.println(slow(text));
         System.out.println(System.nanoTime());
