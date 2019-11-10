@@ -40,7 +40,7 @@ public class TaskC2 {
         String[] words = Ptext.split("[ ,-.:!\\n]+");
         StringBuilder randomText = new StringBuilder();
         do {
-            for (int i = 0; i < 147; i++) {
+            for (int i = 0; i < words.length; i++) {
                 int rword = (int) (Math.random() * 146);
                 randomText.append(words[rword]).append(" ");
             }
