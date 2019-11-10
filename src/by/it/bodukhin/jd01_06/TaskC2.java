@@ -38,14 +38,14 @@ public class TaskC2 {
 
     private static String randomGenerateText(String Ptext) {
         String[] words = Ptext.split("[ ,-.:!\\n]+");
-        String randomText = "";
+        StringBuilder randomText = new StringBuilder();
         do {
             for (int i = 0; i < 147; i++) {
                 int rword = (int) (Math.random() * 146);
-                randomText = randomText.concat(words[rword]).concat(" ");
+                randomText.append(words[rword]).append(" ");
             }
         } while (randomText.length()<100000);
 
-        return randomText;
+        return String.valueOf(randomText);
     }
 }
