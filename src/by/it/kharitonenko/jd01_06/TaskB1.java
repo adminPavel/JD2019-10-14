@@ -4,9 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TaskB1 {
+    //все гласные символы
     private static final char[] vowels = {'а', 'о', 'и', 'е', 'ё', 'э', 'ы', 'у', 'ю', 'я', 'А', 'О', 'И', 'Е', 'Ё', 'Э', 'Ы', 'У', 'Ю', 'Я'};
 
-    //Поиск подходящих слов
+    //поиск подходящих слов, сначала проверяется первая буква, затем последняя
     private static boolean checkChars(String word) {
         char[] checkWord = word.toCharArray();
         for (char vowel : vowels) {
