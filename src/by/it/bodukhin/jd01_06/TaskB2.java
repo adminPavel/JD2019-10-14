@@ -18,9 +18,9 @@ public class TaskB2 {
         for (int i = 0; i <sentences.length ; i++) {
             sentences[i] = sentences[i].replace(",\n", " ");
             sentences[i] = sentences[i].replace("\n", " ");
-            sentences[i] = sentences[i].replace(",", " ");
-            sentences[i] = sentences[i].replace("-"," ");
-            sentences[i] = sentences[i].replace(":", " ");
+            sentences[i] = sentences[i].replace(", ", " ");
+            sentences[i] = sentences[i].replace("- "," ");
+            sentences[i] = sentences[i].replace(": ", " ");
             sentences[i] = sentences[i].trim();
         }
     }
