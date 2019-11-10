@@ -4,7 +4,7 @@ package by.it.bodukhin.jd01_06;
 public class TaskB2 {
 
     public static void main(String[] args) {
-        String delLong = Poem.text.replace("...","");
+        String delLong = Poem.text.replace("...","   ");
         String[] sentences = delLong.split("[.!]+");
         replace(sentences);
         compareSentences(sentences);
@@ -18,9 +18,9 @@ public class TaskB2 {
         for (int i = 0; i <sentences.length ; i++) {
             sentences[i] = sentences[i].replace(",\n", " ");
             sentences[i] = sentences[i].replace("\n", " ");
-            sentences[i] = sentences[i].replace(", ", " ");
-            sentences[i] = sentences[i].replace(" - "," ");
-            sentences[i] = sentences[i].replace(" : ", " ");
+            sentences[i] = sentences[i].replace(",", " ");
+            sentences[i] = sentences[i].replace("-"," ");
+            sentences[i] = sentences[i].replace(":", " ");
             sentences[i] = sentences[i].trim();
         }
     }
