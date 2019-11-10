@@ -3,7 +3,10 @@ package by.it.toporova.jd01_06;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+//Определить,
+// сколько раз повторяется в тексте каждое слово,
+// которое встречается в нем, используя массивы.
+// Вывести результаты на консоль в формате слово=повторы
 public class TaskA2 {
     private static String[] w = new String[0]; //или ={}
     private static int[] counts = {};
