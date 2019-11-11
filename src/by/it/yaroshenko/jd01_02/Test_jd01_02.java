@@ -1,4 +1,4 @@
-package by.it._tasks_.jd01_02;
+package by.it.yaroshenko.jd01_02;
 
 import org.junit.Test;
 
@@ -17,16 +17,16 @@ public class Test_jd01_02 {
     @Test(timeout = 5000)
     public void testTaskA() throws Exception {
         System.out.println("\n\nПроверка на минимум и максимум");
-        checkMethod("TaskA", "static step1", int[].class);
+        checkMethod("TaskA1", "static step1", int[].class);
         run("-1 2 3 4 567 567 4 3 2 -1 4 4").include("-1 567");
 
         System.out.println("\n\nПроверка на вывод значений меньше среднего");
-        checkMethod("TaskA", "static step2", int[].class);
+        checkMethod("TaskA1", "static step2", int[].class);
         run("-1 22 33 44 567 567 44 33 22 -1 4 4")
                 .include("-1").include("22").include("33").include("44");
 
         System.out.println("\n\nПроверка на индексы минимума");
-        checkMethod("TaskA", "static step3", int[].class);
+        checkMethod("TaskA1", "static step3", int[].class);
         run("-1 22 33 44 567 567 44 33 22 -1 4 4").include("9 0");
     }
 
@@ -62,13 +62,13 @@ public class Test_jd01_02 {
     @Test(timeout = 5000)
     public void testTaskB() throws Exception {
         System.out.println("\n\nПроверка на вывод матрицы 5 x 5");
-        checkMethod("TaskB", "step1");
+        checkMethod("TaskB2", "step1");
         run("0 1 2 3")
                 .include("11 12 13 14 15").include("16 17 18 19 20")
                 .include("21 22 23 24 25");
         ;
         System.out.println("\n\nПроверка на ввод номера месяца");
-        checkMethod("TaskB", "step2", int.class);
+        checkMethod("TaskB2", "step2", int.class);
         run("0 2 3 4").include("нет такого месяца");
         run("1 2 3 4").include("январь");
         run("2 2 3 4").include("февраль");
@@ -85,7 +85,7 @@ public class Test_jd01_02 {
         run("13 2 3 4").include("нет такого месяца");
 
         System.out.println("\n\nПроверка на решение квадратного уравнения");
-        checkMethod("TaskB", "step3", double.class, double.class, double.class);
+        checkMethod("TaskB2", "step3", double.class, double.class, double.class);
         run("0 2 4 2").include("-1");
         run("0 2 4 0").include("0.0").include("-2.0");
         run("0 2 4 4").include("корней нет");
@@ -284,7 +284,7 @@ public class Test_jd01_02 {
 
 
     //метод находит и создает класс для тестирования
-    //по имени вызывающего его метода, testTaskA будет работать с TaskA
+    //по имени вызывающего его метода, testTaskA1 будет работать с TaskA1
     private static Test_jd01_02 run(String in) {
         return run(in, true);
     }
