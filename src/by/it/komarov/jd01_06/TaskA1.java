@@ -9,6 +9,11 @@ public class TaskA1 {
         Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]+");
         Matcher matcher = pattern.matcher(Poem.text);
         
-        System.out.println(Poem.text);
+        while (matcher.find()){
+            int start = matcher.start();
+            sb.setCharAt(start, '#');
+        }
+        
+        System.out.println(sb);
     }
 }
