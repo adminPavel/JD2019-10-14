@@ -8,7 +8,7 @@ public class TaskA1 {
         StringBuilder sb = new StringBuilder(Poem.text);
         Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]{4,}");
         Matcher matcher = pattern.matcher(Poem.text);
-        
+
         while (matcher.find()){
             int start = matcher.start();
             sb.setCharAt(start+3, '#');
