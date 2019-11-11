@@ -2,7 +2,7 @@ package by.it.sermyazhko.jd01_06;
 
 import java.util.Arrays;
 
-public class Taskc1 {
+public class TaskC1 {
     public static void main(String[] args) {
         String[] row = Poem.text.split("\n");
         int[] countSpace = new int[0];
@@ -19,10 +19,10 @@ public class Taskc1 {
             //countSpace = Arrays.copyOf(countSpace,countSpace.length + 1);
             //countSpace[countSpace.length - 1] = 1;
         }
-
+/*
         for (int i = 0; i < row.length; i++) {
             System.out.println(countSpace[i]);
-        }
+        }*/
 
 
 

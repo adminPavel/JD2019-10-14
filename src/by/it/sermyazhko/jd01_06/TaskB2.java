@@ -6,7 +6,7 @@ public class TaskB2 {
     public static void main(String[] args) {
         String poem = Poem.text.replaceAll("[^а-яА-ЯёЁ.!]+", " ");
         poem = poem.replaceAll("[.]{2,}", "");
-        sentences = poem.split("[.!.]");
+        sentences = poem.split("[.!]");
         for (int i = 0; i < sentences.length; i++) {
             sentences[i] = sentences[i].trim();
         }
@@ -28,7 +28,6 @@ public class TaskB2 {
             }
             count--;
         }
-
     }
 }
 
