@@ -1,7 +1,7 @@
 package by.it.kazak.jd01_07;
 
 
-class Scalar {
+class Scalar extends Var {
 
     private double value;
 
