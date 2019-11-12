@@ -1,4 +1,4 @@
-package by.it.akhmelev;
+package by.it._tasks_.jd01_01;
 
 public class HelloWorld {
     public static void main(String[] args) {
