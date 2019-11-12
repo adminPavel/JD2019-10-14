@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 class Matrix extends Var {
 
-    double[][] val;
+    private double[][] val;
 
     Matrix(double[][] value) {
         val = new double[value.length][];
@@ -24,7 +24,6 @@ class Matrix extends Var {
           String [] array = strMatrix.split("(},)");
           val = new double[array.length][];
           for (int i = 0; i < val.length; i++) {
-              array[i].replaceAll("[{}]","#");
               String[] temp = (array[i].replaceAll("[{}]","")).split("[,]");
               val[i] = new double[temp.length];
               for (int j = 0; j < temp.length; j++) {
