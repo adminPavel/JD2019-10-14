@@ -7,13 +7,18 @@ import java.util.Arrays;
     private double[] value;
 
     Vector(double[] value) {
-        this.value = value;
+        this.value = Arrays.copyOf(value,value.length);
     }
     Vector(Vector vector) {
          this.value = vector.value;
     }
-     public Vector(String strVector){
-
+    Vector(String strVector){
+        String[] array_str = strVector.replaceAll("[{}]", "").split("[^\\d.]+");
+        double[] array_double = new double[array_str.length];
+        for (int i = 0; i < array_str.length; i++) {
+            array_double[i]=Double.parseDouble(array_str[i]);
+        }
+        this.value=array_double;
      }
     @Override
     public String toString() {
