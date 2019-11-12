@@ -10,15 +10,14 @@ public class Runner {
         System.out.println(v2);
         System.out.println(v3);
 
-
         double[] arr = {1.0, 2.0, 4.0};
         String str = "{1.0, 2.0, 4.0}";
         Var vec1 = new Vector(arr);
         Vector vec2 = new Vector((Vector)vec1);
-        //Vector vec3 = new Vector(str);
-
+        Vector vec3 = new Vector(str);
 
         System.out.println(vec1);
         System.out.println(vec2);
+        System.out.println(vec3);
     }
 }

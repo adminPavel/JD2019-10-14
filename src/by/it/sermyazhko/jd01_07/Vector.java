@@ -1,6 +1,7 @@
 package by.it.sermyazhko.jd01_07;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class Vector extends Var {
 
@@ -13,10 +14,18 @@ public class Vector extends Var {
     public Vector(Vector vector) {
         this.value = Arrays.copyOf(vector.value,vector.value.length);
     }
-/*
+
     public Vector(String strVector){
-        this.value = Double.parseDouble(strVector.split(","));
-    }*/
+        String str = strVector.replaceAll("[{}\"]","");
+        System.out.println("!!!"+str);
+        String[] arr = str.split(",");
+        double[] mas = new double[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            mas[i] = Double.parseDouble(arr[i]);
+        }
+        //System.out.println("???"+strVector);
+        this.value = Arrays.copyOf(mas,mas.length);
+    }// String str = "{1.0, 2.0, 4.0}";
 
     @Override
     public String toString() {
