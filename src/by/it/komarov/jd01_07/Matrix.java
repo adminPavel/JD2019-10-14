@@ -1,10 +1,9 @@
 package by.it.komarov.jd01_07;
 
 public class Matrix extends Var{
-
     private double[][] matrix;
 
-    public Matrix(double[][] matrix) {
+    Matrix(double[][] matrix) {
         this.matrix = matrix;
     }
 

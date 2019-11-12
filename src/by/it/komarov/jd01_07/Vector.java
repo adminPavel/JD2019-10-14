@@ -1,12 +1,6 @@
 package by.it.komarov.jd01_07;
 
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 class Vector extends Var {
-
-
     private double[] value;
 
     Vector(double[] value) {
@@ -15,11 +9,6 @@ class Vector extends Var {
 
     Vector(Vector vector) {
         this.value = vector.value;
-    }
-
-    Vector(String str) {
-
-
     }
 
     @Override
