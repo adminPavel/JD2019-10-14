@@ -20,7 +20,6 @@ public class Matrix extends Var{
         for (int i = 0; i < matrix.length; i++) {
             if(i == 1)
             sb.append(", ");
-
             sb.append("{");
 
             for (int j = 0; j < matrix.length; j++) {
