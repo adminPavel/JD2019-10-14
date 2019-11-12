@@ -10,6 +10,20 @@ public class Runner {
         System.out.println(v2);
         System.out.println(v3);
 
+        Vector v4 = new Vector(new double[]{1, 5, 7, 9});
+        Var v5 = new Vector(v4);
+        String str = "{1.0, 2.0, 4.0}";
+        Var v6 = new Vector(str);
+
+        System.out.println(v4);
+        System.out.println(v5);
+        System.out.println(v6);
+
+
+        Matrix v7 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Var v8 = new Matrix(v7);
+        Var v9 = new Matrix("{{1.0, 2.0}, {3.0, 4.0}}");
+
 
 
     }
