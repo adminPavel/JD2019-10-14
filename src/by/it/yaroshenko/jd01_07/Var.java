@@ -1,6 +1,6 @@
-package by.it.akhmelev.jd01_07;
+package by.it.yaroshenko.jd01_07;
 
-abstract class Var {
+public class Var {
     @Override
     public String toString() {
         return "This is Var class";
