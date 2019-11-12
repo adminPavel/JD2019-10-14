@@ -7,7 +7,7 @@ public class Vector extends Var {
 
     private double[] value;
 
-    public Vector(double[] value) {
+    Vector(double[] value) {
         this.value = Arrays.copyOf(value,value.length);
     }
 
@@ -16,16 +16,15 @@ public class Vector extends Var {
     }
 
     public Vector(String strVector){
-        String str = strVector.replaceAll("[{}\"]","");
+        String str = strVector.replaceAll("[{}]","");
         System.out.println("!!!"+str);
         String[] arr = str.split(",");
         double[] mas = new double[arr.length];
         for (int i = 0; i < arr.length; i++) {
             mas[i] = Double.parseDouble(arr[i]);
         }
-        //System.out.println("???"+strVector);
         this.value = Arrays.copyOf(mas,mas.length);
-    }// String str = "{1.0, 2.0, 4.0}";
+    }
 
     @Override
     public String toString() {
