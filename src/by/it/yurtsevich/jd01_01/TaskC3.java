@@ -32,17 +32,21 @@ import java.util.Scanner;
 
 */
 class TaskC3 {
-    private static final double EARTH = 9.81;
-    private static final double MARS = 3.86;
+private static double getWeight(int weight) {
+        double mars = 3.86;
+        double earth = 9.81;
+        double result = weight*mars/earth;
+        double round = Math.round(result*100)/100D;
+        return round;
+        }
 
-    public static void main(final String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        final int weight = scanner.nextInt();
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int weight = sc.nextInt();
+        double t = getWeight(weight);
+        System.out.println(t);
 
-        System.out.printf("%.2f%n", getWeight(weight));
-    }
 
-    private static double getWeight(final int weight) {
-        return weight * MARS / EARTH;
-    }
-}
+        }
+        }
+
