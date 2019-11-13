@@ -18,6 +18,7 @@ public class Runner {
         System.out.println(vector1);
         System.out.println(vector2);
 
+
         double[][] matrix = {{1, 2}, {3, 4}};
         Matrix matrix1 = new Matrix(matrix);
         Var matrix2 = new Matrix(matrix1);
