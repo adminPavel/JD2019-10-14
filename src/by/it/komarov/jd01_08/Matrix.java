@@ -11,6 +11,8 @@ public class Matrix extends Var{
         this.matrix = matrix.matrix;
     }
 
+    Matrix(String strMatrix) {
+    }
 
     @Override
     public String toString() {
