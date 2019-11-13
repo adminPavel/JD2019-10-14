@@ -35,23 +35,4 @@ public class Matrix extends Var{
         return sb.toString();
     }
 
-    @Override
-    public Var add(Var other) {
-        return null;
-    }
-
-    @Override
-    public Var sub(Var other) {
-        return null;
-    }
-
-    @Override
-    public Var mul(Var other) {
-        return null;
-    }
-
-    @Override
-    public Var div(Var other) {
-        return null;
-    }
 }
