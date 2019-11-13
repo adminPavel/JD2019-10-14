@@ -1,4 +1,4 @@
-package by.it.komarov.jd01_07;
+package by.it.komarov.jd01_08;
 
 class Vector extends Var {
     private double[] value;
@@ -7,13 +7,6 @@ class Vector extends Var {
 
     Vector(Vector vector)  { this.value = vector.value; }
 
-    Vector(String strValue){
-        String[] str = strValue.replace('{', ' ').replace('}', ' ').trim().split(",\\s*");
-        value = new double[str.length];
-        for (int i = 0; i < value.length; i++) {
-            value[i] = Double.parseDouble(str[i]);
-        }
-    }
 
     @Override
     public String toString(){
