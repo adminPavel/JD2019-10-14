@@ -4,6 +4,10 @@ class Scalar extends Var{
 
     private double value;
 
+    public double getValue() {
+        return value;
+    }
+
     Scalar(double value)   { this.value = value; }
 
     Scalar(String str)     { this.value = Double.parseDouble(str); }
@@ -16,7 +20,7 @@ class Scalar extends Var{
     @Override
     public Var add(Var other) {
        if(other instanceof Scalar){
-           double sum = this.value + ((Scalar) other).value;
+           double sum = this.value + ((Scalar) other).getValue();
            return new Scalar(sum);
        } else
            return other.add(this);

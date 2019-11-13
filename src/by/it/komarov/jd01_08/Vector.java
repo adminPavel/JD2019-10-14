@@ -1,7 +1,13 @@
 package by.it.komarov.jd01_08;
 
+import java.util.Arrays;
+
 class Vector extends Var {
     private double[] value;
+
+    public double[] getValue() {
+        return value;
+    }
 
     Vector(double[] value) { this.value = value; }
 
@@ -17,7 +23,22 @@ class Vector extends Var {
 
     @Override
     public Var add(Var other) {
-        return super.add(other);
+        if (other instanceof Scalar) {
+            double[] sum = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < sum.length; i++) {
+                sum[i] = sum[i] + ((Scalar) other).getValue();
+            }
+            return new Vector(sum);
+        } else {
+            if (other instanceof Vector) {
+                double[] sum = Arrays.copyOf(value, value.length);
+                for (int i = 0; i < sum.length; i++) {
+                    sum[i] = sum[i] + ((Vector) other).value[i];
+                }
+                return new Vector(sum);
+            } else
+                return super.add(other);
+        }
     }
 
     @Override
