@@ -24,7 +24,11 @@ class Scalar extends Var{
 
     @Override
     public Var sub(Var other) {
-        return null;
+        if(other instanceof Scalar){
+            double sum = this.value - ((Scalar) other).value;
+            return new Scalar(sum);
+        } else
+            return new Scalar(-1).mul(other).add(this);
     }
 
     @Override
