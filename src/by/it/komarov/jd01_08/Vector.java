@@ -15,7 +15,6 @@ class Vector extends Var {
         }
     }
 
-
     @Override
     public Var add(Var other) {
         return super.add(other);
