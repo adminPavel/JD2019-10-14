@@ -1,6 +1,6 @@
 package by.it.komarov.jd01_08;
 
-class Scalar extends Var {
+class Scalar extends Var{
 
     private double value;
 
@@ -12,4 +12,24 @@ class Scalar extends Var {
 
     @Override
     public String toString() { return Double.toString(value); }
+
+    @Override
+    public Var add(Var other) {
+        return null;
+    }
+
+    @Override
+    public Var sub(Var other) {
+        return null;
+    }
+
+    @Override
+    public Var mul(Var other) {
+        return null;
+    }
+
+    @Override
+    public Var div(Var other) {
+        return null;
+    }
 }
