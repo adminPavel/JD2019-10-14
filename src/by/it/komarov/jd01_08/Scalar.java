@@ -25,15 +25,19 @@ class Scalar extends Var{
     @Override
     public Var sub(Var other) {
         if(other instanceof Scalar){
-            double sum = this.value - ((Scalar) other).value;
-            return new Scalar(sum);
+            double sub = this.value - ((Scalar) other).value;
+            return new Scalar(sub);
         } else
             return new Scalar(-1).mul(other).add(this);
     }
 
     @Override
     public Var mul(Var other) {
-        return null;
+        if(other instanceof Scalar){
+            double mul = this.value * ((Scalar) other).value;
+            return new Scalar(mul);
+        } else
+            return other.add(this);
     }
 
     @Override
