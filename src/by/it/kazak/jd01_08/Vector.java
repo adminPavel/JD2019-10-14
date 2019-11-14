@@ -8,13 +8,13 @@ class Vector extends Var {
    Vector(double[] value) {this.value = Arrays.copyOf(value,value.length);}
    Vector(Vector vector) {this.value = vector.value;}
 
-   private Vector(String strVector){
+   Vector(String strVector){
        String[] array_str = strVector.replaceAll("[{}]", "").split("[^\\d.]+");
        double[] array_double = new double[array_str.length];
        for (int i = 0; i < array_str.length; i++) {
-           array_double[i]=Double.parseDouble(array_str[i]);
+           array_double[i] = Double.parseDouble(array_str[i]);
        }
-       this.value=array_double;
+       this.value = array_double;
     }
 
     @Override
@@ -97,25 +97,15 @@ class Vector extends Var {
         } else if (other instanceof Vector &&
                 value.length == ((Vector) other).value.length
         ) {
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                result[i] /= ((Vector) other).value[i];
-            }
-            return new Vector(result);
+            return null;
         } else
             return super.add(other);
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("{");
-        String d = "";
-        for (double element : value) {
-            sb.append(d).append(element);
-            d = ", ";
-        }
-        sb.append("}");
-        return sb.toString();
+        return Arrays.toString(value)
+                .replace("[", "{")
+                .replace("]", "}");
     }
 }

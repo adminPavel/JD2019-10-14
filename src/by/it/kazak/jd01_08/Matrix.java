@@ -32,6 +32,21 @@ public class Matrix extends Var{
     }
 
     @Override
+    public Var add(Var other) {
+        return super.sub(other);
+    }
+    @Override
+    public Var sub(Var other) {
+        return super.sub(other);
+    }
+
+    @Override
+    public Var mul(Var other) {
+        return super.mul(other);
+    }
+
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{");
         String d = "";
