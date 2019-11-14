@@ -13,8 +13,53 @@ class Scalar extends Var {
         this.value = Double.parseDouble(strScalar);
     }
 
+    public double getValue() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return Double.toString(this.value);
+    }
+
+    @Override
+    public Var add(Var other) {
+        if (other instanceof Scalar)
+        {
+            return new Scalar(this.value + ((Scalar) other).value);
+        }
+         else
+            return other.add(this);
+    }
+
+    @Override
+    public Var sub(Var other) {
+        if (other instanceof Scalar)
+        {
+            return new Scalar(this.value - ((Scalar) other).value);
+        }
+        else
+            return new Scalar(-1).mul(other).add(this);
+    }
+
+    @Override
+    public Var mul(Var other) {
+        if (other instanceof Scalar)
+        {
+            return new Scalar(this.value * ((Scalar) other).value);
+        }
+        else
+            return other.mul(this);
+    }
+
+    @Override
+    public Var div(Var other) {
+        if (other instanceof Scalar)
+        {
+            if (((Scalar) other).value == 0) return super.div(other); //check for division by zero
+            return new Scalar(this.value / ((Scalar) other).value);
+        }
+        else
+            return other.add(this);
     }
 }
