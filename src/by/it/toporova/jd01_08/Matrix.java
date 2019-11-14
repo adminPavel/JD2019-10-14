@@ -1,4 +1,4 @@
-package by.it.toporova.jd01_07;
+package by.it.toporova.jd01_08;
 
 import java.util.Arrays;
 
@@ -27,6 +27,11 @@ public class Matrix extends Var {
             j++;
         }
     }
+
+
+
+
+
 
     @Override
     public String toString() {
