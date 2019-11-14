@@ -10,6 +10,14 @@ class Vector extends Var {
         System.out.println("double123 " + value);
     }
 
+    public double[] getValue() {
+        return value;
+    }
+
+    public void setValue(double[] value) {
+        this.value = value;
+    }
+
     Vector(String strVector) {//b3
         StringBuilder sb = new StringBuilder(strVector);//
         sb.deleteCharAt(0).deleteCharAt(sb.length() - 1);
