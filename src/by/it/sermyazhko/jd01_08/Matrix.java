@@ -147,7 +147,7 @@ class Matrix extends Var{
                 val[0].length == ((Matrix) other).val.length
         ) {
             double[][] result = copyMatrix(this.val);
-           double[][] temp = mul(result,((Matrix) other).val);
+            double[][] temp = mul(result,((Matrix) other).val);
             return new Matrix(temp);
         } else if (other instanceof Vector &&
                 val[0].length == ((Vector) other).getValue().length){
@@ -155,6 +155,23 @@ class Matrix extends Var{
             double[]temp =  mul(result,((Vector) other).getValue());
             return new Vector(temp);
         }
-            return super.add(other);
+        return super.add(other);
+    }
+
+
+    @Override
+    public Var div(Var other) {
+        if (other instanceof Scalar) {
+            double scalarValue = ((Scalar) other).getValue();
+            double[][] result = copyMatrix(this.val);
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result.length; j++) {
+                    result[i][j] /= scalarValue;
+                }
+            }
+            return new Matrix(result);
+        } else {
+            return super.div(other);
+        }
     }
 }
