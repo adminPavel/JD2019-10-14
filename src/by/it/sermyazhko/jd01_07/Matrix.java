@@ -9,14 +9,14 @@ class Matrix extends Var {
     Matrix(double[][] value) {
         val = new double[value.length][];
         for (int i = 0; i < value.length; i++) {
-            val[i] = Arrays.copyOf(value[i],value.length);
+            val[i] = Arrays.copyOf(value[i],value[0].length);
         }
     }
 
      Matrix(Matrix matrix){
           val = new double[matrix.val.length][];
          for (int i = 0; i < matrix.val.length; i++) {
-             val[i] = Arrays.copyOf(matrix.val[i], matrix.val.length);
+             val[i] = Arrays.copyOf(matrix.val[i], matrix.val[0].length);
          }
      }
 

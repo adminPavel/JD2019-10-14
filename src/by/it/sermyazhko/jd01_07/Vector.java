@@ -7,7 +7,7 @@ public class Vector extends Var {
 
     private double[] value;
 
-    Vector(double[] value) {
+    public Vector(double[] value) {
         this.value = Arrays.copyOf(value,value.length);
     }
 
