@@ -1,4 +1,6 @@
-package by.it.yaroshenko.jd01_07;
+package by.it.yaroshenko.jd01_08;
+
+import by.it.yaroshenko.jd01_07.Var;
 
 import java.util.Arrays;
 import java.util.regex.Matcher;

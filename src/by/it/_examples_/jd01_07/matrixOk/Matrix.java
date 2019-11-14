@@ -32,7 +32,7 @@ public class Matrix {
     }
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder("\nMatrix : " + a.length + "x" + a[0].length + "\n");
+        StringBuilder s = new StringBuilder("\nMatrix1 : " + a.length + "x" + a[0].length + "\n");
         for (int [ ] row : a) {
             for (int value : row) {
                 s.append(value + " ");
