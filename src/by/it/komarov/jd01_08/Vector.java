@@ -36,7 +36,7 @@ class Vector extends Var {
                     sum[i] = sum[i] + ((Vector) other).value[i];
                 }
                 return new Vector(sum);
-            } else
+            }
                 return super.add(other);
         }
     }
@@ -49,21 +49,23 @@ class Vector extends Var {
     @Override
     public Var mul(Var other) {
         if (other instanceof Scalar) {
+            double scalarValue = ((Scalar) other).getValue();
             double[] mul = Arrays.copyOf(value, value.length);
             for (int i = 0; i < mul.length; i++) {
-                mul[i] = mul[i] * ((Scalar) other).getValue();
+                mul[i] = mul[i] * scalarValue;
             }
             return new Vector(mul);
-        } else {
-            if (other instanceof Vector) {
-                double[] mul = Arrays.copyOf(value, value.length);
+        } else
+            if (other instanceof Vector && value.length == ((Vector) other).value.length) {
+
+                double[] mul = new double[value.length];
+                System.arraycopy(value, 0, mul, 0, value.length);
                 for (int i = 0; i < mul.length; i++) {
-                    mul[i] = mul[i] * ((Vector) other).value[i];
+                    mul[i] *= ((Vector) other).value[i];
                 }
                 return new Vector(mul);
-            } else
+            }
             return super.mul(other);
-        }
     }
 
     @Override
