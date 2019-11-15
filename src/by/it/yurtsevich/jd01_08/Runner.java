@@ -1,4 +1,4 @@
-package by.it.yurtsevich.jd01_07;
+package by.it.yurtsevich.jd01_08;
 
 public class Runner {
     public static void main(String[] args) {
