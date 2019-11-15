@@ -1,6 +1,6 @@
 package by.it.yaroshenko.jd01_08;
 
-public class Var implements Operation{
+abstract class Var implements Operation{
 
 
     @Override
