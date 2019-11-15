@@ -58,12 +58,11 @@ class Vector extends Var {
         } else
             if (other instanceof Vector && value.length == ((Vector) other).value.length) {
 
-                double[] mul = new double[value.length];
-                System.arraycopy(value, 0, mul, 0, value.length);
-                for (int i = 0; i < mul.length; i++) {
-                    mul[i] *= ((Vector) other).value[i];
+                double result = 0;
+                for (int i = 0; i < this.value.length; i++) {
+                    result = result + this.value[i] * ((Vector) other).value[i];
                 }
-                return new Vector(mul);
+                return new Scalar(result);
             }
             return super.mul(other);
     }
