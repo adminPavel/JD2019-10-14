@@ -4,7 +4,27 @@ class Vector extends Var {
 
     private double [] value;
 
-        Vector( double[] value){ this.value = value; }
+    @Override
+    public Var add(Var other) {
+        return super.add(other);
+    }
+
+    @Override
+    public Var sub(Var other) {
+        return super.sub(other);
+    }
+
+    @Override
+    public Var mul(Var other) {
+        return super.mul(other);
+    }
+
+    @Override
+    public Var div(Var other) {
+        return super.div(other);
+    }
+
+    Vector(double[] value){ this.value = value; }
         Vector(Vector vector) { this.value = vector.value; }
         Vector(String strVector) {
             this.value = stringToVector(strVector);
