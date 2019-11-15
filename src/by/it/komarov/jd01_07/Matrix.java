@@ -11,6 +11,18 @@ public class Matrix extends Var{
         this.matrix = matrix.matrix;
     }
 
+    Matrix(String strMatrix){
+        String [] array = strMatrix.split("(},)");
+        matrix = new double[array.length][];
+        for (int i = 0; i < matrix.length; i++) {
+            String[] temp = (array[i].replaceAll("[{}]","")).split("[,]");
+            matrix[i] = new double[temp.length];
+            for (int j = 0; j < temp.length; j++) {
+                matrix[i][j] = Double.parseDouble(temp[j]);
+            }
+        }
+    }
+
 
     @Override
     public String toString() {
