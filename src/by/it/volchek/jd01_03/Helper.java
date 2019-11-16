@@ -1,16 +1,6 @@
-package by.it.kharitonenko.jd01_03;
-
-/**
- * @author Andrew
- * @version 1.0
- */
+package by.it.volchek.jd01_03;
 
 public class Helper {
-    /**
-     * this method will find the minimum value in an array
-     * @param arr array
-     * @return array minimum
-     */
     static double findMin(double[ ] arr) {
         double min = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -20,11 +10,7 @@ public class Helper {
         }
         return min;
     }
-    /**
-     * this method will find the maximum value in an array
-     * @param arr array
-     * @return array maximum
-     */
+
     static double findMax(double[ ] arr) {
         double max = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -35,10 +21,7 @@ public class Helper {
         return max;
 
     }
-    /**
-     * array bubble sorting
-     * @param arr array to sort
-     */
+
     static void sort(double[ ] arr) {
         double temp;
         boolean done;
@@ -52,14 +35,14 @@ public class Helper {
                     done = false;
                 }
             }
-        } while (!done);
+        } while (done == false);
     }
-    /**
-     * matrix * vector
-     * @param matrix
-     * @param vector
-     * @return result
-     */
+/*
+C. Реализуйте умножение матрицы на вектор, матрицы на матрицу для типа double.
+Разместите статические методы в классе by.it.familiya.jd01_03.Helper.
+Сигнатуры: static double[ ] mul(double[ ][ ] matrix, double[ ] vector)
+static double[ ][ ] mul(double[ ][ ] matrixLeft, double[ ][ ] matrixRight)
+ */
     static double[] mul(double[ ][ ] matrix, double[ ] vector) {
         double[] result = new double[matrix.length];
         for (int i = 0; i < matrix.length; i++)
@@ -67,12 +50,7 @@ public class Helper {
                 result[i] = result[i] + matrix[i][j] * vector[j];
         return result;
     }
-    /**
-     * matrix * matrix
-     * @param matrixLeft
-     * @param matrixRight
-     * @return result
-     */
+
     static double[][] mul(double[ ][ ] matrixLeft, double[ ][] matrixRight) {
         double[][] result = new double[matrixLeft.length][matrixRight[0].length];
         for (int i = 0; i < matrixLeft.length; i++) {
