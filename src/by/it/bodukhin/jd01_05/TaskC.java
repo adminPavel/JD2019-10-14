@@ -26,10 +26,15 @@ public class TaskC {
         int columnCount = 5;
         maxX -= minX;
         System.out.println("Массив A[]");
+        double fRange = (9 - 5.33) / (n - 1);
+        int count = 0;
+
+        for (double x = 5.33; x <= 9; x += fRange) {
+            double z = Math.pow((x * x + 4.5), (double) 1 / 3);
+            mas[count] = z;
+            count++;
+        }
         for (int i = 0; i < mas.length; i++) {
-            double x = Math.rint((Math.random() * (maxX + 0.000001) + minX)
-                    * 100000) / 100000;
-            mas[i] = Math.cbrt(Math.pow(x, 2) + 4.5);
             System.out.printf("A[ %2d] = %-7.5f    ", i, mas[i]);
             if ((i + 1) % columnCount == 0 || i == mas.length - 1) {
                 System.out.println();
@@ -45,10 +50,16 @@ public class TaskC {
         int columnCount = 5;
         maxX -= minX;
         System.out.println("Массив A[31]");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("------------ ");
+        }
+        System.out.println();
         for (int i = 0; i < masA.length; i++) {
             masA[i] = Math.round(Math.random() * (maxX + 1) + minX);
-            System.out.printf("A[%2d] = %-7.0f    ", i, masA[i]);
+            System.out.printf("|A[%2d] = %-3.0f|", i, masA[i]);
             if ((i + 1) % columnCount == 0 || i == masA.length - 1) {
+                System.out.println();
+                System.out.print("------------ ------------ ------------ ------------ ------------ ");
                 System.out.println();
             }
         }
@@ -77,8 +88,9 @@ public class TaskC {
                 elements--;
             }
         }
+
         for (j = 0; j < elements; j++) {
-            System.out.printf("B[ %2d] = %-7.5f    ", j, masless[j]);
+            System.out.printf("B[ %2d] = %-11.5f", j, masless[j]);
             if ((j + 1) % columnCount == 0 || j == elements - 1) {
                 System.out.println();
             }
@@ -115,14 +127,18 @@ public class TaskC {
         }
 
         Arrays.sort(maslessB);
+        columnCount = 2;
+        System.out.println("------------ ------------ ");
 
-        for (int i = 0; i < elements; i++) {
-            //System.out.print("―――――――");
+        for (int i = 0; i < elements/2; i++) {
             System.out.printf("|B[%2d] = %-3.0f|", i, maslessB[i]);
-            if ((i + 1) % columnCount == 0 || i == elements - 1) {
-                System.out.println();
-            }
+            System.out.printf("|B[%2d] = %-3.0f|", i+(elements/2), maslessB[i+(elements/2)]);
+            System.out.println();
+            System.out.print("------------ ------------ ");
+            System.out.println();
+
         }
+        //System.out.println("―――――――");
         System.out.println();
         return maslessB;
     }
