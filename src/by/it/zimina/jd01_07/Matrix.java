@@ -10,15 +10,19 @@ class Matrix extends Var{
 
     @Override
     public String toString() {
-        StringBuilder sb=new StringBuilder("{");
+        StringBuilder sb=new StringBuilder("{{");
         String delimiter="";
         for (int i = 0; i < value.length; i++) {
             for (int j = 0; j < value[i].length; j++) {
                  sb.append(delimiter).append(value[i][j]);
                  delimiter=", ";
+                 if (i==0 && j==value[i].length-1){
+                     delimiter="}, {";
+                 }
+
             }
         }
-        sb.append("}");
+        sb.append("}}");
         return  sb.toString();
     }
 }
