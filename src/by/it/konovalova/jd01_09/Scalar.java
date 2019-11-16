@@ -1,4 +1,5 @@
-package by.it.konovalova.jd01_08;
+package by.it.konovalova.jd01_09;
+
 
 class Scalar extends Var {
 
@@ -49,11 +50,11 @@ class Scalar extends Var {
 
     @Override
     public Var div(Var other) {
-        if (other instanceof Scalar && ((Scalar) other).value != 0) {
+        if (other instanceof Scalar && ((Scalar) other).value!=0) {
             double quot = this.value / ((Scalar) other).value;
             return new Scalar(quot);
         } else
-            return super.div(other);
+            return other.div(other);
     }
 
 

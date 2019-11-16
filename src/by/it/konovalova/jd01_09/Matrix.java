@@ -1,4 +1,4 @@
-package by.it.konovalova.jd01_08;
+package by.it.konovalova.jd01_09;
 
 class Matrix extends Var {
 
@@ -123,10 +123,11 @@ class Matrix extends Var {
                 }
             }
             return new Matrix(mul);
-        } else
+        }
+
+         else
             return super.mul(other);
     }
-
 
     @Override
     public Var div(Var other) {

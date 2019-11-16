@@ -1,4 +1,5 @@
-package by.it.konovalova.jd01_08;
+package by.it.konovalova.jd01_09;
+
 
 import java.util.Arrays;
 
@@ -47,7 +48,7 @@ class Vector extends Var {
             }
             return new Vector(res);
         } else
-            return super.add(other);
+            return super.add(this);
     }
 
     @Override
@@ -56,6 +57,7 @@ class Vector extends Var {
             double[] res = Arrays.copyOf(value, value.length);
             for (int i = 0; i < res.length; i++) {
                 res[i] = res[i] - ((Scalar) other).getValue();
+
             }
             return new Vector(res);
         }
@@ -67,7 +69,7 @@ class Vector extends Var {
             }
             return new Vector(res);
         } else
-            return super.sub(other);
+            return super.sub(this);
     }
 
     @Override
@@ -91,12 +93,12 @@ class Vector extends Var {
             }
             return new Scalar(resMul);
         } else
-            return super.mul(other);
+            return super.mul(this);
     }
 
     @Override
     public Var div(Var other) {
-        if (other instanceof Scalar && ((Scalar) other).getValue() != 0) {
+        if (other instanceof Scalar && ((Scalar) other).getValue()!=0) {
             double[] res = Arrays.copyOf(value, value.length);
             for (int i = 0; i < res.length; i++) {
                 res[i] = res[i] / ((Scalar) other).getValue();
