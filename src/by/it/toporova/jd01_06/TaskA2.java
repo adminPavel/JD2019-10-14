@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 // которое встречается в нем, используя массивы.
 // Вывести результаты на консоль в формате слово=повторы
 public class TaskA2 {
-    private static String[] w = new String[0]; //или ={}
-    private static int[] counts = {};
+    private static String[] w = new String[0]; //или ={}; объявление массива слов
+    private static int[] counts = {}; //объявление массива чисел для записи количества слов (повторов)
 
     private static void position(String word) {
         for (int i = 0; i < w.length; i++) {
@@ -25,15 +25,15 @@ public class TaskA2 {
     }
 
     public static void main(String[] args) {
-        Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]+"); //паттерн
+        Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]+"); //паттерн, отбиращюий только слова (здесь не включены символы)
         Matcher matcher = pattern.matcher(Poem.text);
         while (matcher.find()) {  //находим слова
             String word = matcher.group();
-            position(word);
+            position(word); //вызов метода для поиска позиции слова
      //       System.out.println("khj "+ word);
 
         }
-        for (int i = 0; i < w.length; i++) {
+        for (int i = 0; i < w.length; i++) { //цикл по массиву стринга для печати количества слов в тексте
          System.out.println(w[i] + "=" + counts[i]);
        }
     }
