@@ -13,8 +13,6 @@ public class ConsoleRunner {
                 break;
             Var result=parser.evaluate(expression);
             printer.print(result);
-
         }
     }
-
 }

@@ -3,11 +3,11 @@ package by.it.bodukhin.jd01_09;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Parser {
+class Parser {
     Var evaluate(String expression) {
         String[] part = expression.split(Patterns.OPERATION, 2);
         Var left = Var.createVar(part[0]);
-        Var right = Var.createVar(part[1]);
+        Var right = Var.createVar(part[1]); //на выходе знаю какой тип Var в двух частях
         if(left!=null && right!=null){
             Matcher matcher = Pattern
                     .compile(Patterns.OPERATION)
@@ -25,10 +25,8 @@ public class Parser {
                         return left.div(right);
                     default:
                 }
-
             }
         }
-
         return null;
     }
 }
