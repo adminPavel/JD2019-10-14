@@ -8,7 +8,6 @@ public class TaskB1 {
 
     public static void main(String[] args) {
         
-        StringBuilder sb = new StringBuilder(Poem.text);
         Pattern pattern = Pattern.compile("\\b[цкнгшщзхфвпрлджчсмтбЦКНГШЩЗХФВПРЛДЖЧСМТБ]+[а-яА-ЯёЁ]*[йуеъыаоэяиюьё]+\\b");
         Matcher matcher = pattern.matcher(Poem.text);
 
