@@ -38,7 +38,7 @@ public class TaskC {
             // Integer rand = ThreadLocalRandom.current().nextInt(-n, n + 1);
             for (int i = 0; i < twoDimArray.length; i++) {
                 for (int j = 0; j < twoDimArray.length; j++) {
-                    twoDimArray[i][j] = ThreadLocalRandom.current().nextInt(-n, n + 1);
+                    twoDimArray[i][j] = ThreadLocalRandom.current().nextInt(-n, n + 1);//заполнение случайными числами из промежутка
                     if (twoDimArray[i][j] == n) maxOk = true;
                     if (twoDimArray[i][j] == -n) minOk = true;
                 }
