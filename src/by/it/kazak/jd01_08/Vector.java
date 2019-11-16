@@ -7,7 +7,7 @@ class Vector extends Var {
    private double[] value;
    Vector(double[] value) {this.value = Arrays.copyOf(value,value.length);}
    Vector(Vector vector) {this.value = vector.value;}
-
+   public double[] getValue() {return value;}
    Vector(String strVector){
        String[] array_str = strVector.replaceAll("[{}]", "").split("[^\\d.]+");
        double[] array_double = new double[array_str.length];
@@ -80,7 +80,7 @@ class Vector extends Var {
             for (int i = 0; i < result.length; i++) {
                 res += result[i] * ((Vector) other).value[i];
             }
-            return new Vector(String.valueOf(res));
+            return new Scalar(res);
         } else
             return super.add(other);
     }
