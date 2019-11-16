@@ -54,8 +54,52 @@ public class Matrix extends Var {
         return super.add(other);
     }
 
+    @Override
+    public Var sub(Var other) {
+        if (other instanceof Scalar) {
+            //double valueScalar = ((Scalar) other).getValue();
+            double[][] result = new double[value.length][value[0].length];
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value[0].length; j++) {
+                    result[i][j] = value[i][j] - ((Scalar) other).getValue();
+                }
+            }
+            return new Matrix(result);
+        }
+        if(other instanceof Matrix
+                && value.length==((Matrix) other).value.length
+                && value[0].length==((Matrix) other).value[0].length) {
+            double[][] result = new double[value.length][value[0].length];
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value[0].length; j++) {
+                    result[i][j] = value[i][j] - ((Matrix) other).value[i][j];
+                }
+            }
+            return new Matrix(result);
+        }
+        return super.sub(other);
+    }
 
+    @Override
+    public Var mul(Var other) {
+        if (other instanceof Scalar){
+            double[][]result = new double[value.length][value[0].length];
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value.length; j++) {
+                  result[i][j] = value[i][j] * ((Scalar) other).getValue();
+                }
+            }
+            return new Matrix(result);
+        }
 
+        if (other instanceof Vector){
+
+        }
+        return null;
+    }
+
+    
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{{");
@@ -70,7 +114,7 @@ public class Matrix extends Var {
                     sb.append(", ");
                 }
             }
-            if (i != value.length - 1) sb.append("}, {");
+            if (i != value.length - 1) sb.append("}, {");//разобрать
             else sb.append("}}");
         }
         return sb.toString();
