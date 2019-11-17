@@ -3,8 +3,8 @@ package by.it._examples_.jd01_07.matrixOk;
 public class Runner {
     public static void main(String[ ] args) {
         try {
-            Matrix p = new Matrix(2, 3);
-            MatrixCreator.fillRandomized(p, 2, 8);
+            Matrix p = new Matrix(2, 3);//вызов класса Matrix
+            MatrixCreator.fillRandomized(p, 2, 8);//вызов класса для создания матрицы в заданных пределах
             System.out.println("Matrix first is: " + p);
             Matrix q = new Matrix(3, 4);
             MatrixCreator.fillRandomized(q, 2, 7);

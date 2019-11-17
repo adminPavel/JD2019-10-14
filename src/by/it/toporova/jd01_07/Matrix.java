@@ -6,12 +6,14 @@ public class Matrix extends Var {
 
     private double[][] value;
 
-    Matrix(Matrix otherMatrix) {
-        this.value = otherMatrix.value;
+    Matrix(double[][] value)
+    {
+        this.value = value;
     }
 
-    Matrix(double[][] value) {
-        this.value = Arrays.copyOf(Arrays.copyOf(value, value[0].length), value.length);//копірованіе строк на глубіну value[0].length
+    Matrix(Matrix otherMatrix)
+    {
+        this.value = otherMatrix.value;
     }
 
 
