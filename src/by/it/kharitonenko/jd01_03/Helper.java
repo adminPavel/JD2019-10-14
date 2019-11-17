@@ -52,7 +52,7 @@ public class Helper {
                     done = false;
                 }
             }
-        } while (done == false);
+        } while (!done);
     }
     /**
      * matrix * vector
