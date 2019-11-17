@@ -112,12 +112,12 @@ public class Test_jd01_07 {
         assertEquals("У вас неверное наследование", "Var", ok.aClass.getSuperclass().getSimpleName());
 
         Constructor c=ok.aClass.getDeclaredConstructor(double[][].class);
-        System.out.println("Создание переменной типа Matrix1 на основе массива {{1,2},{3,4}}");
+        System.out.println("Создание переменной типа Matrix на основе массива {{1,2},{3,4}}");
         Object matrix=c.newInstance(new Object[]{new double[][]{{1,2},{3,4}}});
         System.out.println("было выполнено успешно. \nТестирование вывода значения {{1,2},{3,4}} через метод toString()");
         System.out.flush();
         assertEquals("Не было получено ожидаемое значение {{1.0, 2.0}, {3.0, 4.0}}", matrix.toString().replaceAll(" ",""), "{{1.0,2.0},{3.0,4.0}}");
-        System.out.println("выполнено успешно. Matrix1="+matrix);
+        System.out.println("выполнено успешно. Matrix="+matrix);
     }
 
     @Test(timeout = 5000)
@@ -128,12 +128,12 @@ public class Test_jd01_07 {
         Constructor c=ok.aClass.getDeclaredConstructor(double[][].class);
         Object matrix=c.newInstance(new Object[]{new double[][]{{1,2},{3,4}}});
         c=ok.aClass.getDeclaredConstructor(ok.aClass);
-        System.out.println("Создание переменной типа Matrix1 на основе объекта Matrix1({{1,2},{3,4}})");
+        System.out.println("Создание переменной типа Matrix на основе объекта Matrix({{1,2},{3,4}})");
         matrix=c.newInstance(matrix);
         System.out.println("было выполнено успешно. \nТестирование вывода значения {{1,2},{3,4}} через метод toString()");
         System.out.flush();
         assertEquals("Не было получено ожидаемое значение {{1.0, 2.0}, {3.0, 4.0}}", matrix.toString().replaceAll(" ",""), "{{1.0,2.0},{3.0,4.0}}");
-        System.out.println("выполнено успешно. Matrix1="+matrix);
+        System.out.println("выполнено успешно. Matrix="+matrix);
     }
 
     @Test(timeout = 5000)
@@ -142,12 +142,12 @@ public class Test_jd01_07 {
         assertEquals("У вас неверное наследование", "Var", ok.aClass.getSuperclass().getSimpleName());
 
         Constructor c=ok.aClass.getDeclaredConstructor(String.class);
-        System.out.println("Создание переменной типа Matrix1 на основе строки {{1,2},{3,4}}");
+        System.out.println("Создание переменной типа Matrix на основе строки {{1,2},{3,4}}");
         Object matrix=c.newInstance("{{1,2},{3,4}}");
         System.out.println("было выполнено успешно. \nТестирование вывода значения {{1,2},{3,4}} через метод toString()");
         System.out.flush();
         assertEquals("Не было получено ожидаемое значение {{1.0, 2.0}, {3.0, 4.0}}", matrix.toString().replaceAll(" ",""), "{{1.0,2.0},{3.0,4.0}}");
-        System.out.println("выполнено успешно. Matrix1="+matrix);
+        System.out.println("выполнено успешно. Matrix="+matrix);
     }
 
 

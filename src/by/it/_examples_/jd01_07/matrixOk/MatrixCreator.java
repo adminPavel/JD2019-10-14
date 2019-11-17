@@ -15,7 +15,7 @@ public class MatrixCreator {
                 }
             }
         }
-// public void fillFromFile(Matrix1 t, File f) { /* код*/ }
-// public void fillFromStream(Matrix1 t, InputStream input) { /* код*/ }
-// public void fillFromDataBase(Matrix1 t, Connection conn) { /* код*/ }
+// public void fillFromFile(Matrix t, File f) { /* код*/ }
+// public void fillFromStream(Matrix t, InputStream input) { /* код*/ }
+// public void fillFromDataBase(Matrix t, Connection conn) { /* код*/ }
 }
