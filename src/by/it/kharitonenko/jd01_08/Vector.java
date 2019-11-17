@@ -1,8 +1,7 @@
 package by.it.kharitonenko.jd01_08;
 
 class Vector extends Var {
-    private double[] value;
-
+    double[] value;
 
     Vector(double[] value) {
         this.value = value;
@@ -34,7 +33,7 @@ class Vector extends Var {
     @Override
     public Var add(Var other) {
         if (other instanceof Scalar) {
-            double scalarValue = ((Scalar) other).getValue();
+            double scalarValue = ((Scalar) other).value;
             double[] result = new double[value.length];
             System.arraycopy(value, 0, result, 0, value.length);
                 for (int i = 0; i < result.length; i++) {
@@ -57,7 +56,7 @@ class Vector extends Var {
     @Override
     public Var sub(Var other) {
         if (other instanceof Scalar) {
-            double scalarValue = ((Scalar) other).getValue();
+            double scalarValue = ((Scalar) other).value;
             double[] result = new double[value.length];
             System.arraycopy(value, 0, result, 0, value.length);
             for (int i = 0; i < result.length; i++) {
@@ -79,7 +78,7 @@ class Vector extends Var {
     @Override
     public Var mul(Var other) {
         if (other instanceof Scalar) {
-            double scalarValue = ((Scalar) other).getValue();
+            double scalarValue = ((Scalar) other).value;
             double[] result = new double[value.length];
             System.arraycopy(value, 0, result, 0, value.length);
             for (int i = 0; i < result.length; i++) {
@@ -104,8 +103,8 @@ class Vector extends Var {
     @Override
     public Var div(Var other) {
         if (other instanceof Scalar) {
-            if (((Scalar) other).getValue() == 0) return super.div(other);
-            double scalarValue = ((Scalar) other).getValue();
+            if (((Scalar) other).value == 0) return super.div(other);
+            double scalarValue = ((Scalar) other).value;
             double[] result = new double[value.length];
             System.arraycopy(value, 0, result, 0, value.length);
             for (int i = 0; i < result.length; i++) {
