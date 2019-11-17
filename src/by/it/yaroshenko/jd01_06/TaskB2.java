@@ -24,7 +24,7 @@ public class TaskB2 {
             }
         }
         for (String s : sentence) {
-            System.out.println(s);
+                System.out.println(s);
         }
     }
 }
