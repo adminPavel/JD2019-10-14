@@ -1,13 +1,16 @@
 package by.it.yaroshenko.jd01_08;
 
-import by.it.yaroshenko.jd01_07.Var;
-
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Matrix extends Var {
     private double[][] value;
+
+    public double[][] getValue() {
+        return value;
+    }
+
     Matrix(double[][] value) {
         this.value = Arrays.copyOf(value, value.length);
     }
@@ -37,6 +40,58 @@ public class Matrix extends Var {
         }
       this.value=matrix;
     }
+
+    @Override
+    public Var add(Var other) {
+        if (other instanceof Scalar) {
+            double[][] array = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < array.length; i++) {
+                for (int j = 0; j < array[i].length; j++) {
+                    array[i][j] += ((Scalar) other).getValue();
+                }
+            }
+            return new Matrix(array);
+
+        } else if (other instanceof Matrix) {
+            double[][] array = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < array.length; i++) {
+                for (int j = 0; j < array.length; j++) {
+                    array[i][j] += ((Matrix) other).getValue()[i][j];
+                }
+            }
+            return new Matrix(array);
+        }
+            return super.add(other);
+        }
+
+    @Override
+    public Var sub(Var other) {
+        if (other instanceof Scalar) {
+            double[][] array = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < array.length; i++) {
+                for (int j = 0; j < array[i].length; j++) {
+                    array[i][j] -= ((Scalar) other).getValue();
+                }
+            }
+            return new Matrix(array);
+        } else if (other instanceof Matrix) {
+            double[][] array = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < array.length; i++) {
+                for (int j = 0; j < array[i].length; j++) {
+                    array[i][j] -= ((Matrix) other).value[i][j];
+                }
+                return new Matrix(array);
+            }
+        }
+
+        return super.sub(other);
+
+    }
+
+//    @Override
+//     public Var sub(Var other) {
+//        return null;
+//    }
 
     @Override
     public String toString() {

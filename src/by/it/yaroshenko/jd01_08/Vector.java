@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Vector extends Var {
     private double[] value;
 
-
     Vector(double[] value) {
         this.value = Arrays.copyOf(value, value.length);
     }
@@ -36,7 +35,6 @@ public class Vector extends Var {
             }
             return new Vector(array);
         }
-
         else
             return super.add(other);
     }

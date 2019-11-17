@@ -1,6 +1,6 @@
 package by.it.yaroshenko.jd01_08;
 
-class Scalar extends Var {
+public class Scalar extends Var {
 
     private double value;
 
@@ -18,6 +18,10 @@ class Scalar extends Var {
 
     Scalar(String strScalar) {
         this.value=Double.parseDouble(strScalar);
+    }
+    public int stub(){
+
+        return 0;
     }
 
     @Override
@@ -51,6 +55,7 @@ class Scalar extends Var {
         }else
             return super.div(other);
     }
+
 
     @Override
     public String toString() {
