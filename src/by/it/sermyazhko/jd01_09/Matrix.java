@@ -19,7 +19,7 @@ class Matrix extends Var{
     Matrix(Matrix matrix){
         val = new double[matrix.val.length][];
         for (int i = 0; i < matrix.val.length; i++) {
-            val[i] = Arrays.copyOf(matrix.val[i], matrix.val.length);
+            val[i] = Arrays.copyOf(matrix.val[i], matrix.val[i].length);
         }
     }
 

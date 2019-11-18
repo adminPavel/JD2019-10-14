@@ -18,7 +18,6 @@ class ConsoleRunner {
                 break;
             System.out.println("!!!"+parser.calc(str));
             Var result = parser.calc(str);//{{1,2},{8,3},{1,8}}*{{1,2},{8,3}}
-
             printer.print(result);
         }
 
