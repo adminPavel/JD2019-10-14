@@ -27,12 +27,7 @@ public class Vector extends Var {
                 result[i] += scalarValue;
             }
             return new Vector(result);
-        }
-
-
-
-
-        else if (other instanceof Vector &&
+        } else if (other instanceof Vector &&
                 value.length == ((Vector) other).value.length
                 ) {
             double[] result = new double[value.length];
