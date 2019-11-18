@@ -7,7 +7,7 @@ public class TaskB1 {
     private static final String vowels = "уеэоаыяиюёУЕЭОАЫЯИЮЁ";
 
     public static void main(String[] args) {
-        
+
         Pattern pattern = Pattern.compile("\\b[цкнгшщзхфвпрлджчсмтбЦКНГШЩЗХФВПРЛДЖЧСМТБ]+[а-яА-ЯёЁ]*[йуеъыаоэяиюьё]+\\b");
         Matcher matcher = pattern.matcher(Poem.text);
 
