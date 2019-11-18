@@ -16,7 +16,9 @@ class ConsoleRunner {
             String str = scanner.nextLine();
             if (str.equals("end"))
                 break;
-            Var result = parser.calc(str);
+            System.out.println("!!!"+parser.calc(str));
+            Var result = parser.calc(str);//{{1,2},{8,3},{1,8}}*{{1,2},{8,3}}
+
             printer.print(result);
         }
 
