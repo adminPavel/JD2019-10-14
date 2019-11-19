@@ -36,7 +36,7 @@ class Vector extends Var {
 
     @Override
     public Var add(Var other) { //если другой аргумент - скаляр
-        if (other instanceof Scalar) {
+        if (other.toString().matches(Patterns.SCALAR)) {
             double[] res = Arrays.copyOf(value, value.length);
             for (int i = 0; i < res.length; i++) {//складываем каждый элемент матрицы со скаляром
                 res[i] = res[i] + ((Scalar) other).getValue();
@@ -56,7 +56,7 @@ class Vector extends Var {
 
     @Override
     public Var sub(Var other) {
-        if (other instanceof Scalar) {
+        if (other.toString().matches(Patterns.SCALAR)) {
             double[] res = Arrays.copyOf(value, value.length);
             for (int i = 0; i < res.length; i++) {//вычитаем каждый элемент матрицы со скаляром
                 res[i] = res[i] - ((Scalar) other).getValue();
@@ -76,7 +76,7 @@ class Vector extends Var {
     @Override
     public Var mul(Var other) {
         double result = 0;
-        if (other instanceof Scalar) {
+        if (other.toString().matches(Patterns.SCALAR)) {
             double[] res = Arrays.copyOf(value, value.length);
             for (int i = 0; i < res.length; i++) {//вычитаем каждый элемент матрицы со скаляром
                 res[i] = res[i] * ((Scalar) other).getValue();
@@ -96,7 +96,7 @@ class Vector extends Var {
 
     @Override
     public Var div(Var other) {
-        if (other instanceof Scalar) {
+        if (other.toString().matches(Patterns.SCALAR)) {
             double[] res = Arrays.copyOf(value, value.length);
             for (int i = 0; i < res.length; i++) {
                 res[i] = res[i] / ((Scalar) other).getValue();
