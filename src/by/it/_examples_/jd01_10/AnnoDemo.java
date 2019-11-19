@@ -28,6 +28,6 @@ public class AnnoDemo {
     }
 
     public static void main(String[] args) {
-        new AnnoDemo().new Base().doAction();
+        new AnnoDemo().new Base().doAction();//старт
     }
 }
