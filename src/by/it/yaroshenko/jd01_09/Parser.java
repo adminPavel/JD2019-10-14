@@ -3,7 +3,7 @@ package by.it.yaroshenko.jd01_09;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Parser {
+class Parser {
     Var calc(String expression) {
         String[] operand = expression.split(Patterns.OPERATION);
         Var one = Var.createVar(operand[0]);

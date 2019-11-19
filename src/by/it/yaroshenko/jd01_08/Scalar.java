@@ -19,10 +19,6 @@ public class Scalar extends Var {
     Scalar(String strScalar) {
         this.value=Double.parseDouble(strScalar);
     }
-    public int stub(){
-
-        return 0;
-    }
 
     @Override
     public Var add(Var other) {
