@@ -4,15 +4,8 @@ import java.lang.reflect.Method;
 
 class BeanTester {
     public static void main(String[] args) throws Exception{
-
         Class<Param> p = Param.class;//annotation
         Method[] declaredMethods = p.getDeclaredMethods();
-
-
-
-
-
-
         Class<Bean> cls = Bean.class;
         try {
             Method[] methods = cls.getDeclaredMethods();
