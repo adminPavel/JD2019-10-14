@@ -19,7 +19,7 @@ public class Bean {
         return left<right?left:right;
     }
 
-     static double avg(int left, int right){
+    static double avg(int left, int right){
         return (left + right)/2.0;
     }
     public static void main(String[] args) {
