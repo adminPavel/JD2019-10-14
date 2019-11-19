@@ -2,16 +2,18 @@ package by.it.komarov.jd01_09;
 
 abstract class Var implements Operation{
 
-    public static Var createVar(String operand){
+    static Var createVar(String operand){
         operand = operand.trim().replace("\\s+", "");
+        // Чтобы введеная строка соответствовала регулярному выражению, заменяем пробельные символы на пустое место
         if (operand.matches(Patterns.SCALAR)){
+            // Истина - Если введеная строка соответствует matcher()
             return new Scalar(operand);
         }
         if (operand.matches(Patterns.VECTOR)){
-            return new Scalar(operand);
+            return new Vector(operand);
         }
         if (operand.matches(Patterns.MATRIX)){
-            return new Scalar(operand);
+            return new Matrix(operand);
         }
         return null;
     }

@@ -20,10 +20,11 @@ class Scalar extends Var{
     @Override
     public Var add(Var other) {
        if(other instanceof Scalar){
-           double sum = this.value + ((Scalar) other).getValue();
+           double sum = this.value + ((Scalar) other).value;
            return new Scalar(sum);
        } else
            return other.add(this);
+           // (matrix or vector) + scalar
     }
 
     @Override
@@ -33,6 +34,7 @@ class Scalar extends Var{
             return new Scalar(sub);
         } else
             return new Scalar(-1).mul(other).add(this);
+            // -1 * {1, 2, 3} + 5
     }
 
     @Override
@@ -41,7 +43,7 @@ class Scalar extends Var{
             double mul = this.value * ((Scalar) other).value;
             return new Scalar(mul);
         } else
-            return other.add(this);
+            return other.mul(this);
     }
 
     @Override
