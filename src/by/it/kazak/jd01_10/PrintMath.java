@@ -20,9 +20,8 @@ public class PrintMath {
         }
         Field[] fields = Math.class.getFields();
         for (Field field : fields) {
-            int mod = field.getModifiers();
-            if (Modifier.isPublic(mod)) {
-                if (Modifier.isStatic(mod)) {
+            if (Modifier.isPublic(field.getModifiers())) {
+                if (Modifier.isStatic(field.getModifiers())) {
                     System.out.println(String.valueOf(field.getType()) + ' ' + field.getName());
                 }
             }
