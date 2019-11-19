@@ -14,5 +14,5 @@ public class BeanTester {
                 System.out.println(beanMethod.invoke(b,param.a(),param.b()));
             }
         }
-        }
+    }
 }
