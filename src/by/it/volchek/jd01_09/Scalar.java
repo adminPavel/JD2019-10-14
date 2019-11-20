@@ -1,6 +1,6 @@
-package by.it.volchek.jd01_08;
+package by.it.volchek.jd01_09;
 
-public class Scalar extends Var implements Operation{
+public class Scalar extends Var implements Operation {
     double value;
     Scalar(double value){
         this.value = value;

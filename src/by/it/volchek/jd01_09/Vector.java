@@ -1,4 +1,4 @@
-package by.it.volchek.jd01_08;
+package by.it.volchek.jd01_09;
 
 public class Vector extends Var {
     double[] value;
