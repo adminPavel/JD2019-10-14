@@ -21,8 +21,6 @@ class Vector extends Var {
         }
     }
 
-
-
     @Override
     public Var add(Var other)
     {
