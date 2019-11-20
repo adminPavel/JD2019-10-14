@@ -19,7 +19,7 @@ public class TaskB2 {
             sentences[i] = sentences[i].replace(",\n", " ");
             sentences[i] = sentences[i].replace("\n", " ");
             sentences[i] = sentences[i].replace(", ", " ");
-            sentences[i] = sentences[i].replace("- "," ");
+            sentences[i] = sentences[i].replace(" - "," ");
             sentences[i] = sentences[i].replace(": ", " ");
             sentences[i] = sentences[i].trim();
         }
