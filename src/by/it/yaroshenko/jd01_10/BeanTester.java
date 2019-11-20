@@ -1,9 +1,6 @@
 package by.it.yaroshenko.jd01_10;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-
-import static java.lang.reflect.Modifier.isStatic;
 
 public class BeanTester{
     public static void main(String[] args) throws Exception {
