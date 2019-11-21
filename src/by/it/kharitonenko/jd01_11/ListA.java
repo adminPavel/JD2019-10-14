@@ -3,7 +3,6 @@ package by.it.kharitonenko.jd01_11;
 import java.util.*;
 
 class ListA<T> implements List<T> {
-
     private T[] elements = (T[]) new Object[1];
     private int size = 0;
 

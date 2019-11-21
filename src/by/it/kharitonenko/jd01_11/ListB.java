@@ -4,7 +4,6 @@ import java.util.*;
 
 class ListB<T> implements List<T> {
     private T[] elements = (T[]) new Object[1];
-
     private int size = 0;
 
     @Override
@@ -63,9 +62,9 @@ class ListB<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        if (elements.length == size) {
-            elements = Arrays.copyOf(elements, elements.length + c.size());
-        }
+//        if (elements.length == size) {
+//            elements = Arrays.copyOf(elements, elements.length + c.size());
+//        }
         if (c.toArray().getClass() == this.elements.getClass()) {
             for (int i = 0; i < c.size(); i++) {
                 this.add((T) c.toArray()[i]);
