@@ -34,7 +34,6 @@ class PrintMath {
                         } else {
                             sb.append(",");
                         }
-
                     }
                 }
             }
