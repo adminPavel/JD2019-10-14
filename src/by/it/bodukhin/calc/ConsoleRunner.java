@@ -11,6 +11,9 @@ public class ConsoleRunner {
             String expression = scanner.nextLine();
             if(expression.equals("end"))
                 break;
+            if(expression.equals("printvar")) {
+                Var.printMap();
+            }
             Var result=parser.evaluate(expression);
             printer.print(result);
         }

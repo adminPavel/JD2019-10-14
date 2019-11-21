@@ -6,8 +6,13 @@ import java.util.regex.Pattern;
 class Parser {
     Var evaluate(String expression) {
         String[] part = expression.split(Patterns.OPERATION, 2);
-        Var left = Var.createVar(part[0]);
         Var right = Var.createVar(part[1]); //на выходе знаю какой тип Var в двух частях
+        if(expression.contains("=")) {
+           return Var.saveVar(part[0], right);
+        }
+
+        Var left = Var.createVar(part[0]);
+
         if(left!=null && right!=null){
             Matcher matcher = Pattern
                     .compile(Patterns.OPERATION)

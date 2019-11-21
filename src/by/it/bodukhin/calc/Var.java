@@ -1,13 +1,40 @@
 package by.it.bodukhin.calc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 abstract class Var implements Operation {
+
+    private static Map<String, Var> vars = new HashMap<>();
+
+    static Var saveVar (String name, Var var) {
+        vars.put(name, var);
+        return var;
+    }
+
+    static void printMap () {
+        for (Map.Entry entry : vars.entrySet()) {
+            System.out.println(entry.getKey() + "=" + entry.getValue());
+        }
+    }
+
+    static void printSortedMap() {
+
+
+
+    }
+
     public static Var createVar(String strVar) {
+
         if (strVar.matches(Patterns.SCALAR))
             return new Scalar(strVar);
         else if(strVar.matches(Patterns.VECTOR))
             return new Vector(strVar);
         else if(strVar.matches(Patterns.MATRIX))
             return new Matrix(strVar);
+        else if(vars.containsKey(strVar)){
+            return vars.get(strVar);
+        }
         else
             return null;
     }
