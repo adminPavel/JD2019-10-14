@@ -1,6 +1,5 @@
 package by.it.kharitonenko.jd01_11;
 
-import java.net.BindException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
@@ -114,7 +113,7 @@ class SetC<T> implements Set<T> {
 
     @Override
     public void clear() {
-        System.arraycopy(elements,0,elements,0,0);
+        for (T element : elements) element = null;
         size = 0;
     }
 }
