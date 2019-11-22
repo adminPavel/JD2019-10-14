@@ -9,13 +9,14 @@ public class ConsoleRunner {
         Parser parser = new Parser();
         for(;;) {
             String expression = scanner.nextLine();
-            if(expression.equals("end"))
+            if (expression.equals("end"))
                 break;
-            if(expression.equals("printvar")) {
+            if (expression.equals("printvar")) {
                 Var.printMap();
+            } else {
+                Var result = parser.evaluate(expression);
+                printer.print(result);
             }
-            Var result=parser.evaluate(expression);
-            printer.print(result);
         }
     }
 }
