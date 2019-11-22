@@ -14,6 +14,9 @@ public class ConsoleRunner {
             Var result = parser.calc(line);
             printer.print(result);
         }
+        if (((line=scanner.nextLine()).equals("printvar"))) {
+
+        }
     }
 
 }
