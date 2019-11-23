@@ -10,8 +10,8 @@ abstract class Var implements Operation {
         vars.put(name, var);
     }
 
-    static void get(String name, Var var){
-       //return  vars.get(var.);
+    static Var get(String name, Var var){
+       return  vars.get(name);
     }
 
     @Override

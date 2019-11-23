@@ -6,15 +6,14 @@ import java.util.regex.Pattern;
 class Parser{
     Var calc(String expression) {
         String[] exp = expression.split(PatternForExpression.OPERATION, 2);
-       /* if(exp.length==1){
-            Var.createVar(exp);
-        }*/
+
         Var right = Var.createVar(exp[1]);
-        ///переписать
+
         if(expression.contains("=")){
             Var.set(exp[0],right);
             return right;
         }
+
         Var left = Var.createVar(exp[0]);
         if (left != null && right != null){
             Matcher matcher = Pattern

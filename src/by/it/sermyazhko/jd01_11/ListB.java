@@ -2,7 +2,7 @@ package by.it.sermyazhko.jd01_11;
 
 import java.util.*;
 
-class ListA<T> implements List<T> {
+class ListB<T> implements List<T> {
 
     private T[] elements = (T[]) new Object[1];
     private int size = 0;
@@ -17,7 +17,8 @@ class ListA<T> implements List<T> {
     }
 
     @Override
-    public T get(int index) {
+    public T get(int index)
+    {
         return elements[index];
     }
 
@@ -29,8 +30,29 @@ class ListA<T> implements List<T> {
     }
 
     @Override
-    public boolean remove(Object o) {
-        return false;
+    public boolean addAll(Collection<? extends T> c) {
+        boolean flag = false;
+        for (T el : c) {
+            if(add(el)){
+                flag = true;
+            }
+
+        }
+        return flag;
+    }
+
+    @Override
+    public void add(int index, T element) {
+        T[] temp = (T[]) new Object[size - index];
+            System.arraycopy(elements, index, temp, 0,  size - index );
+        for (T a:temp) {
+            System.out.println(a);
+        }
+            elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
+            elements[index] = element;
+            size++;
+            System.arraycopy(temp,0, elements, index + 1, temp.length);
+
     }
 
     @Override
@@ -44,6 +66,13 @@ class ListA<T> implements List<T> {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    @Override
+    public T set(int index, T element) {
+        T prev = elements[index];
+        elements[index] = element;
+        return prev;
     }
 
     @Override
@@ -63,10 +92,8 @@ class ListA<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-
         return null;
     }
-
 
     @Override
     public Object[] toArray() {
@@ -78,13 +105,14 @@ class ListA<T> implements List<T> {
         return null;
     }
 
+
     @Override
-    public boolean containsAll(Collection<?> c) {
+    public boolean remove(Object o) {
         return false;
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> c) {
+    public boolean containsAll(Collection<?> c) {
         return false;
     }
 
@@ -109,19 +137,8 @@ class ListA<T> implements List<T> {
     }
 
     @Override
-    public T set(int index, T element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, T element) {
-
-    }
-
-    @Override
     public int indexOf(Object o) {
-
-        return -1;
+        return 0;
     }
 
     @Override
