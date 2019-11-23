@@ -11,10 +11,10 @@ public class PrintMath {
         Method[] methods = strMath.getDeclaredMethods();
         for (Method method : methods) {
             if ((method.getModifiers() & Modifier.PUBLIC) == Modifier.PUBLIC) {
-                StringBuilder sb = new StringBuilder("public ");
-                sb.append("static ").append(method.getReturnType()).append(" ").append(method.getName()).append("(")
-                        .append(Arrays.toString(method.getParameterTypes()).replace("[", "")
-                                .replace("]", "").replace(" ", "")).append(")");
+                String sb = "public " + "static " + method.getReturnType() + " " + method.getName() + "(" +
+                        Arrays.toString(method.getParameterTypes()).replace("[", "")
+                                .replace("]", "").replace(" ", "") +
+                        ")";
                 System.out.println(sb);
             }
         }

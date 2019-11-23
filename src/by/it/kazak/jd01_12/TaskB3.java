@@ -6,12 +6,11 @@ public class TaskB3 {
 
         public static void main(String[] args) {
         List<String> base = new ArrayList<>();
-            for (int i = 0; i < 4096; i++) {
+            for (int i = 0; i < 1024; i++) {
                 base.add("1");
                 base.add("2");
                 base.add("3");
                 base.add("4");
-                base.add("5");
             }
         ArrayList<String> arrayList = new ArrayList<>(base);
         LinkedList<String> stringLinkedList = new LinkedList<>(base);
