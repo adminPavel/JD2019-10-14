@@ -13,7 +13,11 @@ public class ConsoleRunner {
                 break;
             if (expression.equals("printvar")) {
                 Var.printMap();
-            } else {
+            }
+            if(expression.equals("sortvar")){
+                Var.printSortedMap();
+            }
+            else {
                 Var result = parser.evaluate(expression);
                 printer.print(result);
             }

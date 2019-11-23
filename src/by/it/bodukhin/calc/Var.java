@@ -2,6 +2,7 @@ package by.it.bodukhin.calc;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 abstract class Var implements Operation {
 
@@ -19,9 +20,11 @@ abstract class Var implements Operation {
     }
 
     static void printSortedMap() {
-
-
-
+        Map<String, Var> sortedMap = new TreeMap<>(String::compareToIgnoreCase);
+        sortedMap.putAll(vars);
+        for (Map.Entry entry : sortedMap.entrySet()) {
+            System.out.println(entry.getKey() + "=" + entry.getValue());
+        }
     }
 
     public static Var createVar(String strVar) {
