@@ -22,31 +22,61 @@ public class SetC<T> implements Set<T> {
 
     @Override
     public boolean remove(Object o) {
+        if (size == 0) {
+            return false;
+        }
+        for (int i = 0; i <size ; i++) {
+            if (elements[i] == o){
+              System.arraycopy(elements, i+1, elements, i, size-1-i);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
+        if (size == 0)
+            return true;
         return false;
     }
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
+        if (c.toArray().getClass() == this.elements.getClass()) {
+            for (int i = 0; i < c.size(); i++) {
+                add((T) c.toArray()[i]);
+            }
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean containsAll(Collection<?> c) {
+        if (c.toArray().getClass() == this.elements.getClass()) {
+            for (int i = 0; i < c.size(); i++) {
+                if (!this.contains((T) c.toArray()[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
         return false;
     }
-
     @Override
     public boolean removeAll(Collection<?> c) {
+        if (c.toArray().getClass() == this.elements.getClass()) {
+            for (int i = 0; i < c.size(); i++) {
+                remove((T) c.toArray()[i]);
+            }
+            return true;
+        }
         return false;
     }
 
@@ -61,12 +91,18 @@ public class SetC<T> implements Set<T> {
         sb.append("]");
         return sb.toString();
     }
-    //stubs
-
     @Override
     public boolean contains(Object o) {
+
+        for (T element : elements) {
+            if (element == o)
+                return true;
+        }
+
         return false;
     }
+
+    //stubs
 
     @Override
     public Iterator<T> iterator() {
