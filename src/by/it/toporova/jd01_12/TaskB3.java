@@ -1,16 +1,11 @@
 package by.it.toporova.jd01_12;
-//TaskB2.Считалка. В кругу стоят N человек.
-//При ведении счета по кругу итератором вычеркивается каждый второй человек,
-// пока не останется один.
-//Нужно составить два метода,моделирующие процесс и возвращающие
-// имя оставшегося человека:static String process(ArrayList<String> peoples)
-// static String process(LinkedList<String> peoples)
-//Покажите работу методов в main
 
 import java.util.*;
 
-public class TaskB2 {
-
+public class TaskB3 {
+    //быстрее отработал LinkedList
+    // используя интерфейсы очередей.
+    // Проверьте свою идею.
 
     public static void main(String[] args) {
         System.out.println("Введите количество людей: ");
@@ -18,10 +13,10 @@ public class TaskB2 {
         int n = scanner.nextInt();
         String[] peoples = new String[n]; //массив размерностью N для записи имен
         System.out.println("Введите имена людей по одному через Enter: ");
-        scanner = new Scanner(System.in);//почему это работает, а если просто лайном, без объявления нового значения, не работает?
+        //scanner = new Scanner(System.in);
         for (int i = 0; i <n; i++) {
-            String name = scanner.nextLine();
-            peoples[i] = name;
+            //String name = scanner.nextLine();
+            peoples[i] = "name" + (i+1);
         }
 
 
@@ -29,11 +24,14 @@ public class TaskB2 {
         ArrayList<String> resArray= new ArrayList<>(arr);
         LinkedList<String> resLink = new LinkedList<>(arr);
 
+        Timer t = new Timer();
+
         String resultArray = process(resArray);
         String resultLink = process(resLink);
 
-        System.out.println("ArrayList " + resultArray);
-        System.out.println("LinkedList " + resultLink);
+
+        System.out.println("ArrayList " + resultArray + t);
+        System.out.println("LinkedList " + resultLink + t);
 
 
     }
@@ -68,5 +66,21 @@ public class TaskB2 {
         return peoples.get(0);
     }
 
+
+    public static class Timer{
+        private  long iniTime;
+        private Double Delta;
+        Timer()
+        {
+            iniTime= System.nanoTime();
+        }
+        public String toString(){
+            Delta=(double)(System.nanoTime()-iniTime)/1000;
+            iniTime= System.nanoTime();
+
+            return "Прошло "+Delta.toString()+" микросекунд.";
+        }
+
+    }
 
 }
