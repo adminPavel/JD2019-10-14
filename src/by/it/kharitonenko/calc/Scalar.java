@@ -1,4 +1,4 @@
-package by.it.kharitonenko.jd01_08;
+package by.it.kharitonenko.calc;
 
 class Scalar extends Var {
     double value;

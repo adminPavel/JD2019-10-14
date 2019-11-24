@@ -1,4 +1,4 @@
-package by.it.kharitonenko.jd01_08;
+package by.it.kharitonenko.jd01_09;
 
 class Vector extends Var {
     double[] value;

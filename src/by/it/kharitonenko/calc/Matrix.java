@@ -1,4 +1,4 @@
-package by.it.kharitonenko.jd01_08;
+package by.it.kharitonenko.calc;
 
 class Matrix extends Var {
     double[][] value;
