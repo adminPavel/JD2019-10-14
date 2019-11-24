@@ -1,9 +1,7 @@
 package by.it.toporova.jd01_11;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 //простите, что Runner похож на помойку
 public class Runner {
     public static void main(String[] args) {
@@ -73,16 +71,15 @@ public class Runner {
 
         //проверка сета
         Set<String> set = new SetC<>();
-        Set<String> hashSet = new HashSet<>();
+        //Set<String> hashSet = new HashSet<>();
 
-        set.add("two");
-        System.out.println("add to set: " + set);
-        set.add("three");
-        System.out.println("add to set: " + set);
+       // set.add("two");
+        System.out.println("add to set: " + set.add("two"));
+        System.out.println("add to set: " + set.add("three"));
 
         System.out.println("contains: " + set.contains("two"));
 
-        System.out.println("check remove: " + set.remove("two") + set);
+        System.out.println("check remove: " + set.remove("two"));
         System.out.println("check isEmpty " + set.isEmpty());
         System.out.println("размер сета: " +  set.size() );
         //проверка работы с коллекцией
@@ -90,10 +87,11 @@ public class Runner {
         added.add("Six");
         added.add("Seven");
         added.add("Nine");
-        set.addAll(added);
-        System.out.println("check addAll: " + set);
-        System.out.println("containsAll: " + " set: " + set);
-        System.out.println("removeAll: " + set);
+        System.out.println("check addAll: " + set.addAll(added) + added);
+        System.out.println("размер сета: " +  set.size() );
+        System.out.println("removeAll: " + set.removeAll(added));
+
+
 
 
     }
