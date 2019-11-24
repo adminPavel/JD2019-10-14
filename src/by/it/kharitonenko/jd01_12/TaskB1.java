@@ -14,10 +14,6 @@ import static java.util.regex.Pattern.compile;
 
 class TaskB1 {
 
-//    private void printMap(HashMap<String, Integer> textMapToPrint) {
-//        textMapToPrint.forEach(key, value);
-//    }
-
     public static void main(String[] args) {
         Map<String, Integer> wordBank = new HashMap<>();
         Scanner scanner = new Scanner(System.in);

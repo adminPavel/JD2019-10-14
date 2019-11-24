@@ -48,7 +48,7 @@ class TaskB2 {
     private static String[] createArrayByNumber(int numberOfPeople) {
         String[] result = new String[numberOfPeople];
         for (int i = 0; i < numberOfPeople; i++) {
-            result[i] = String.valueOf((int)(Math.random() * 100));
+            result[i] = String.valueOf((int) (Math.random() * 100));
         }
         return result;
     }
