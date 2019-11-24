@@ -1,4 +1,4 @@
-package by.it.sermyazhko.jd01_08;
+package by.it.sermyazhko.Calc;
 
 import java.util.Arrays;
 
@@ -8,6 +8,9 @@ class Matrix extends Var{
 
     Matrix(double[][] value) {
         val = new double[value.length][];
+       /* for (double[] row : value) {
+            так правильнее организовывать код, меньше текста
+        }*/
         for (int i = 0; i < value.length; i++) {
             val[i] = Arrays.copyOf(value[i],value[i].length);
         }
