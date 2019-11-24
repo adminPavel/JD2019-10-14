@@ -22,7 +22,7 @@ class TaskB3 {
                 counter = 0;
             }
         }
-        return "Остался только " + peoples.get(0);
+        return peoples.get(0);
     }
 
     static String process(LinkedList<String> peoples) {
@@ -31,7 +31,7 @@ class TaskB3 {
             peopleDeque.addLast(peopleDeque.remove());
             peopleDeque.remove();
         }
-        return "Остался только " + peopleDeque.peek();
+        return peopleDeque.peek();
     }
 
     private static String[] createArrayByNumber(int numberOfPeople) {

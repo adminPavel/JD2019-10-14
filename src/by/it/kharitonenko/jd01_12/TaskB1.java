@@ -26,15 +26,15 @@ class TaskB1 {
         for (; ; ) {
             String newWord = scanner.next();
             if (newWord.equals("end")) break;
-            newWord = newWord.replaceAll("'{1}", "RRRRR");
-            newWord = newWord.replaceAll("[\\W]", "");
-            newWord = newWord.replaceAll("RRRRR", "'").trim();
+            newWord = newWord.replaceAll("'{1}", "RRRRR")
+                    .replaceAll("[\\W]", "")
+                    .replaceAll("RRRRR", "'")
+                    .trim();
             if (!wordBank.containsKey(newWord)) {
                 wordBank.put(newWord, 1);
             } else
                 wordBank.replace(newWord, wordBank.get(newWord) + 1);
         }
-
         System.out.println(wordBank);
     }
 }

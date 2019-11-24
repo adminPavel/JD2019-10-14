@@ -21,7 +21,7 @@ class TaskB2 {
                 counter = 0;
             }
         }
-        return "Остался только " + peoples.get(0);
+        return peoples.get(0);
     }
 
     static String process(LinkedList<String> peoples) {
@@ -42,7 +42,7 @@ class TaskB2 {
                 counter = 0;
             }
         }
-        return "Остался только " + peoples.get(0);
+        return peoples.get(0);
     }
 
     private static String[] createArrayByNumber(int numberOfPeople) {
