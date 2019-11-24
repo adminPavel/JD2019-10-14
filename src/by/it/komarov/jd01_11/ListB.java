@@ -4,7 +4,6 @@ import java.util.*;
 
 public class ListB <T> implements List <T> {
 
-
     private T[] elements = (T[])new Object[] {};
     private int size = 0;
 
@@ -97,41 +96,36 @@ public class ListB <T> implements List <T> {
 
     @Override
     public boolean addAll(Collection<? extends T> collection) {
-            if (size == elements.length)
-                elements = Arrays.copyOf(elements, (size * 3) / 2 + 1);
+        if (size == elements.length)
+            elements = Arrays.copyOf(elements, (size * 3) / 2 + 1);
 
-            for(Object o: collection)
-               elements[size++] = (T)o;
+            for(Object element: collection)
+               elements[size++] = (T)element;
         return true;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
+        return size == 0;
+    }
+
+
+    @Override
+    public boolean contains(Object object) {
+
+//        for (int i = 0; i < size(); i++) {
+//            if (get(i).equals(object));
+//            return true;
+//        }
         return false;
     }
 
-    @Override
-    public boolean contains(Object o) {
-        return false;
-    }
+
 
     @Override
     public Iterator<T> iterator() {

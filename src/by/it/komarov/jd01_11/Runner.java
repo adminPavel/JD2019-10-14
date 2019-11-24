@@ -1,12 +1,27 @@
 package by.it.komarov.jd01_11;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Runner {
     public static void main(String[] args) {
         List<String> myList = new ListB<>();
         List<String> arList = new ArrayList<>();
+
+        HashMap<Integer, String> m = new HashMap<>();
+        m.put(5, "a");
+        m.put(4, "b");
+        m.put(3, "c");
+        m.put(2, "d");
+        m.put(1, "e");
+        System.out.println(m);
+
+        LinkedHashMap<Integer, String> m1 = new LinkedHashMap<>();
+        m1.put(5, "a");
+        m1.put(4, "b");
+        m1.put(3, "c");
+        m1.put(2, "d");
+        m1.put(1, "e");
+        System.out.println(m1);
 
 
 
@@ -24,6 +39,10 @@ public class Runner {
 
         myList.set(2, "SEeeeeeet"); arList.set(2, "SEeeeeeet");
         System.out.println("myList:" + myList + "\narList:" + arList);
+
+        System.out.println(myList.isEmpty());
+        System.out.println(myList.size());
+        System.out.println(myList.contains("Second"));
 
         System.out.println("myList:" + myList.get(0) + "\narList:" + arList.get(0));
     }
