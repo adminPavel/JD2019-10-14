@@ -1,5 +1,4 @@
-package by.it.toporova.jd01_08;
-
+package by.it.toporova.calc;
 
 public class Matrix extends Var {
 
