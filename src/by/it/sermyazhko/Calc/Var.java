@@ -1,17 +1,30 @@
 package by.it.sermyazhko.Calc;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 abstract class Var implements Operation {
 
-    private static HashMap<String ,Var> vars = new HashMap<>();
+    private static Map<String,Var> vars=new HashMap<>();
 
-    static void set(String name, Var var){
-        vars.put(name, var);
+    static void printMap(){
+
+        for (Map.Entry<String, Var> elem : vars.entrySet()) {
+            if (elem.getValue()!=null) {
+                System.out.printf("%s=%s", elem.getKey(), elem.getValue().toString());
+                System.out.println();
+            }
+        }
     }
 
-    static Var get(String name, Var var){
-       return  vars.get(name);
+
+    static void set(String name, Var var){
+        vars.put(name,var);
+    }
+
+    static Var get(String name){
+        return vars.get(name);
     }
 
     @Override
@@ -58,10 +71,10 @@ abstract class Var implements Operation {
            return new Matrix(value);
        }
        else if (vars.containsKey(value))
-          // return vars;
-           return null;
+           return vars.get(value);
        else
            return null;
     }
 
 }
+

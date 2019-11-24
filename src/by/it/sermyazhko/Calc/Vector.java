@@ -20,7 +20,6 @@ class Vector extends Var {
 
     public Vector(String strVector){
         String str = strVector.replaceAll("[{}]","");
-        System.out.println("!!!"+str);
         String[] arr = str.split(",");
         double[] mas = new double[arr.length];
         for (int i = 0; i < arr.length; i++) {

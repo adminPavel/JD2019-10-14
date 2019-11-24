@@ -7,6 +7,10 @@ class Parser{
     Var calc(String expression) {
         String[] exp = expression.split(PatternForExpression.OPERATION, 2);
 
+        if (exp.length == 1){
+            return Var.createVar(expression);
+        }
+
         Var right = Var.createVar(exp[1]);
 
         if(expression.contains("=")){
