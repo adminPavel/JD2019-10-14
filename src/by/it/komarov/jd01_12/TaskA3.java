@@ -15,16 +15,16 @@ public class TaskA3 {
             if (word.equals("end")) {
                 break;
             }
-            Integer i = Integer.valueOf(word);
-            if (i < 0)
-                numbers.add(i);
-            else if (i == 0)
-                numbers.add(posZero, i);
+            Integer value = Integer.valueOf(word);
+            if (value < 0)
+                numbers.add(value);
+            else if (value == 0)
+                numbers.add(posZero, value);
             else
-                numbers.add(posZero++, i);
+                numbers.add(posZero++, value);
         }
         System.out.println(numbers);
     }
-}    
+}
 
 
