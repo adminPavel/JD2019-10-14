@@ -1,4 +1,4 @@
-package by.it.zimina.jd01_08;
+package by.it.zimina.calc;
 
 public class Runner {
     private static void print(Var var) {System.out.println(var);}
@@ -8,7 +8,7 @@ public class Runner {
         Var m = new Matrix(new double[][]{{1,2,3},{4,5,6},{7,8,9}});// матрицу, если вы их не реализовали
         /* Уровень сложности A (калькулятор) */
         print(s.add(s)); //выведет в консоль 6.0
-        print(s.sub(s)); //выведет в  консоль 0.0
+        print(s.sub(s)); //выведет в консоль 0.0
         print(s.mul(s)); //выведет в консоль 9.0
         print(s.div(s)); //выведет в консоль 1.0
         /* Уровень сложности B (векторные операции) закомментируйте, если не реализовали */

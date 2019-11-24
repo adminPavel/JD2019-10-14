@@ -1,4 +1,4 @@
-package by.it.zimina.jd01_09;
+package by.it.zimina.calc;
 
 abstract class Var implements Operation {
 
