@@ -1,4 +1,4 @@
-package by.it.bodukhin.jd01_08;
+package by.it.bodukhin.jd01_09;
 
 class Matrix extends Var {
     private double[][] value;
@@ -105,7 +105,7 @@ class Matrix extends Var {
         }
         if(other instanceof Matrix
                 && value[0].length==((Matrix) other).value.length) {
-            double[][] result = new double[value.length][((Matrix) other).value[0].length];;
+            double[][] result = new double[value.length][((Matrix) other).value[0].length];
             for (int i = 0; i < value.length; i++) {
                 for (int j = 0; j < ((Matrix) other).value[0].length; j++) {
                     for (int k = 0; k < ((Matrix) other).value.length; k++) {
