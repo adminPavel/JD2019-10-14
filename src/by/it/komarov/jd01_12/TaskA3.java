@@ -1,15 +1,16 @@
 package by.it.komarov.jd01_12;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TaskA3 {
 
     public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int posZero=0;
-        for(;;){
+        while(true){
             String word = scanner.next();
             if (word.equals("end")){
                 break;
