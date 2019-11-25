@@ -3,6 +3,9 @@ package by.it.yurtsevich.jd01_07;
 import java.util.Arrays;
 
 class Vector extends Var {
+    public double[] getValue() {
+        return value;
+    }
 
     private double [] value;
 
@@ -22,12 +25,12 @@ class Vector extends Var {
         }
         return result;
     }
-    public String toString() {
+    public String toString () {
         StringBuilder sb = new StringBuilder("{");
-        String delimiter = "";
-        for (double v : value) {
-            sb.append(delimiter).append(v);
-            delimiter = ", ";
+        String delimeter = "";
+        for (double element : value) {
+            sb.append(delimeter).append(element);
+            delimeter = ", ";
         }
         sb.append("}");
         return sb.toString();
