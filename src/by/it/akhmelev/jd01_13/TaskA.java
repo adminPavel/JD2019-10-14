@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 public class TaskA {
     public static void main(String[] args) {
+        double x = Math.sqrt(-1.0);
+        System.out.println(x);
+
         try {
             if (Math.random() > 0.5)
                 new HashMap<String, String>(null);

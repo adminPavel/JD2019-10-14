@@ -22,7 +22,7 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other)  throws CalcException{
         if (other instanceof Scalar) {
             double scalarValue = ((Scalar) other).getValue();
             double[] result = new double[value.length];
