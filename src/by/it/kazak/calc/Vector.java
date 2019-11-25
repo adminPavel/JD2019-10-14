@@ -18,7 +18,7 @@ class Vector extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other) throws CalcException{
         if (other instanceof Scalar) {
             double scalarValue = ((Scalar) other).getValue();
             double[] result = new double[value.length];
@@ -35,12 +35,12 @@ class Vector extends Var {
             for (int i = 0; i < result.length; i++) {
                 result[i] += ((Vector) other).value[i];
             }
-            return new Vector(result);
+            throw new CalcException("Сложение вектора невозможно"+ Arrays.toString(result));
         } else
-            return super.add(other);
+            throw new CalcException("Сложение вектора невозможно");
     }
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other) throws CalcException{
         if (other instanceof Scalar) {
             double scalarValue = ((Scalar) other).getValue();
             double[] result = new double[value.length];
@@ -57,12 +57,12 @@ class Vector extends Var {
             for (int i = 0; i < result.length; i++) {
                 result[i] -= ((Vector) other).value[i];
             }
-            return new Vector(result);
+            throw new CalcException("Вычитание вектора невозможно" + Arrays.toString(result));
         } else
-            return super.add(other);
+            throw new CalcException("Вычитание вектора невозможно");
     }
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException{
         if (other instanceof Scalar) {
             double scalarValue = ((Scalar) other).getValue();
             double[] result = new double[value.length];
@@ -85,22 +85,10 @@ class Vector extends Var {
             return super.add(other);
     }
     @Override
-    public Var div(Var other) {
-        if (other instanceof Scalar) {
-            double scalarValue = ((Scalar) other).getValue();
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                result[i] /= scalarValue;
-            }
-            return new Vector(result);
-        } else if (other instanceof Vector &&
-                value.length == ((Vector) other).value.length
-        ) {
-            return null;
-        } else
-            return super.add(other);
+    public Var div(Var other) throws CalcException {
+        throw new CalcException("Деление вектора невозможно");
     }
+
 
     @Override
     public String toString() {

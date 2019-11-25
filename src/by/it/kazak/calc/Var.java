@@ -17,27 +17,23 @@ abstract class Var implements Operation {
 
 
     @Override
-    public Var add(Var other) {
-        System.out.printf("Сложение %s + %s невозможно\n",this,other);
-        return null;
+    public Var add(Var other) throws CalcException{
+        throw new CalcException(String.format("Сложение %s + %s невозможно\n",this,other));
     }
 
     @Override
-    public Var sub(Var other) {
-        System.out.printf("Вычитание %s - %s невозможно\n",this,other);
-        return null;
+    public Var sub(Var other) throws CalcException{
+        throw new CalcException(String.format("Вычитание %s - %s невозможно\n",this,other));
     }
 
     @Override
-    public Var mul(Var other) {
-        System.out.printf("Умножение %s * %s невозможно\n",this,other);
-        return null;
+    public Var mul(Var other) throws CalcException{
+        throw new CalcException(String.format("Умножение %s * %s невозможно\n",this,other));
     }
 
     @Override
-    public Var div(Var other) {
-        System.out.printf("Деление %s / %s невозможно\n",this,other);
-        return null;
+    public Var div(Var other) throws CalcException {
+        throw new CalcException(String.format("Деление %s / %s невозможно\n",this,other));
     }
     @Override
     public String toString() {
@@ -45,7 +41,7 @@ abstract class Var implements Operation {
     }
 
 
-    public static Var createVar(String strVar) {
+    public static Var createVar(String strVar) throws CalcException{
         if (strVar.matches(Patterns.SCALAR))
             return new Scalar(strVar);
         else if (strVar.matches(Patterns.VECTOR))
@@ -55,7 +51,7 @@ abstract class Var implements Operation {
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
         else
-            return null;
+            throw new CalcException("Не удалось создать переменную");
     }
 }
 

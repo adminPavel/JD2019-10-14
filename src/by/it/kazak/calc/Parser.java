@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 class Parser {
 
-    Var evaluate(String expression) {
+    Var evaluate(String expression) throws CalcException{
         String[] part = expression.split(Patterns.OPERATION, 2);
         if (part.length==1){
             return Var.createVar(expression);
@@ -33,6 +33,6 @@ class Parser {
             }
 
         }
-        return null;
+        throw new CalcException("ERRRRRRRRRRRRRROR!");
     }
 }
