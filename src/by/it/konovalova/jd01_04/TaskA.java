@@ -30,15 +30,6 @@ public class TaskA {
         InOut.printArray(array, "V", 4);
         System.out.println();
 
-      /*  for (int i = 0; i < array.length; i++) {
-            if (array[i] == last) {
-                System.out.println("Index of last element=" + i);
-            }
-            if (array[i] == first) {
-                System.out.println("Index of first element=" + i);
-            }
-        }
-    }*/
         for (int i = 0; i < array.length; i++) {
             if (array[i] == first) {
                 System.out.println("Index of first element=" + i);
