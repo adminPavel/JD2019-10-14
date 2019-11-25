@@ -32,6 +32,6 @@ class Parser {
                 }
             }
         }
-        return null;
+        throw new CalcException("Что-то странное происходит");
     }
 }
