@@ -19,7 +19,7 @@ public class TaskC {
             System.out.println();
 
         }
-       // System.out.println(Arrays.toString(a));
+
         System.out.println("Массив B[] из элементов массива A > 3.5");
 
 
@@ -28,11 +28,8 @@ public class TaskC {
                 if (a[i] > 3.5) {
                     b[j] = a[i];
                     System.out.printf("B[% -3d] = %6.5f    ", j, b[j]);
-                    //i++;
                     if (j % 5 == 0) System.out.println();
-                   // j++;
-                }
-                else continue;
+                } else continue;
             }
         }
     }
