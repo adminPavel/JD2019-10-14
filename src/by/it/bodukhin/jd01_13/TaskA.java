@@ -12,7 +12,6 @@ public class TaskA {
         } catch (NullPointerException | NumberFormatException e) {
             StackTraceElement[] stackTrace = e.getStackTrace();
             for (StackTraceElement element : stackTrace) {
-                Class<? extends StackTraceElement> aClass1 = element.getClass();
                 if(element.getClassName().equals(TaskA.class.getName())){
                     int lineNumber = element.getLineNumber();
                     String className = element.getClassName();

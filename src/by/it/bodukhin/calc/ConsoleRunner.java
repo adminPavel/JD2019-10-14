@@ -18,7 +18,12 @@ public class ConsoleRunner {
                 Var.printSortedMap();
             }
             else {
-                Var result = parser.evaluate(expression);
+                Var result = null;
+                try {
+                    result = parser.evaluate(expression);
+                } catch (CalcException e) {
+                    e.printStackTrace();
+                }
                 printer.print(result);
             }
         }
