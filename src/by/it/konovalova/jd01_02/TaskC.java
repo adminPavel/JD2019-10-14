@@ -4,38 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class TaskC {
-   /* public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int mas[][] = new int[n][n];
-        mas = step1(n);
-        //step2();
-        //step3();
-        //System.out.println(Arrays.deepToString(mas));
 
-    }
-
-    private static int[][] step1(int n) {
-        int mas[][] = new int[n][n];
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                mas[i][j] = (int) (Math.random() * (-n - n)) + n;
-            }
-        }
-
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(mas[i][j] + " ");
-                if (mas[i][j] == n || mas[i][j] == (-n)) {
-                    break;
-                }
-            }
-            System.out.println();
-        }
-        return mas;
-    }*/
 
     public static void main(String[] args) {
 
