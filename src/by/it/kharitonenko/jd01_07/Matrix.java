@@ -12,21 +12,22 @@ class Matrix extends Var {
     }
 
     Matrix(String strMatrix) {
-        strMatrix = strMatrix.
-                replaceAll(",\\{", "ppp").
-                replaceAll("[{]","").
-                replaceAll("[}]","");
-        String[] tempStr = strMatrix.split("ppp");
-        String[] strMatrixPart1 = tempStr[0].split(",");
-        String[] strMatrixPart2 = tempStr[1].split(",");
+        String[] strArray = strMatrix.replaceAll("\\},", "xxx").
+                replaceAll(" ", "").
+                replaceAll("\\}","").
+                replaceAll("\\{","").
+                trim().split("xxx");
 
-        this.value = new double[strMatrixPart1.length][strMatrixPart2.length];
-        for (int i = 0; i < strMatrixPart1.length; i++) {
-            this.value[0][i] = Double.valueOf(strMatrixPart1[i]);
+        String[] strRowMatrix = strArray[0].trim().split("[,]");
+        double[][] lineMatrix = new double[strArray.length][strRowMatrix.length];
+
+        for (int i = 0; i < strArray.length; i++) {
+            strRowMatrix = strArray[i].trim().split("[,]");
+            for (int j = 0; j < strRowMatrix.length; j++) {
+                lineMatrix[i][j] = Double.parseDouble(strRowMatrix[j]);
+            }
         }
-        for (int i = 0; i < strMatrixPart2.length; i++) {
-            this.value[1][i] = Double.valueOf(strMatrixPart2[i]);
-        }
+        this.value = lineMatrix;
     }
 
     @Override

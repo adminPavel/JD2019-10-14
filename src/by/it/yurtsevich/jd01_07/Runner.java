@@ -24,6 +24,10 @@ public class Runner {
         Var v8 = new Matrix(v7);
         Var v9 = new Matrix("{{1.0, 2.0}, {3.0, 4.0}}");
 
+        System.out.println(v7);
+        System.out.println(v8);
+        System.out.println(v9);
+
 
 
     }
