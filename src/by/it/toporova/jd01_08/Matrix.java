@@ -1,18 +1,20 @@
 package by.it.toporova.jd01_08;
 
-import java.util.Arrays;
 
 public class Matrix extends Var {
 
     private double[][] value;
 
-    Matrix(Matrix otherMatrix) {
+    Matrix(double[][] value)
+    {
+        this.value = value;
+    }
+
+    Matrix(Matrix otherMatrix)
+    {
         this.value = otherMatrix.value;
     }
 
-    Matrix(double[][] value) {
-        this.value = Arrays.copyOf(Arrays.copyOf(value, value[0].length), value.length);//копірованіе строк на глубіну value[0].length
-    }
 
 
     Matrix(String  strMatrix) {
@@ -92,11 +94,31 @@ public class Matrix extends Var {
             return new Matrix(result);
         }
 
-        if (other instanceof Vector){
-
+        if (other instanceof Vector
+                && value[0].length==((Vector) other).getValue().length){
+            double[] result = new double[value.length];
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value[i].length; j++) {
+                    result[i] = (value[i][j] * ((Vector) other).getValue()[j]) + result[i];
+                }
+            }
+            return new Vector(result);
         }
-        return null;
+        if (other instanceof Matrix
+                && value[0].length==((Matrix) other).value.length){
+            double[][] result = new double[value.length][((Matrix) other).value[0].length];
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value[0].length; j++) {
+                    for (int k = 0; k < ((Matrix) other).value[0].length; k++) {
+                        result[i][k] = (value[i][j] * ((Matrix) other).value[j][k]) + result[i][k];
+                    }
+                }
+            }
+            return new Matrix(result);
+        }
+        return super.mul(other);
     }
+
 
     
     

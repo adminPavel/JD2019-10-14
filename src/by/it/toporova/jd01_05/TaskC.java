@@ -1,7 +1,7 @@
 package by.it.toporova.jd01_05;
 
 
-import java.util.Arrays;
+
 import java.util.Random;
 import java.lang.Math;
 
