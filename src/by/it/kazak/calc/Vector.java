@@ -18,76 +18,75 @@ class Vector extends Var {
     }
 
     @Override
-    public Var add(Var other) throws CalcException{
-        if (other instanceof Scalar) {
-            double scalarValue = ((Scalar) other).getValue();
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                result[i] += scalarValue;
+    public Var add(Var other) throws CalcException {
+        Vector result = new Vector(this.value);
+        if(other instanceof Vector){
+            if(((Vector) other).value.length == result.value.length){
+                for (int i = 0; i < result.value.length; i++) {
+                    result.value[i] =result.value[i]+((Vector) other).value[i];
+                }
+            }else throw new CalcException("Неправильная длина.");
+            return result;
+        }else if(other instanceof Scalar){
+            for (int i = 0; i < result.value.length; i++) {
+                result.value[i] = result.value[i] + ((Scalar)other).getValue();
             }
-            return new Vector(result);
-        } else if (other instanceof Vector &&
-                value.length == ((Vector) other).value.length
-        ) {
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                result[i] += ((Vector) other).value[i];
-            }
-            throw new CalcException("Сложение вектора невозможно"+ Arrays.toString(result));
-        } else
-            throw new CalcException("Сложение вектора невозможно");
+            return result;
+        }
+        return super.add(other);
     }
     @Override
-    public Var sub(Var other) throws CalcException{
-        if (other instanceof Scalar) {
-            double scalarValue = ((Scalar) other).getValue();
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                result[i] -= scalarValue;
+    public Var sub(Var other) throws CalcException {
+        Vector result = new Vector(this.value);
+        if(other instanceof Vector){
+            if(((Vector) other).value.length == result.value.length){
+                for (int i = 0; i < result.value.length; i++) {
+                    result.value[i] =result.value[i]-((Vector) other).value[i];
+                }
+            }else throw new CalcException("Неправильная длина.");
+            return result;
+        }else if(other instanceof Scalar){
+            for (int i = 0; i < result.value.length; i++) {
+                result.value[i] = result.value[i] - ((Scalar)other).getValue();
             }
-            return new Vector(result);
-        } else if (other instanceof Vector &&
-                value.length == ((Vector) other).value.length
-        ) {
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                result[i] -= ((Vector) other).value[i];
-            }
-            throw new CalcException("Вычитание вектора невозможно" + Arrays.toString(result));
-        } else
-            throw new CalcException("Вычитание вектора невозможно");
+            return result;
+        }
+        return super.sub(other);
     }
+
     @Override
-    public Var mul(Var other) throws CalcException{
-        if (other instanceof Scalar) {
-            double scalarValue = ((Scalar) other).getValue();
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                result[i] *= scalarValue;
+    public Var mul(Var other) throws CalcException {
+        Vector result = new Vector(this.value);
+        if(other instanceof Vector){
+            double value = 0;
+            if(((Vector) other).value.length == result.value.length){
+                for (int i = 0; i < result.value.length; i++) {
+                    value +=result.value[i]*((Vector) other).value[i];
+                }
+            }else throw new CalcException("Неправильная длина.");
+            return new Scalar(value);
+        }else if(other instanceof Scalar){
+            for (int i = 0; i < result.value.length; i++) {
+                result.value[i] = result.value[i] * ((Scalar)other).getValue();
             }
-            return new Vector(result);
-        } else if (other instanceof Vector &&
-                value.length == ((Vector) other).value.length
-        ) {
-            double res = 0;
-            double[] result = new double[value.length];
-            System.arraycopy(value, 0, result, 0, value.length);
-            for (int i = 0; i < result.length; i++) {
-                res += result[i] * ((Vector) other).value[i];
-            }
-            return new Scalar(res);
-        } else
-            return super.add(other);
+            return result;
+        }
+        return super.mul(other);
     }
+
     @Override
     public Var div(Var other) throws CalcException {
-        throw new CalcException("Деление вектора невозможно");
+        Vector result = new Vector(this.value);
+        if(other instanceof Scalar){
+            if(((Scalar) other).getValue()==0) throw new CalcException("Деление на ноль.");
+            for (int i = 0; i < result.value.length; i++) {
+                result.value[i] = result.value[i] / ((Scalar)other).getValue();
+            }
+            return result;
+        }
+        return super.div(other);
     }
+
 
 
     @Override
