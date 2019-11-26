@@ -8,7 +8,7 @@ class Parser {
         String[] operand = expression.split(Patterns.OPERATION);
         Var two = Var.createVar(operand[1]);
             if (expression.contains("=")) {
-                Var.saveVar(operand[0], two);
+               return Var.saveVar(operand[0], two);
             }
         Var one = Var.createVar(operand[0]);
         if (one == null || two == null) {
