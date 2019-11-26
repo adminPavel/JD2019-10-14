@@ -13,7 +13,7 @@ public class Matrix extends Var{
 
     Matrix(String strMatrix){
         String [] array = strMatrix.split("(},)");
-        matrix = new double[array.length][];
+        matrix = new double[array.length][array.length];
         for (int i = 0; i < matrix.length; i++) {
             String[] temp = (array[i].replaceAll("[{}]","")).split("[,]");
             matrix[i] = new double[temp.length];
