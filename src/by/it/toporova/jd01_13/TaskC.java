@@ -21,7 +21,7 @@ public class TaskC {
     public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
-        for (; ; ) {
+        while (counter != 5) {
             text = scanner.nextLine();
             readData();
         }
@@ -31,21 +31,23 @@ public class TaskC {
         try {
             double number = Double.parseDouble(text);
             list.add(0, number);
-            if (counter == 5)
-                throw new Exception("Недопустимое количество ошибок ввода");
-
         } catch (NumberFormatException e) {
-            counter++;
-            Thread.sleep(100);
-            for (Double element : list) {
-                System.out.print(element+" ");
+            if (counter == 5) {
+                throw new NumberFormatException();
+
+            } else {
+                counter++;
+                Thread.sleep(100);
+                for (Double element : list) {
+                    System.out.print(element + " ");
+                }
+                System.out.println();
             }
-            System.out.println();
         }
-    }
 
 
     }
+}
 
 
 
