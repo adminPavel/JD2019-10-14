@@ -17,12 +17,19 @@ class ConsoleRunner {
             if (str.equals("end"))
                 break;
             //System.out.println(parser.calc(str));
-            //Var result = parser.calc(str);//{{1,2},{8,3},{1,8}}*{{1,2},{8,3}}
+            try {
+                Var result = parser.calc(str);//{{1,2},{8,3},{1,8}}*{{1,2},{8,3}}
+                printer.print(parser.calc(str));
+            }catch (CalcException e) {
+                System.out.println(e.getMessage());
+            }
             if(str.equals("printvar")){
                 Var.printMap();
             }
-            printer.print(parser.calc(str));
+
+
         }
 
     }
 }
+
