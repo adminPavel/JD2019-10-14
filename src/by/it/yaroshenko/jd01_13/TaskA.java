@@ -23,6 +23,7 @@ public class TaskA {
                                     "class: %s\n" +
                                     "line: %s\n",
                             name, clname, number);
+                    break;
                 }
             }
         }

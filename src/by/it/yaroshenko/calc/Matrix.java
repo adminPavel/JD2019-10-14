@@ -47,7 +47,7 @@ public class Matrix extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other)  throws CalcException{
         if (other instanceof Scalar) {
             Matrix array = new Matrix(this.value);
             this.value=Arrays.copyOf(this.value, this.value.length);
@@ -59,18 +59,20 @@ public class Matrix extends Var {
             return array;
         } else if (other instanceof Matrix) {
             Matrix array = new Matrix(Arrays.copyOf(value, value.length));
-            for (int i = 0; i < array.value.length; i++) {
+            if(array.value.length==((Matrix) other).value.length) {
+                for (int i = 0; i < array.value.length; i++) {
                 for (int j = 0; j < value[i].length; j++) {
                     array.value[i][j] += ((Matrix) other).getValue()[i][j];
                 }
             }
+            } else throw new  CalcException("Разная размерность матриц");
             return new Matrix(array);
         }
             return super.add(other);
         }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other)  throws CalcException{
         if (other instanceof Scalar) {
             Matrix array = new Matrix(this.value);
             this.value=Arrays.copyOf(this.value, this.value.length);
@@ -93,7 +95,7 @@ public class Matrix extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other)  throws CalcException{
         this.value=Arrays.copyOf(value,value.length);
         Matrix result = new Matrix(value);
         if (other instanceof Matrix){

@@ -11,12 +11,21 @@ public class ConsoleRunner extends Var{
         Printer printer = new Printer();
 
         while (!((line=scanner.next()).equals("end"))) {
-            Var result = parser.calc(line);
-            printer.print(result);
+            if ((line).equals("printvar")) {
+                printer.printHashMap(Var.getMap());
+                continue;
+            }
+            if ((line).equals("sortvar")) {
+                printer.printTreeMap(Var.getSortMap());
+                continue;
+            }
+            try {
+                Var result = parser.calc(line);
+                printer.print(result);
+            } catch (CalcException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        if (((line=scanner.nextLine()).equals("printvar"))) {
-            //return createVar()
-        }
-    }
 
+    }
 }
