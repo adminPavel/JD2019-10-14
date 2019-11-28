@@ -41,21 +41,26 @@ public class TaskA {
 
 
         // try с ресурсами, доступен с 7 версии Java
-        try(DataInputStream inp = new DataInputStream(new BufferedInputStream(new FileInputStream(dir(TaskA.class)+"data TaskA.bin")))) {
+        try(DataInputStream inp = new DataInputStream(
+                new BufferedInputStream(
+                        new FileInputStream(dir(TaskA.class)+"data TaskA.bin")));
+        PrintWriter out = new PrintWriter(
+                new FileWriter(dir(TaskA.class)+ "resultTaskA.txt"))
+        ) {
+
             double sum = 0;
             double count = 0;
-
             // available() - есть ли что-то доступное в файле
             while (inp.available() > 0){
                 int i = inp.readInt();
                 System.out.print(i + " ");
+                out.print(i + " ");
                 sum += i;
                 count++;
 
             }
-            System.out.println();
-
-
+            System.out.println("\navg=" + sum/count);
+            out.print("avg=" + sum/count);
         } catch (IOException e) {
             e.printStackTrace();
         }
