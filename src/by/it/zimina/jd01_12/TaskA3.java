@@ -13,11 +13,12 @@ public class TaskA3 {
         int pos=0;
         while (!(str=scan.next()).equals("end")){
             Integer value = Integer.valueOf(str);
-            if (value > 0) {
+            if (value>0) {
                 arr.add(pos++,value);
             }
-            else if (value==0)
-                arr.add(pos,0);
+            else if (value==0) {
+                arr.add(pos, 0);
+            }
             else
                 arr.add(value);
         }
