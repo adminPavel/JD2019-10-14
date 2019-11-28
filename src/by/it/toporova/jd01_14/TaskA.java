@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class TaskA {
     public static void main(String[] args) {
-        String path = getPath(by.it.akhmelev.jd01_14.TaskA.class);
+        String path = getPath(TaskA.class);
         String filename=path + "dataTaskA.bin";
         writeInteger(filename);
         List<Integer> list = new ArrayList<>();
@@ -76,7 +76,7 @@ public class TaskA {
     }
 
 
-    private static String getPath(Class<by.it.akhmelev.jd01_14.TaskA> aClass) {
+    private static String getPath(Class<TaskA> aClass) {
         return System.getProperty("user.dir")
                 + File.separator + "src" + File.separator +
                 aClass
@@ -84,5 +84,5 @@ public class TaskA {
                         .replace(aClass.getSimpleName(), "")
                         .replace(".", File.separator);
     }
-
 }
+
