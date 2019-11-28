@@ -19,8 +19,9 @@ public class TaskA3 {
             else if (value==0) {
                 arr.add(pos, 0);
             }
-            else
+            else {
                 arr.add(value);
+            }
         }
         System.out.println(arr);
     }
