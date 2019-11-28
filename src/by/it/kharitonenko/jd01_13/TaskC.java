@@ -18,20 +18,24 @@ public class TaskC {
     static Deque<String> enteredNumbers = new LinkedList<>();
     static int numberOfErrors = 0;
 
-    static void readData() throws Exception {
-        if (numberOfErrors > 5) throw new RuntimeException();
+    static void readData() throws InterruptedException {
+
         String enteredText = scanner.next();
+
         try {
-            if (!enteredText.matches("[\\d.]"))
+            if (!enteredText.matches("[\\d.]")) {
+                TaskC.numberOfErrors+=1;
+                    if (numberOfErrors > 5) throw new RuntimeException("error too many errors");
                 throw new WrongDataEnteredException();
+            }
             else {
                 enteredNumbers.add(enteredText);
             }
         } catch (WrongDataEnteredException e) {
             Thread.sleep(100);
             for (int i = 0; i < enteredNumbers.size(); i++) {
-                System.out.print(enteredNumbers.peek() + " ");
-                enteredNumbers.addLast(enteredNumbers.removeFirst());
+                System.out.print(Double.valueOf(enteredNumbers.getLast()) + " ");
+                enteredNumbers.addFirst(enteredNumbers.removeLast());
             }
         }
     }
@@ -44,14 +48,14 @@ public class TaskC {
     }
 }
 
-class WrongDataEnteredException extends Exception {
+class WrongDataEnteredException extends Throwable {
     public WrongDataEnteredException() {
-        TaskC.numberOfErrors += 1;
+//        TaskC.numberOfErrors += 1;
         System.out.println("error = wrong data entered");
     }
 
     public WrongDataEnteredException(String message) {
-        System.out.println("error = too many errors");;
+        super(message);
     }
 
     public WrongDataEnteredException(String message, Throwable cause) {
