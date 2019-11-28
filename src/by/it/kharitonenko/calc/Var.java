@@ -7,9 +7,7 @@ abstract class Var implements Operation {
     }
 
     @Override
-    public Var add(Var other) throws CalcException()
-
-    {
+    public Var add(Var other) throws CalcException {
         System.out.printf("Сложение %s + %s невозможно\n", this, other);
         //TODO add exception
         return null;

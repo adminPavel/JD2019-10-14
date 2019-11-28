@@ -3,7 +3,7 @@ package by.it.kharitonenko.calc;
 import java.util.Scanner;
 
 public class ConsoleRunner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CalcException {
         Scanner scanner=new Scanner(System.in);
         Printer printer=new Printer();
         Parser parser=new Parser();
