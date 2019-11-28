@@ -20,7 +20,7 @@ public class TaskA {
         // оозначаем как пустое множество, чтобы в блоке try мы заранее не знали чем закончится раота с DOS
         DataOutputStream dos = null;
         try {
-            dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(dir(TaskA.class)+"data TaskA.bin")));
+            dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(dir(TaskA.class)+"dataTaskA.bin")));
             for (int i = 0; i < 20; i++) {
                 // записываем в файловый поток
                 dos.writeInt((int) (Math.random() * 25));
@@ -43,7 +43,8 @@ public class TaskA {
         // try с ресурсами, доступен с 7 версии Java
         try(DataInputStream inp = new DataInputStream(
                 new BufferedInputStream(
-                        new FileInputStream(dir(TaskA.class)+"data TaskA.bin")));
+                        new FileInputStream(dir(TaskA.class)+"dataTaskA.bin")));
+         // новый текстовый файловый вывод
         PrintWriter out = new PrintWriter(
                 new FileWriter(dir(TaskA.class)+ "resultTaskA.txt"))
         ) {
@@ -60,13 +61,13 @@ public class TaskA {
 
             }
             System.out.println("\navg=" + sum/count);
-            out.print("avg=" + sum/count);
+            out.print("\navg=" + sum/count);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
         // TaskA.class - получаем структуру класса TaskA
-        System.out.println(dir(TaskA.class));
+        // System.out.println(dir(TaskA.class));
     }
 }
