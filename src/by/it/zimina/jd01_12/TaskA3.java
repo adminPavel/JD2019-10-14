@@ -8,7 +8,6 @@ public class TaskA3 {
     public static void main(String[] args) {
         List<Integer> arr=new ArrayList<>();
         Scanner scan = new Scanner(System.in);
-        String s = scan.next();
         String str;
         int pos=0;
         while (!(str = scan.next()).equals("end")) {
