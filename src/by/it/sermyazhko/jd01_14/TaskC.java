@@ -6,6 +6,7 @@ import java.io.*;
 class TaskC {
     public static void main(String[] args) throws IOException {
         String path = getPath(TaskC.class);
+       // System.out.println(path);
         StringBuilder sb = new StringBuilder();
         System.out.println(path);
         File f = new File(path);
@@ -28,11 +29,13 @@ class TaskC {
         String p = System.getProperty("user.dir")
                 + File.separator + "src" + File.separator +
                 cClass
-                        .getSimpleName()
+                        .getName()
                         .replace(cClass.getSimpleName(), "")
-                        .replace(".", File.separator);
-        String filename_ = path + "resultTaskC.txt";
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename_))) {
+                        .replace(".", File.separator) +"resultTaskC.txt";
+        System.out.println(p);
+        //String filename_ = p + "resultTaskC.txt";
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(p))) {
+            sb.append("file:").append("resultTaskC.txt");
             bw.append(sb);
         } catch (IOException ex) {
             System.out.println("Ошибка записи" + ex);
