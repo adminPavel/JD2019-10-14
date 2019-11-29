@@ -10,6 +10,17 @@ class Vector extends Var {
         this.value = value;
     }
 
+    public Vector(String strVector) {
+        strVector=strVector.replaceAll("\\}", "");
+        strVector=strVector.replaceAll("\\{","");
+        String[] arr=strVector.split(",");
+        double[] vector =new double[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            vector[i]=Double.parseDouble(arr[i]);
+        }
+        this.value= vector;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb=new StringBuilder("{");

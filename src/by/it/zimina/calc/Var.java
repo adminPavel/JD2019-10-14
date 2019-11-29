@@ -1,17 +1,31 @@
 package by.it.zimina.calc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 abstract class Var implements Operation {
 
-    static Var createVar(String operand){
-        operand=operand.trim().replace("\\s+","");
-        if (operand.matches(Patterns.SCALAR)){
-            return new Scalar(operand);
+   private static Map<String,Var> vars=new HashMap<>();
+
+   static Var saveVar(String name, Var var) {
+       vars.put(name, var);
+       return var;
+   }
+
+    static Var createVar(String strVar){
+        strVar = strVar.trim().replace("\\s+","");
+        if (strVar.matches(Patterns.SCALAR)){
+            return new Scalar(strVar);
         }
-        if (operand.matches(Patterns.VECTOR)){
-            return new Vector(operand);
+        else if (strVar.matches(Patterns.VECTOR)){
+            return new Vector(strVar);
         }
-        if (operand.matches(Patterns.MATRIX)){
-            return new Scalar(operand);
+        else if (strVar.matches(Patterns.MATRIX)){
+            return new Matrix(strVar);
+        }
+        else if (vars.containsKey(strVar)){
+            return vars.get(strVar);
+
         }
         return null;
     }
