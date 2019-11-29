@@ -69,6 +69,7 @@ public class TaskB {
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
                 objects.add(line);
+                System.out.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
