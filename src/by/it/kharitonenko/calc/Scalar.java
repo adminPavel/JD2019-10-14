@@ -50,6 +50,6 @@ class Scalar extends Var {
             if (((Scalar) other).value == 0) throw new CalcException("divided by zero"); //check for division by zero
             return new Scalar(this.value / ((Scalar) other).value);
         } else
-            return other.add(this);
+            return super.div(other);
     }
 }

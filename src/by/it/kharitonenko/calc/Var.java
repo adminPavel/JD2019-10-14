@@ -1,6 +1,20 @@
 package by.it.kharitonenko.calc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 abstract class Var implements Operation {
+
+    private static Map<String, Var> vars=new HashMap<>();
+
+    static void set(String name, Var var) {
+        vars.put(name, var);
+    }
+
+    static Var get(String name) {
+        return vars.get(name);
+    }
+
     @Override
     public String toString() {
         return "abstract Var";
@@ -8,31 +22,25 @@ abstract class Var implements Operation {
 
     @Override
     public Var add(Var other) throws CalcException {
-        System.out.printf("Сложение %s + %s невозможно\n", this, other);
         //TODO add exception
-        return null;
+        throw new CalcException("Сложение " + this + " + " + other + " невозможно\n");
     }
 
     @Override
     public Var sub(Var other) throws CalcException {
-        System.out.printf("Вычитание %s - %s невозможно\n", this, other);
         //TODO add exception
-        return null;
+        throw new CalcException("Вычитание " + this + " - " + other + " невозможно\n");
     }
 
     @Override
     public Var mul(Var other) throws CalcException {
-        System.out.printf("Умножение %s * %s невозможно\n", this, other);
         //TODO add exception
-        return null;
-    }
+        throw new CalcException("Умножение " + this + " * " + other + " невозможно\n");    }
 
     @Override
     public Var div(Var other) throws CalcException {
-        System.out.printf("Деление %s / %s невозможно\n", this, other);
         //TODO add exception
-        return null;
-    }
+        throw new CalcException("Деление " + this + " / " + other + " невозможно\n");    }
 
     static Var createVar(String strVar) {
         if (strVar.matches(Patterns.SCALAR))
