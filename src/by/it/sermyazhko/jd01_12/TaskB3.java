@@ -7,22 +7,31 @@ import java.util.*;
 public class TaskB3 {
     public static void main(String[] args) {
 
-        List<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < 4096; i++) {
             list.add(Double.toString(Math.random()*10+1));
         }
+        long start = System.nanoTime();
         process((ArrayList<String>) list);
+        long end = System.nanoTime();
+        long del = end - start;
+        System.out.println("Время работы для  ArrayList=" + del);
 
-        List<String> list1 = new LinkedList<>();
+
+        LinkedList<String> list1 = new LinkedList<>();
         for (int i = 0; i < 4096; i++) {
             list1.add(Double.toString(Math.random()*10+1));
         }
+        long start1 = System.nanoTime();
         process((LinkedList<String>) list1);
+        long end1 = System.nanoTime();
+        long del1 = end1 - start1;
+        System.out.println("Время работы для LinkedList=" + del1);
     }
 
 
     static String process(ArrayList<String> peoples) {
-        long start = System.nanoTime();
+        //long start = System.nanoTime();
         List<String> list = new ArrayList<>(peoples);
         int count = 0;
         Iterator<String> iterator = list.iterator();
@@ -40,10 +49,9 @@ public class TaskB3 {
             }
         }
         for (String people : list) {
-            System.out.println(people);
-            long end = System.nanoTime();
+            /*long end = System.nanoTime();
             long del = end - start;
-            System.out.println(del);
+            System.out.println(del);*/
             return people;
         }
         return null;
@@ -52,7 +60,7 @@ public class TaskB3 {
 
 
     static String process(LinkedList<String> peoples) {
-        long start = System.nanoTime();
+        //long start = System.nanoTime();
         List<String> list = new LinkedList<>(peoples);
         int count = 0;
         Iterator<String> iterator = list.iterator();
@@ -70,10 +78,9 @@ public class TaskB3 {
             }
         }
         for (String people : list) {
-            System.out.println(people);
-            long end = System.nanoTime();
+           /* long end = System.nanoTime();
             long del = end - start;
-            System.out.println(del);
+            System.out.println(del);*/
             return people;
         }
         return null;

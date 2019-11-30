@@ -14,7 +14,6 @@ public class TaskB2 {
         process((LinkedList<String>) list1);
     }
 
-
     static String process(ArrayList<String> peoples) {
         List<String> list = new ArrayList<>(peoples);
         int count = 0;
