@@ -27,7 +27,7 @@ public class TaskB {
                 original = reader.readLine();
                 temp = original.trim();
                 canWrite = true;
-                if (temp.startsWith("//")) canWrite = false;
+                if (temp.startsWith("//")) {canWrite = false;}
                 if (temp.startsWith("/*")) {
                     canWrite = false;
                     longComment = true;
@@ -36,6 +36,7 @@ public class TaskB {
                     canWrite = false;
                     longComment = true;
                 }
+                if (!canWrite || longComment) writer.println(); //comment this line for version 2
                 //write line
                 if (canWrite && !longComment) {
                     System.out.println(original);
