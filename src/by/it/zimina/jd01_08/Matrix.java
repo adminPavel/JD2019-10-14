@@ -1,4 +1,4 @@
-package by.it.zimina.jd01_07;
+package by.it.zimina.jd01_08;
 
 class Matrix extends Var {
     private double[][] value;

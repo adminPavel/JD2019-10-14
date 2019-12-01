@@ -1,10 +1,25 @@
-package by.it.zimina.jd01_07;
+package by.it.zimina.calc;
 
 class Matrix extends Var {
     private double[][] value;
 
-    Matrix(double[][] value) {
+    public Matrix(double[][] value) {
         this.value = value;
+    }
+
+    public Matrix(String strMatrix) {
+        String[] row = strMatrix.split("},");
+        String[][] col = new String[row.length][];
+        for (int i = 0; i < row.length; i++) {
+            col[i] = row[i].replaceAll("\\{", "").replaceAll("\\}", "").split(",");
+        }
+        double[][] matrix = new double[col.length][col[0].length];
+        for (int i = 0; i < col.length; i++) {
+            for (int j = 0; j < col[i].length; j++) {
+                matrix[i][j] = Double.parseDouble(col[i][j]);
+            }
+        }
+        this.value = matrix;
     }
 
     @Override
