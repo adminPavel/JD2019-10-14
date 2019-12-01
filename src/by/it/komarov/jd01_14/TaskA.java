@@ -17,7 +17,7 @@ public class TaskA {
     public static void main(String[] args) {
         // определяем каталог в который будем записывать файл
 
-        // оозначаем как пустое множество, чтобы в блоке try мы заранее не знали чем закончится раота с DOS
+        // оозначаем как пустое множество, чтобы в блоке try мы заранее не знали чем закончится работа с DOS
         DataOutputStream dos = null;
         try {
             dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(dir(TaskA.class)+"dataTaskA.bin")));
