@@ -50,7 +50,7 @@ public class TaskC {
 
     private static String getPath() {
         return System.getProperty("user.dir") + File.separator + "src" + File.separator
-                + TaskC.class.getPackageName().
+                + TaskC.class.getPackage().getName().
                 replace("jd01_14", "").
                 replace(".", File.separator);
     }
