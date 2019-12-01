@@ -2,15 +2,13 @@ package by.it.volchek.jd01_11;
 
 import java.util.*;
 
-//add(T e), remove(int index), get(int index), set(int index, T e), add(int index, T e),
-// addAll(List<?> c) интерфейса List<T> (реализация остальных – фиктивная).
-public class ListB<T> implements List<T> {
+public class ListA<T> implements List<T> {
     private int size = 0;
     private T[] elements = (T[]) new Object[1];
 
     @Override
     public int size() {
-        return this.size;
+        return 0;
     }
 
     @Override
@@ -42,13 +40,13 @@ public class ListB<T> implements List<T> {
     public boolean add(T t) {
         if (elements.length==size){
             elements= Arrays.copyOf(elements, elements.length * 3 / 2 + 1);}
-            elements [size++]=t;
+        elements [size++]=t;
 
         return true;
     }
 
     @Override
-    public boolean remove(Object t) {
+    public boolean remove(Object o) {
         return false;
     }
 
@@ -59,17 +57,6 @@ public class ListB<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-//        T[] added = (T[]) c.toArray();
-//        if (elements.length==size){
-//            elements= Arrays.copyOf(elements, elements.length * 3 / 2 + 1);}
-//        System.arraycopy(added,0,elements,size+1,added.length);
-//        size+=added.length;
-        if (c.toArray().getClass() == this.elements.getClass()) {
-            for (int i = 0; i < c.size(); i++) {
-                this.add((T) c.toArray()[i]);
-            }
-            return true;
-        }
         return false;
     }
 
@@ -100,15 +87,12 @@ public class ListB<T> implements List<T> {
 
     @Override
     public T set(int index, T element) {
-        T deleted = elements[index];
-        elements[index]= element;
-        return deleted;
+        return null;
     }
 
     @Override
     public void add(int index, T element) {
-        System.arraycopy(elements,index,elements,index+1,++size-index);
-        elements[index]=element;
+
     }
 
     @Override
@@ -142,7 +126,6 @@ public class ListB<T> implements List<T> {
     public List<T> subList(int fromIndex, int toIndex) {
         return null;
     }
-    @Override
     public String toString() {
         if (size == 0) {
             return "List is empty.";
