@@ -15,42 +15,36 @@ public class TaskB {
                 replace(cl.getSimpleName(), "").
                 replace(".", File.separator);
     }
+
+    private static void deleteComments(StringBuilder sourceCode) {
+        int start;
+        int end;
+        while ((start = sourceCode.indexOf("/\u002f")) >= 0 && (end = sourceCode.indexOf("\n", start)) >= 0) {
+            sourceCode.delete(start, end);
+        }
+        while ((start = sourceCode.indexOf("\u002f*")) >= 0 && (end = sourceCode.indexOf("*\u002f")) >= 0) {
+            sourceCode.delete(start, end + 2);
+        }
+    }
+
     //string builder method
     static void readSource() {
-        boolean canWrite;
-        boolean longComment = false;
-        String temp;
-        String original;
+        StringBuilder sourceText = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(dir(TaskB.class) + "TaskB.java"));
              PrintWriter writer = new PrintWriter(new FileWriter(dir(TaskB.class) + "TaskB.txt"))) {
-            while (reader.ready()) {
-                original = reader.readLine();
-                temp = original.trim();
-                canWrite = true;
-                if (temp.startsWith("//")) {canWrite = false;}
-                if (temp.startsWith("/*")) {
-                    canWrite = false;
-                    longComment = true;
-                }
-                if (temp.startsWith("/**")) {
-                    canWrite = false;
-                    longComment = true;
-                }
-                if (!canWrite || longComment) writer.println(); //comment this line for version 2
-                //write line
-                if (canWrite && !longComment) {
-                    System.out.println(original);
-                    writer.println(original);
-                } else {
-                    if (temp.startsWith("*/")) {
-                        longComment = false;
-                    }
-                }
+            String temp;
+            while ((temp = reader.readLine()) != null) {
+                sourceText.append(temp).append("\n");
             }
+            deleteComments(sourceText);
+            System.out.println(sourceText);
+            writer.print(sourceText);
+            writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     /*
     comments
      */
