@@ -26,15 +26,25 @@ public class TaskC {
             String parentDir = defDir.getParent();
             defDir = new File(parentDir);
             System.out.println(defDir.getAbsolutePath());
-        } else {
-            String newPath = defDir.getAbsolutePath() + File.separator + commands[1];
-            File tFile = new File(newPath);
-            if (tFile.exists()) {
+        }else if(commands[0].equals("cd") && !commands[1].equals("..")) {
+            String oldPath = defDir.getAbsolutePath();
+            String newPath = "";
+            newPath = newPath.concat(commands[1]);
+            File newFile = new File(newPath);
+            if (newFile.exists()) {
                 defDir = new File(newPath);
                 System.out.println(defDir.getAbsolutePath());
-            } else System.out.println("Incorrect path: " + newPath);
+            } else if (commands[0].equals("cd")) {
+                oldPath = defDir.getAbsolutePath() + File.separator + commands[1];
+                File tFile = new File(oldPath);
+                if (tFile.exists()) {
+                    defDir = new File(oldPath);
+                    System.out.println(defDir.getAbsolutePath());
+                } else System.out.println("Incorrect path: " + oldPath);
+            }
         }
         if (commands[0].equals("dir") && (commands[1].isEmpty() | commands[1].equals(""))) {
+            System.out.println(defDir.getAbsolutePath());
             File[] files = defDir.listFiles();
             if (files != null) {
                 for (File element : files) {
