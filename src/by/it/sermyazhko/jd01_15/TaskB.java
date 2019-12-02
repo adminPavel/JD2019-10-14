@@ -15,7 +15,9 @@ public class TaskB {
         try (BufferedReader sr = new BufferedReader(new FileReader(filename))) {
             boolean block= false;
             boolean stroka = false;
-            boolean out = true;
+            boolean out = true; /* привет
+                        привет
+                         */
             int prev = sr.read();
             int cur;
             for (cur = sr.read(); cur != -1; cur = sr.read()) {
@@ -67,14 +69,12 @@ public class TaskB {
         System.out.println(newCode);
 
         try (FileWriter f = new FileWriter(path+".txt")) {
+            f.append(newCode);
             f.write("\n");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
-
-
 
     private static String getPath(Class<TaskB> bClass) {
         return System.getProperty("user.dir")
