@@ -1,6 +1,11 @@
 package by.it.yaroshenko.calc;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 abstract class Var implements Operation {
 
@@ -43,6 +48,38 @@ abstract class Var implements Operation {
                 return vars.get(operand);
             }
         throw  new CalcException("Невозможно создать "+operand);
+    }
+
+    static void save(){
+        try (PrintWriter printWriter = new PrintWriter(getFileName())){
+            for (Map.Entry<String, Var> pair : vars.entrySet()) {
+                printWriter.printf("%s=%s\n",pair.getKey(),pair.getValue().toString());
+            }
+        }  catch (IOException e) {
+        System.out.println("file error");
+    }
+        ;
+    }
+
+    static void load() {
+        try {
+            Parser parser = new Parser();
+            for (String line : Files.lines(Paths.get(getFileName()))
+                    .collect(Collectors.toList())) {
+                parser.calc(line);
+            }
+        } catch (IOException | CalcException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String getFileName() {
+        return System.getProperty("user.dir")
+                + File.separator + "src" + File.separator +
+                Var.class
+                        .getName()
+                        .replace(Var.class.getSimpleName(), "")
+                        .replace(".", File.separator)+"Var.txt";
     }
 
     @Override

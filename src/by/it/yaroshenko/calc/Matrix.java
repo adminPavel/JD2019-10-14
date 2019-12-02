@@ -59,13 +59,11 @@ public class Matrix extends Var {
             return array;
         } else if (other instanceof Matrix) {
             Matrix array = new Matrix(Arrays.copyOf(value, value.length));
-            if(array.value.length==((Matrix) other).value.length) {
                 for (int i = 0; i < array.value.length; i++) {
-                for (int j = 0; j < value[i].length; j++) {
-                    array.value[i][j] += ((Matrix) other).getValue()[i][j];
+                    for (int j = 0; j < value[i].length; j++) {
+                        array.value[i][j] += ((Matrix) other).getValue()[i][j];
+                    }
                 }
-            }
-            } else throw new  CalcException("Разная размерность матриц");
             return new Matrix(array);
         }
             return super.add(other);
