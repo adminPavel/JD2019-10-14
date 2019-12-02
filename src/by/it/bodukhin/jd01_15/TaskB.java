@@ -54,7 +54,7 @@ public class TaskB {
                if(line.startsWith("//")){
                    sb.append("");
                }
-               else if(line.startsWith("/*") | line.startsWith("/**")){
+               else if(line.startsWith("/*")){
                    del = true;
                }
                else if (del == false) {
