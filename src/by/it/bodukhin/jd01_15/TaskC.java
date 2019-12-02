@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class TaskC {
     
-    private static StringBuilder defaultDir = new StringBuilder(getPath(TaskC.class));
+    private static StringBuilder defaultDir = new StringBuilder(getPath());
     private static File defDir = new File(defaultDir.toString());
     
     public static void main(String[] args) {
@@ -26,15 +26,15 @@ public class TaskC {
             String parentDir = defDir.getParent();
             defDir = new File(parentDir);
             System.out.println(defDir.getAbsolutePath());
-        }else if(commands[0].equals("cd") && !commands[1].equals("..")) {
-            String oldPath = defDir.getAbsolutePath();
+        }else if(commands[0].equals("cd")) {
+            String oldPath;
             String newPath = "";
             newPath = newPath.concat(commands[1]);
             File newFile = new File(newPath);
             if (newFile.exists()) {
                 defDir = new File(newPath);
                 System.out.println(defDir.getAbsolutePath());
-            } else if (commands[0].equals("cd")) {
+            } else  {
                 oldPath = defDir.getAbsolutePath() + File.separator + commands[1];
                 File tFile = new File(oldPath);
                 if (tFile.exists()) {
@@ -52,22 +52,21 @@ public class TaskC {
                     if (element.isFile()) {
                         long totalSpace = element.getTotalSpace();
                         System.out.printf("%-20s\t%-10d\t%-20s", data.format(element.lastModified()), totalSpace, element.getName());
-                        System.out.println();
                     } else {
                         System.out.printf("%-20s\t%-10s\t\t%-20s", data.format(element.lastModified()), "<DIR>", element.getName());
-                        System.out.println();
                     }
+                    System.out.println();
                 }
             }
         }
     }
 
-    private static String getPath(Class<?> nameClass) {
+    private static String getPath() {
         return System.getProperty("user.dir")
                 + File.separator + "src" + File.separator +
-                nameClass
+                TaskC.class
                         .getName()
-                        .replace(nameClass.getSimpleName(), "")
+                        .replace(TaskC.class.getSimpleName(), "")
                         .replace(".", File.separator);
     }
 }
