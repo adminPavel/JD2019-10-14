@@ -12,7 +12,7 @@ abstract class Var implements Operation {
     }
 
     static Map getMap () {
-          Map<String, Var> copy_vars = new TreeMap<>();
+          Map<String, Var> copy_vars = new HashMap<>();
           Set<Map.Entry<String, Var>> entries = vars.entrySet();
           for (Map.Entry<String, Var> entry : entries) {
           copy_vars.put(entry.getKey(),entry.getValue());
@@ -20,7 +20,7 @@ abstract class Var implements Operation {
         return vars;
     }
     static Map getSortMap () {
-        Map<String, Var> copy_vars = new HashMap<>();
+        Map<String, Var> copy_vars = new TreeMap<>();
         Set<Map.Entry<String, Var>> entries = vars.entrySet();
         for (Map.Entry<String, Var> entry : entries) {
             copy_vars.put(entry.getKey(),entry.getValue());
