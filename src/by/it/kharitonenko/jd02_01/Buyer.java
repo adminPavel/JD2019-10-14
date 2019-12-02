@@ -65,11 +65,9 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         int tries = Utils.getTRIES();
         do {
             int result = basket.buySomething(Utils.pickRandomProduct(), currentMoney);
+            tries--;
             if (result > 0) {
-                tries--;
                 currentMoney -= result;
-            } else {
-                tries--;
             }
             //TODO WAIT HERE
         } while (basket.getCapacity() > 0);
