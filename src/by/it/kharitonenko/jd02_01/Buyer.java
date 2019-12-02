@@ -32,22 +32,22 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     @Override
     public void enterToMarket() {
-
+        //TODO
     }
 
     @Override
     public void chooseGoods() {
-
+        //TODO
     }
 
     @Override
     public void goOut() {
-
+        //TODO
     }
 
     @Override
     public void takeBasket() {
-
+        //TODO
     }
 
     /**
