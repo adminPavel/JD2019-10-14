@@ -1,16 +1,14 @@
-package by.it.toporova.jd01_09;
-
-import by.it.konovalova.jd01_09.Printer;
+package by.it.zabauniuk.jd01_09;
 
 import java.util.Scanner;
 
 public class ConsoleRunner {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);//ввод с консоли
+        Scanner scanner = new Scanner(System.in);
         Parser parser = new Parser();
         String line;
-        Printer09 printer = new Printer09();
+        Printer printer = new Printer();
         while (!(line=scanner.
                 nextLine()).
                 equals("end")){
