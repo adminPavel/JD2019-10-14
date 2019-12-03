@@ -18,10 +18,10 @@ public class TaskC {
             if (strPackage.equals(".DS_Store")) System.out.println("file:.DS_Store");
             else {
                 System.out.println();
-                System.out.println("dir: "+strPackage);
+                System.out.println("dir:"+strPackage);
                 filesNames = getNameOfFiles(strPackage, name);
                 for (String file : filesNames) {
-                    System.out.println("file: " + file);
+                    System.out.println("file:" + file);
                 }
             }
         }
