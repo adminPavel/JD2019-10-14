@@ -1,7 +1,6 @@
 package by.it.sermyazhko.jd02_01;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Market {
 
@@ -22,6 +21,21 @@ public class Market {
             buyer.join();
         }
         System.out.println("Market closed");
+
+
+        Map<String,Integer> goods = new HashMap<>(100);
+        for (int i = 0; i < goods.size(); i++) {
+            goods.put(String.format("goods_%d",i),i);
+        }
+        Set<Map.Entry<String, Integer>> entries = goods.entrySet();
+        Iterator<Map.Entry<String, Integer>> iterator = entries.iterator();
+        while(iterator.hasNext()){
+            Map.Entry<String, Integer> next = iterator.next();
+            System.out.println(next.getKey() + next.getValue());
+
+
+        }
+
     }
 
 }

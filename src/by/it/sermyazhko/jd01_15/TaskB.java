@@ -27,7 +27,7 @@ public class TaskB {
                         out = false;
                     }
                 } else if (stroka) {
-                    if (cur == '\r') {
+                    if (cur == '\n') {
                         /* привет
                         привет
                          */
@@ -46,9 +46,9 @@ public class TaskB {
                     if (prev == '/' && cur == '*') {
                         sr.mark(1);
                         int next = sr.read(); // коммент
-                        if (next != '*') {
+                        //if (next != '*') {
                             block = true; // коммент
-                        }
+                        //}
                         sr.reset();
                     } else if (prev == '/' && cur == '/') {
                         stroka = true;
@@ -70,7 +70,7 @@ public class TaskB {
 
         try (FileWriter f = new FileWriter(path+".txt")) {
             f.append(newCode);
-            f.write("\n");
+           // f.write("\n");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -80,8 +80,8 @@ public class TaskB {
         return System.getProperty("user.dir")
                 + File.separator + "src" + File.separator +
                 bClass
-                        .getName()
-                        //.replace(bClass.getName(), "")
-                        .replace(".", File.separator);
+                    .getName()
+                    //.replace(bClass.getName(), "")
+                    .replace(".", File.separator);
     }
 }

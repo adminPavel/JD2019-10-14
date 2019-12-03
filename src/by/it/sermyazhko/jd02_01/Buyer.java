@@ -1,6 +1,6 @@
 package by.it.sermyazhko.jd02_01;
 
-class Buyer extends Thread implements IBuyer {
+class Buyer extends Thread implements IBuyer, IUseBacket{
 
 
     Buyer(int number) {
@@ -35,5 +35,15 @@ class Buyer extends Thread implements IBuyer {
     @Override
     public String toString() {
         return getName();
+    }
+
+    @Override
+    public void takeBacket() {
+
+    }
+
+    @Override
+    public void putGoodsToBacket() {
+
     }
 }
