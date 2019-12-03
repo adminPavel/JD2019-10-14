@@ -2,52 +2,74 @@ package by.it.kharitonenko.jd02_01;
 
 import by.it.kharitonenko.jd02_01.Interfaces.IBuyer;
 import by.it.kharitonenko.jd02_01.Interfaces.IUseBasket;
+import by.it.kharitonenko.jd02_01.Utils.Observer;
 import by.it.kharitonenko.jd02_01.Utils.Utils;
 
 import java.util.Random;
 
 public class Buyer extends Thread implements IBuyer, IUseBasket {
     private final boolean PENSIONER;
-
+    private double customerSpeed; //higher number == slower
+    private String customerName;
     private Basket basket;
     private int currentMoney;
 
+    @Override
+    public void run() {
+        enterToMarket();
+        chooseGoods();
+        goOut();
+    }
+
     Buyer(int number) {
-        super("Buyer number: " + number);
+//        super("Buyer number: " + number);
+        StringBuilder nameGenerator = new StringBuilder();
         int age = new Random().nextInt(4) + 1;
         basket = new Basket();
-        currentMoney = Utils.intRandom(4, 16);
-        //TODO examine simplified IF statement suggested by IDEA
+        customerSpeed = 1;
+        currentMoney = Utils.intRandom(4, 10); //starting money
         if (age == 4) {
             this.PENSIONER = true;
+            customerSpeed = 1.5;
+            nameGenerator.append("+"); //marks pensioner customer
         } else {
             this.PENSIONER = false;
         }
+        nameGenerator.append("Buyer# ").append(number);
+        customerName = nameGenerator.toString();
     }
 
     @Override
     public String toString() {
-        return this.getName();
+        return this.customerName;
     }
 
     @Override
     public void enterToMarket() {
         //TODO
+        System.out.println(customerName + " entered the market. $" + currentMoney + " in wallet.");
+        Observer.entranceAction(true);
     }
 
     @Override
     public void chooseGoods() {
-        //TODO
+        takeBasket();
+        putGoodsToBasket();
+        System.out.println(customerName + " bought:");
+        basket.checkBasket();
+        sleep();
     }
 
     @Override
     public void goOut() {
-        //TODO
+        System.out.println(customerName + " left the market. $" + currentMoney + " left.");
+        Observer.entranceAction(false);
     }
 
     @Override
     public void takeBasket() {
-        //TODO
+        System.out.println(customerName + " took the basket.");
+        sleep();
     }
 
     /**
@@ -69,7 +91,11 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
             if (result > 0) {
                 currentMoney -= result;
             }
-            //TODO WAIT HERE
-        } while (basket.getCapacity() > 0);
+        } while (basket.getCapacity() > 0 && tries > 0);
+        sleep();
+    }
+
+    private void sleep() {
+        Utils.sleep(Utils.intRandom(500, 2_000) * customerSpeed);
     }
 }

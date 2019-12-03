@@ -3,11 +3,17 @@ package by.it.kharitonenko.jd02_01;
 import by.it.kharitonenko.jd02_01.Utils.Goods;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //TODO finish design
 public class Basket {
-    private int capacity = 4; //number of goods that can be stored
+    private int capacity; //number of goods that can be stored
     private ArrayList<Goods> basket; //list of goods inside the customer's basket
+
+    public Basket() {
+        capacity = 4;
+        basket = new ArrayList<>();
+    }
 
     public int getCapacity() {
         return capacity;
@@ -24,7 +30,8 @@ public class Basket {
 
     public void checkBasket() {
         for (Goods goods : basket) {
-            goods.toString();
+            System.out.print("[" + goods.getNAME() + "] ");
         }
+        System.out.println();
     }
 }
