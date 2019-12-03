@@ -19,24 +19,55 @@ package by.it.yaroshenko.jd01_15;
 import java.io.*;
 
 public class TaskB {
+
+    private static String dir() {
+        String path = System.getProperty("user.dir") + File.separator + "src" + File.separator;
+        String clDir = by.it.yaroshenko.jd01_15.TaskA.class.getName().replace(by.it.yaroshenko.jd01_15.TaskA.class.getSimpleName(), "").replace(".", File.separator);
+        return path + clDir;
+    }
+
     public static void main(String[] args) {
 
-        String filePath = "E:\\yaroshenko\\JD2019-10-14ver02\\src\\by\\it\\yaroshenko\\jd01_15\\TaskB.java";
-        String filePathToWrite = "E:\\yaroshenko\\JD2019-10-14ver02\\src\\by\\it\\yaroshenko\\jd01_15\\TaskB.txt";
+        String filePath = dir() + "TaskB.java";
+        String filePathToWrite = dir() + "TaskB.txt";
         StringBuilder stringBuilder = new StringBuilder();
 
+
+        readText(filePath, stringBuilder);
+        writeIntoFile(filePathToWrite, stringBuilder);
+
+        //
+//
+//        //deleteCommit
+//        try(FileReader reader = new FileReader(filePathToWrite)) {
+//            // читаем посимвольно
+//            int c;
+//            while((c=reader.read())!=-1){
+//                stringBuilder.append((char) c);
+//            }
+//            System.out.print(stringBuilder);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    private static void readText(String filePath, StringBuilder stringBuilder) {
         //readText
-        try(FileReader reader = new FileReader(filePath)) {
-            // читаем посимвольно
-            int c;
-            while((c=reader.read())!=-1){
-                stringBuilder.append((char) c);
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String s;
+            while ((s=br.readLine()) != null) {
+                stringBuilder.append(s+"\n");
+                if(s.contains("//")) {
+
+                }
             }
-            System.out.print(stringBuilder);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+        private static void writeIntoFile(String filePathToWrite, StringBuilder stringBuilder) {
         //writeIntoFile
         PrintWriter fileWriter = null;
         try {
@@ -48,20 +79,6 @@ public class TaskB {
         fileWriter.write(String.valueOf(stringBuilder));
         fileWriter.flush();
         fileWriter.close();
-
-
-
-        //deleteCommit
-        try(FileReader reader = new FileReader(filePathToWrite)) {
-            // читаем посимвольно
-            int c;
-            while((c=reader.read())!=-1){
-                stringBuilder.append((char) c);
-            }
-            System.out.print(stringBuilder);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
 

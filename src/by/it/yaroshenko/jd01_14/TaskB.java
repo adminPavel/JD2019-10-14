@@ -15,7 +15,7 @@ words=123, punctuation marks=15
 public class TaskB {
     public static void main(String[] args) {
         ArrayList<Object> objects = new ArrayList<>();
-        File file = new File("E:\\yaroshenko\\JD2019-10-14ver02\\src\\by\\it\\yaroshenko\\jd01_14\\text.txt");
+        File file = new File(dir() + "text.txt");
 
         addList(objects, file);
         printCountWords(objects);
@@ -23,9 +23,15 @@ public class TaskB {
         pushTextToFile(objects);
     }
 
+    private static String dir() {
+        String path = System.getProperty("user.dir") + File.separator + "src" + File.separator;
+        String clDir = TaskB.class.getName().replace(TaskB.class.getSimpleName(), "").replace(".", File.separator);
+        return path + clDir;
+    }
+
     private static void pushTextToFile(ArrayList<Object> objects) {
         try {
-            FileWriter fileWriter = new FileWriter("E:\\yaroshenko\\JD2019-10-14ver02\\src\\by\\it\\yaroshenko\\jd01_14\\resultTaskB.txt");
+            FileWriter fileWriter = new FileWriter(dir() + "resultTaskB.txt");
             for (Object object : objects) {
                 fileWriter.write(object+"\n");
                 System.out.println(object);

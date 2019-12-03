@@ -11,9 +11,15 @@ public class TaskA {
         outText();
     }
 
+    private static String dir() {
+        String path = System.getProperty("user.dir") + File.separator + "src" + File.separator;
+        String clDir = by.it.yaroshenko.jd01_15.TaskA.class.getName().replace(by.it.yaroshenko.jd01_15.TaskA.class.getSimpleName(), "").replace(".", File.separator);
+        return path + clDir;
+    }
+
     private static void outText() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("E:\\yaroshenko\\JD2019-10-14ver02\\src\\by\\it\\yaroshenko\\jd01_15\\matrix.txt"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(dir()+"matrix.txt"));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
@@ -25,7 +31,7 @@ public class TaskA {
 
     private static void pushTextToFile(int[][] array) {
         try {
-            PrintWriter fileWriter = new PrintWriter("E:\\yaroshenko\\JD2019-10-14ver02\\src\\by\\it\\yaroshenko\\jd01_15\\matrix.txt");
+            PrintWriter fileWriter = new PrintWriter(dir()+"matrix.txt");
             for (int[] ints : array) {
                 for (int anInt : ints) {
                     fileWriter.printf("%3d ", anInt);
