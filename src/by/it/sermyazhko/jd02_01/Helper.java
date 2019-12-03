@@ -27,25 +27,13 @@ class Helper {
         }
     }
 
+    //уточнить, как можно по-другому рандомно выбрать элемент из HashMap
     static Map.Entry<String,Integer> randomGoods (Map<String,Integer> map){
-
-        /*Iterator<Map.Entry<String, Integer>> itr = map.entrySet().iterator();
-        while (itr.hasNext())
-            System.out.println(itr.);*/
-
-       /* for (int i = 0; i < map.size(); i++) {
-            T[] ts = map.entrySet().toArray();
-        }*/
-
-
-/*
-        Set<String> productName = map.keySet();
-        Object[] objects = productName.toArray();
-        return objects.;*/
-
-//как вернуть рандомный элемент из словаря
+        int random = random(0, map.size() - 1);
+        int count = 0;
         for (Map.Entry<String,Integer> element : map.entrySet()) {
-            return element;
+            if(random==count) return element;
+            count++;
         }
         return null;
     }
