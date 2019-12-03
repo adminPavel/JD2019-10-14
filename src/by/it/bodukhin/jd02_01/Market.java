@@ -30,6 +30,7 @@ public class Market {
                         time++;
                     }
                 }
+                Helper.sleep(1000);
             } else {
                 if(Dispatcher.countBuyer <= 40 + (30 - time)){
                     for (int j = 0; j <= currentCount; j++) {
@@ -39,6 +40,7 @@ public class Market {
                         time++;
                     }
                 }
+                Helper.sleep(1000);
             }
         }
         for(Buyer buyer : buyerList){
