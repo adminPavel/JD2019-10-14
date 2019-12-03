@@ -3,7 +3,6 @@ package by.it.kharitonenko.jd02_01;
 import by.it.kharitonenko.jd02_01.Utils.Goods;
 
 import java.util.ArrayList;
-import java.util.List;
 
 //TODO finish design
 public class Basket {

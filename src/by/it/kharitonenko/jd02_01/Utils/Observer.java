@@ -7,8 +7,6 @@ public class Observer {
     static int numberOfBuyers = 0;
     //allowed customers count
     static int birthControl = 1;
-    //money spent by all customers
-    static int marketMoney = 0;
 
     /**
      * This method controls current number of customers in the market.
@@ -30,10 +28,10 @@ public class Observer {
         }
         int allowedNumber = birthControl;
         if (time < 30) {
-            if (numberOfBuyers < time+10 || allowedNumber<20) allowedNumber += Utils.intRandom(1);
+            if (numberOfBuyers < time+10 || allowedNumber<20) allowedNumber += Utils.intRandom(2);
         } else {
             if (numberOfBuyers > 40 + (30 - time)) {
-                --allowedNumber;
+                birthControl = allowedNumber - Utils.intRandom(3);
                 return 0;
             }
         }
@@ -47,13 +45,5 @@ public class Observer {
 
     public static void addBuyer() {
         allBuyers++;
-    }
-
-    public static int getMarketMoney() {
-        return marketMoney;
-    }
-
-    public static void addMarketMoney(int cashToAdd) {
-        marketMoney =+ cashToAdd;
     }
 }

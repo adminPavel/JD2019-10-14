@@ -46,7 +46,6 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     @Override
     public void enterToMarket() {
-        //TODO
         System.out.println(customerName + " entered the market. $" + currentMoney + " in wallet.");
         Observer.entranceAction(true);
     }
