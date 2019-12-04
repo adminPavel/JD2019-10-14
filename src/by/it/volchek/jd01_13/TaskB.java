@@ -15,9 +15,15 @@ class: by.it.вашпакет.jd01_13.TaskA
 line: 8
 */
 public class TaskB {
-    public static void err(Exception e){
-        System.out.println(e.getCause().getMessage());
-
+    private static void err (Exception e) {
+        StackTraceElement[] stackTrace = e.getStackTrace();
+        for (StackTraceElement stackTraceElement : stackTrace) {
+            if (TaskB.class.getName().equals(stackTraceElement.getClassName())) {
+                System.out.println("name: " + e.getClass().getName());
+                System.out.println("class: " + stackTraceElement.getClassName());
+                System.out.println("line: " + stackTraceElement.getLineNumber());
+            }
+        }
     }
     public static void main(String[] args) {
         Scanner sc=new Scanner (System.in);
@@ -30,6 +36,8 @@ public class TaskB {
                list.add(Double.parseDouble(word));
                System.out.println(word);
                Double sum = list.stream().reduce((s1, s2) -> s1 + s2).orElse(0.0);
+               if (sum<0)err(new ArithmeticException());
+               else
                System.out.println(Math.sqrt(sum));
            }
        } catch (NumberFormatException e) {
