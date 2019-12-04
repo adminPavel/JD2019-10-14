@@ -1,7 +1,12 @@
 package by.it.toporova.jd02_01;
 
- class Goods {
-    private String name;
+import java.util.HashMap;
+import java.util.Map;
+
+class Goods {
+     static Map<String, Double> priceList = new HashMap<>();
+
+     private String name;
     private Double price;
 
     Goods(String name, Double price) {
@@ -9,11 +14,29 @@ package by.it.toporova.jd02_01;
         this.price = price;
     }
 
-    String getName() {
+    String getName(String price) {
         return name;
     }
 
-    Double getPrice() {
+    Double getPrice(String name) {
         return price;
     }
+
+
+     static void loadPriceList() {
+         priceList.put("хлеб", 0.7);
+         priceList.put("молоко", 1.3);
+         priceList.put("кефир", 1.4);
+         priceList.put("колбаса", 4.0);
+         priceList.put("сыр", 3.1);
+         priceList.put("мандарины", 2.1);
+         priceList.put("чай", 3.4);
+         priceList.put("батон", 0.6);
+         priceList.put("огурцы", 2.2);
+         priceList.put("пельмени", 3.1);
+         priceList.put("яйца", 2.2);
+
+     }
+
+
 }

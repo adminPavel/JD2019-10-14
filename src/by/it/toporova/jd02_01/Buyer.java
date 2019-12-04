@@ -39,6 +39,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     @Override
     public void chooseGoods() {
+        String goods = Utils.getRandomGoods();
         int pause = Utils.randInt(500, 2000);
         if (this.pensioner) {
             pause = (int) (1.5 * pause);
