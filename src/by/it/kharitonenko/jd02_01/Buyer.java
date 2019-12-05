@@ -23,6 +23,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     Buyer(int number) {
 //        super("Buyer number: " + number);
+        Observer.entranceAction(true);
         StringBuilder nameGenerator = new StringBuilder();
         int age = new Random().nextInt(4) + 1;
         basket = new Basket();
@@ -47,7 +48,6 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     @Override
     public void enterToMarket() {
         System.out.println(customerName + " entered the market. $" + currentMoney + " in wallet.");
-        Observer.entranceAction(true);
     }
 
     @Override

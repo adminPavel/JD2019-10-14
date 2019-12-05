@@ -27,11 +27,13 @@ public class Observer {
             time -= 60;
         }
         int allowedNumber = birthControl;
+        if (numberOfBuyers > 30) {
+            birthControl = allowedNumber - Utils.intRandom(4);
+        }
         if (time < 30) {
             if (numberOfBuyers < time+10 || allowedNumber<20) allowedNumber += Utils.intRandom(2);
         } else {
             if (numberOfBuyers > 40 + (30 - time)) {
-                birthControl = allowedNumber - Utils.intRandom(3);
                 return 0;
             }
         }

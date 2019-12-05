@@ -6,11 +6,9 @@ import java.util.Random;
  * Different helpful static methods and program options.
  */
 public class Utils {
-    static final int SPEED = 1; // global speed, increase this value to speed up the program
+    static final int SPEED = 1;      // global speed, increase this value to speed up the program
     static final int TRIES = 6;      // how many times buyer will check catalogue before leaving
-    // if he can't decide on what to buy
-    //TODO placeholders
-
+                                     // if he can't decide on what to buy
 
     public static int getGlobalSpeed() {
         return SPEED;
@@ -32,7 +30,7 @@ public class Utils {
     //returns random enum (goods)
     public static Goods pickRandomProduct() {
         Goods[] checklist = Goods.values();
-        return checklist[intRandom(checklist.length-1)]; // choose random product
+        return checklist[intRandom(checklist.length - 1)]; // choose random product
     }
 
     //thread sleep method

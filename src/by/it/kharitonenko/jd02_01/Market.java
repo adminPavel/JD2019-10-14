@@ -6,10 +6,13 @@ import by.it.kharitonenko.jd02_01.Utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Change SPEED in Utils class to control speed (higher value == faster)
+ */
 public class Market {
     public static void main(String[] args) throws InterruptedException {
         System.out.print("'+' symbol marks pensioner\n" +
-                "Market gives updates every 5 seconds\n" +
+                "Market gives updates every 10 seconds\n" +
                 "You can see how much money customer has when he enters and when he leaves\n\n");
         Utils.sleep(5_000);
         System.out.println("MARKET IS OPEN");
@@ -24,7 +27,7 @@ public class Market {
             }
             Utils.sleep(1_000);
             //update data every 5 seconds
-            if (t % 5 == 0) {
+            if (t % 10 == 0) {
                 System.out.println("===========================");
                 System.out.println("TIME PASSED: " + t);
                 System.out.println("CURRENT NUMBER OF CUSTOMERS: " + Observer.countCurrentBuyers());
@@ -34,5 +37,7 @@ public class Market {
         for (Buyer buyer : customers) {
             buyer.join();
         }
+        System.out.println("Market is closed!");
+        System.out.println("Total number of customers: " + Observer.getAllBuyers());
     }
 }
