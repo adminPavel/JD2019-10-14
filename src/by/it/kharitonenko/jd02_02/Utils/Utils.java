@@ -1,0 +1,51 @@
+package by.it.kharitonenko.jd02_02.Utils;
+
+import java.util.Random;
+
+/**
+ * Different helpful static methods and program options.
+ */
+public class Utils {
+    static final int MAX_ALLOWED = 100; //max allowed number of customers
+    static final int SPEED = 1;         // global speed, increase this value to speed up the program
+    static final int TRIES = 6;         // how many times buyer will check catalogue before leaving
+                                        // if he can't decide on what to buy
+    static final Object MONITOR_OBSERVER = new Object();
+
+    public static int getGlobalSpeed() {
+        return SPEED;
+    }
+
+    public static int getTRIES() {
+        return TRIES;
+    }
+
+    //random int generators methods
+    public static int intRandom(int max) {
+        return intRandom(0, max);
+    }
+
+    public static int intRandom(int min, int max) {
+        return min + new Random().nextInt(max - min + 1);
+    }
+
+    //returns random enum (goods)
+    public static Goods pickRandomProduct() {
+        Goods[] checklist = Goods.values();
+        return checklist[intRandom(checklist.length - 1)]; // choose random product
+    }
+
+    //check for work conditions
+    public static boolean checkWork() {
+        return Observer.countCurrentBuyers() > 0 || Observer.getAllBuyers() <= 100;
+    }
+
+    //thread sleep method
+    public static void sleep(double time) {
+        try {
+            Thread.sleep((long) (time / getGlobalSpeed()));
+        } catch (InterruptedException e) {
+            System.err.println("Unexpected sleep interruption.");
+        }
+    }
+}
