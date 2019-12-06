@@ -7,6 +7,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     public Buyer(int number) {
         super("Buyer #" + number);
+        Dispatcher.addBuyerInMarket();
     }
 
     @Override
@@ -15,7 +16,9 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         takeBacket();
         chooseGoods();
         putGoodsToBacket();
+        goToQueue();
         goOut();
+        Dispatcher.buyerLeaveMarket();
     }
 
     @Override
@@ -36,6 +39,18 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         int timeout = Helper.random(500, 2000);
         Helper.sleep(timeout);
         System.out.println(this + " finished to choose goods");
+    }
+
+    @Override
+    public void goToQueue() {
+        Queue.add(this);
+        synchronized (this) {
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

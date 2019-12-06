@@ -6,13 +6,18 @@ public class Market {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Market opened");
         ArrayList<Buyer> buyerList = new ArrayList<>();
+        int numberBuyer = 0;
+        while (Dispatcher.marketIsOpened()) {
 
-        for (int time = 0; time < 120; time++) {
+
             int currentCount = Helper.random(2);
             for (int i = 0; i < currentCount; i++) {
-                Buyer buyer = new Buyer(++Dispatcher.buyerCount);
-                buyerList.add(buyer);
-                buyer.start();
+                if (Dispatcher.marketIsOpened()) {
+                    Dispatcher.marketIsOpened();
+                    Buyer buyer = new Buyer(++numberBuyer);
+                    buyerList.add(buyer);
+                    buyer.start();
+                }
             }
             Helper.sleep(1000);
         }

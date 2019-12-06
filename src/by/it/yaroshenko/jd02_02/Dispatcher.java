@@ -4,11 +4,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Dispatcher {
-    static int buyerCount=0;
-    static int kspeed=1;
+    static int kspeed=1000;
 
-   static Map<String, String> mapGoods = new HashMap<>();
+    private static final int PLAN=100;
+    private volatile static int buyerCount=0;
+    private volatile static int countCompleteBuyer=0;
 
+    static synchronized void addBuyerInMarket() {
+        buyerCount++;
+    }
+
+    static synchronized void buyerLeaveMarket() {
+        buyerCount--;
+        countCompleteBuyer++;
+    }
+
+    static synchronized boolean marketIsOpened() {
+        return buyerCount+countCompleteBuyer<PLAN;
+    }
+
+   static boolean marketIsCloseed() {
+        return countCompleteBuyer==PLAN;
+    }
+
+    static Map<String, String> mapGoods = new HashMap<>();
     public static void setGoods() {
         mapGoods.put("Milk", "2");
         mapGoods.put("Bread", "1");
@@ -31,4 +50,5 @@ public class Dispatcher {
     public static Map<String, String> getMapGoods() {
         return mapGoods;
     }
+
 }

@@ -10,8 +10,12 @@ public class ConsoleRunner extends Var {
         Parser parser = new Parser();
         Printer printer = new Printer();
         Var.load();
+
+
+
         while (!((line = scanner.next()).equals("end"))) {
-                Var.save();
+
+            Var.save();
 
             if ((line).equals("printvar")) {
                 printer.printHashMap(Var.getMap());
@@ -28,6 +32,6 @@ public class ConsoleRunner extends Var {
                 System.out.println(e.getMessage());
             }
         }
-
+        Var.save();
     }
 }
