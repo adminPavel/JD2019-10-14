@@ -18,6 +18,7 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
         takeBacket();
         chooseGoods();
         putGoodsToBacket();
+        getToQueue();
         goOut();
     }
 
@@ -38,9 +39,25 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
     @Override
+    public void getToQueue() {
+        System.out.println(this+" entered to queue");
+        QueueBuyer.add(this);
+        synchronized (this){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(this+" service finished");
+    }
+
+    @Override
     public void goOut() {
         System.out.println(this+" leave the market");
-
+        synchronized (Dispatcher.fakeMonitor){
+            Dispatcher.countCompeteBuyers++;
+        }
     }
 
     @Override
@@ -62,9 +79,7 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
         for (int i = 0; i <countOfGoods ; i++) {
             int whatGood = Helper.random(0,nameOfGoods.size()-1);
             Helper.sleep(timeToPut);
-            System.out.println(this+" took to backet "+ nameOfGoods.get(whatGood)
-                    + " for "
-                    + Market.goods.get(nameOfGoods.get(whatGood)) + "$");
+            System.out.println(this+" took to backet "+ nameOfGoods.get(whatGood));
         }
     }
 }
