@@ -16,9 +16,11 @@ public class Cashier implements Runnable{
                 System.out.println(this+" start service for "+buyer);
                 Helper.sleep(Helper.random(2000,5000));
                 synchronized (buyer){
-                    buyer.notify();
+                    buyer.setWaitFlag(false);
+                    buyer.notifyAll();
+                    System.out.println(this+" stop service for "+buyer);
+                    System.out.flush();
                 }
-                System.out.println(this+" stop service for "+buyer);
             }
             else {
                 Helper.sleep(1); //:'-(
@@ -29,6 +31,6 @@ public class Cashier implements Runnable{
 
     @Override
     public String toString() {
-        return name;
+        return "-- "+name;
     }
 }
