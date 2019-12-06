@@ -1,27 +1,29 @@
 package by.it.akhmelev.jd02_03;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 class Dispatcher {
     static int kSpeed=1000;
 
     private static final int PLAN=100;
-    private volatile static int countBuyer=0;
-    private volatile static int countCompleteBuyer=0;
+    private final static AtomicInteger countBuyer=new AtomicInteger(0);
+    private final static AtomicInteger countCompleteBuyer=new AtomicInteger(0);
 
-    static synchronized void buyerInMarket(){
-        countBuyer++;
+    static void buyerInMarket(){
+        countBuyer.getAndIncrement();
     }
 
-    static synchronized void buyerLeaveMarket(){
-        countBuyer--;
-        countCompleteBuyer++;
+    static void buyerLeaveMarket(){
+        countBuyer.getAndDecrement();
+        countCompleteBuyer.getAndIncrement();
     }
 
-    static synchronized boolean marketOpened(){
-        return countBuyer+countCompleteBuyer<PLAN;
+    static boolean marketOpened(){
+        return countBuyer.get()+countCompleteBuyer.get()<PLAN;
     }
 
     static boolean marketClosed(){
-        return countCompleteBuyer==PLAN;
+        return countCompleteBuyer.get()==PLAN;
     }
 
 

@@ -1,21 +1,26 @@
 package by.it.akhmelev.jd02_03;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.TimeUnit;
 
-public class QueueBuyer {
+class QueueBuyer {
 
-    private final static Deque<Buyer> queue = new LinkedList<>();
+    private final static BlockingDeque<Buyer> queue = new LinkedBlockingDeque<>(30);
 
     static void add(Buyer buyer) {
-        synchronized (queue) {
-            queue.addLast(buyer);
+        try {
+            queue.putLast(buyer);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
     static Buyer poll() {
-        synchronized (queue) {
-            return queue.pollFirst();
+        try {
+            return queue.pollFirst(1, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
