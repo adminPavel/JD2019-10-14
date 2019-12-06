@@ -1,4 +1,4 @@
-package by.it.toporova.jd02_01;
+package by.it.toporova.jd02_02;
 
 interface IUseBasket {
     void takeBasket(); //взял корзину

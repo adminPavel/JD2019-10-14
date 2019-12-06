@@ -1,4 +1,4 @@
-package by.it.toporova.jd02_01;
+package by.it.toporova.jd02_02;
 
 public class Buyer extends Thread implements IBuyer, IUseBasket {
     private Basket basket = new Basket();

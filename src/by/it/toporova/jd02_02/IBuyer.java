@@ -1,4 +1,4 @@
-package by.it.toporova.jd02_01;
+package by.it.toporova.jd02_02;
 
 public interface IBuyer {
     void enterToMarket();     //вошёл в магазин (мгновенно)

@@ -1,4 +1,4 @@
-package by.it.toporova.jd02_01;
+package by.it.toporova.jd02_02;
 
 import java.util.HashMap;
 import java.util.Map;
