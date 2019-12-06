@@ -28,13 +28,13 @@ public class Observer {
     }
 
     public static int getBirthControlA() {
-        if (Utils.MAX_ALLOWED - allBuyers <= 5) {
+        if (Utils.MAX_ALLOWED - allBuyers <= 2) {
             return Utils.MAX_ALLOWED - allBuyers;
         }
         if (allBuyers > Utils.MAX_ALLOWED) {
             return 0;
         }
-        return Utils.intRandom(5);
+        return Utils.intRandom(2);
     }
 
     public static int getBirthControl(int time) {
