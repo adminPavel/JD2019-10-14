@@ -15,7 +15,7 @@ public class TaskB {
         try (BufferedReader sr = new BufferedReader(new FileReader(filename))) {
             boolean block= false;
             boolean stroka = false;
-            boolean out = true; /* привет
+            boolean out = true;            /* привет
                         привет
                          */
             int prev = sr.read();
@@ -46,9 +46,9 @@ public class TaskB {
                     if (prev == '/' && cur == '*') {
                         sr.mark(1);
                         int next = sr.read(); // коммент
-                        //if (next != '*') {
+                        if (next != '*') {
                             block = true; // коммент
-                        //}
+                        }
                         sr.reset();
                     } else if (prev == '/' && cur == '/') {
                         stroka = true;
@@ -79,9 +79,8 @@ public class TaskB {
     private static String getPath(Class<TaskB> bClass) {
         return System.getProperty("user.dir")
                 + File.separator + "src" + File.separator +
-                bClass
-                    .getName()
-                    //.replace(bClass.getName(), "")
-                    .replace(".", File.separator);
+                bClass.getName()
+                //.replace(bClass.getName(), "")
+                .replace(".", File.separator);
     }
 }
