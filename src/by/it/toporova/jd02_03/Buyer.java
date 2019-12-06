@@ -1,16 +1,13 @@
-package by.it.toporova.jd02_02;
+package by.it.toporova.jd02_03;
 
 public class Buyer extends Thread implements IBuyer, IUseBasket {
     private Basket basket = new Basket();
     private boolean retired = false;//пенсионер
-    private int buyerNumber;     //номер покупателя
-
 
     Buyer(int number) {
         super("buyer №" + number);
-        this.buyerNumber = number;
-      //  Dispatcher.totalBuyersCount++;
-       // Dispatcher.buyersCount++;
+        Dispatcher.totalBuyersCount++;
+        Dispatcher.buyersCount++;
         if (Helper.getRandom(1, 4) == 4) {//выполняем условие, что каждый 4 - пенсионер
             this.retired = true;
             Dispatcher.totalRetiredCount++;

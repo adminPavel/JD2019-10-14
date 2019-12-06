@@ -1,4 +1,4 @@
-package by.it.toporova.jd02_01;
+package by.it.toporova.jd02_03;
 
 class Helper {
     static int getRandom(int min, int max){
@@ -7,7 +7,7 @@ class Helper {
 
     public static void sleep(int timeout) {
         try {
-            Thread.sleep(timeout/Dispatcher.k_speed);
+            Thread.sleep(timeout/ Dispatcher.k_speed);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
