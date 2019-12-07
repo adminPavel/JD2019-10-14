@@ -1,4 +1,4 @@
-package by.it.yaroshenko.jd02_02;
+package by.it.yaroshenko.jd02_03;
 
 public class Cashier implements Runnable{
     String name;
@@ -16,7 +16,8 @@ public class Cashier implements Runnable{
                 System.out.println(this+" start service for "+buyer);
                 Helper.sleep(Helper.random(2000, 5000));
                 synchronized (buyer) {
-                    buyer.notify();
+                    buyer.setWaitFlag(false);
+                    buyer.notifyAll();
                 }
                 System.out.println(this+ " stop service for "+buyer);
             }

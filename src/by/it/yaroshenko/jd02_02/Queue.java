@@ -2,7 +2,6 @@ package by.it.yaroshenko.jd02_02;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Queue {
     private final static Deque<Buyer> queue = new LinkedList<>();
