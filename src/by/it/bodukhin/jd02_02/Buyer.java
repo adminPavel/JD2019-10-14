@@ -1,9 +1,13 @@
 package by.it.bodukhin.jd02_02;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Buyer extends Thread implements IBuyer, IUseBacket {
+
+    List<String> goodsInBacket = new ArrayList<>();
 
     private boolean pensioneer = false;
 
@@ -70,16 +74,30 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
         System.out.println(this+" took backet");
     }
 
+    private Double totalPrice;
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice=totalPrice;
+    }
+
     @Override
     public void putGoodsToBacket() {
-        List<String> nameOfGoods= new ArrayList<>(Market.goods.keySet());
-        int countOfGoods = Helper.random(0, 4);
+        double price = 0;
+        int countOfGoods = Helper.random(1, 4);
         int timeToPut = Helper.random(500, 2000);
         if(pensioneer) timeToPut = Helper.random(750,3000);
         for (int i = 0; i <countOfGoods ; i++) {
-            int whatGood = Helper.random(0,nameOfGoods.size()-1);
+            Good good = Goods.getRandomGood();
+            goodsInBacket.add(good+" for " + good.getPrice()+"$");
+            price+=good.getPrice();
+            System.out.println(this + " put to the basket " + good);
             Helper.sleep(timeToPut);
-            System.out.println(this+" took to backet "+ nameOfGoods.get(whatGood));
         }
+        setTotalPrice(price);
     }
+
 }
