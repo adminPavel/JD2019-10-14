@@ -5,7 +5,7 @@ import java.io.*;
  * TaskB
  main*/
 public class TaskB {
-//comment
+    //comment
     public static void main(String[] args) {
         String path = getPath(TaskB.class);
         String fileName = path + ".java";
@@ -24,6 +24,7 @@ public class TaskB {
     }
 
     private static void writeToFile(String path, StringBuilder sb) {
+        //comment two
         try (FileWriter f = new FileWriter(path+".txt")) {
             f.append(sb);
             f.write("\n");
@@ -34,13 +35,15 @@ public class TaskB {
 
 
     private static StringBuilder remove(StringBuilder sb) {
-        int start;
-        int end;
-        while ((start = sb.indexOf("//")) >= 0 && (end = sb.indexOf("\n", start)) >= 0) {
-            sb.delete(start, end);
+        int startComment;
+        int endComment;
+        while ((startComment = sb.indexOf("//")) >= 0
+                && (endComment = sb.indexOf("\n", startComment)) >= 0) {
+            sb.delete(startComment, endComment);
         }
-        while ((start = sb.indexOf("/*")) >= 0 && (end = sb.indexOf("*/")) >= 0) {
-            sb.delete(start, end + 2);
+        while ((startComment = sb.indexOf("/*")) >= 0
+                && (endComment = sb.indexOf("*/")) >= 0) {
+            sb.delete(startComment, endComment + 2);
         }
         return sb;
     }
