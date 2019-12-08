@@ -15,6 +15,11 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     private Basket basket;
     private int currentMoney;
     private int cheque;
+    private boolean waitingFlag = false;
+
+    public void setWaitFlag(boolean waitFlag) {
+        this.waitingFlag = waitFlag;
+    }
 
     @Override
     public void run() {
@@ -53,11 +58,14 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     public void enterQueue() {
         System.out.println(this + " in queue.");
         BuyerQueue.add(this);
+        waitingFlag = true;
         synchronized (this) {
             try {
-                this.wait();
+                while (waitingFlag) {
+                    this.wait();
+                }
             } catch (InterruptedException e) {
-                System.out.println("Unexpected error.");
+                throw new RuntimeException(e);
             }
         }
         System.out.println(this + " finished with cashier.");

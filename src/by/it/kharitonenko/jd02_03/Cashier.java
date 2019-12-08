@@ -26,7 +26,9 @@ public class Cashier implements Runnable {
                 System.out.println(cashierName + " <--" + currentBuyer.getBasket().checkBasket() + "--> " + currentBuyer);
                 System.out.println(cashierName + " <--cheque $" + currentBuyer.getCheque() + "--> " + currentBuyer);
                 synchronized (currentBuyer) {
-                    currentBuyer.notify();
+                    currentBuyer.setWaitFlag(false);
+                    currentBuyer.notifyAll();
+                    System.out.flush();
                 }
             } else {
 //                //closing cashier
@@ -42,7 +44,7 @@ public class Cashier implements Runnable {
 //            }
 //            lock.unlock();
 //            System.out.println(cashierName + " closed.");
-                Utils.sleep(1);
+                Utils.sleep(10);
             }
         }
         System.out.println(cashierName + " finished his work.");

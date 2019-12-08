@@ -29,7 +29,7 @@ public class Market {
 
         int buyerNumber = 0;
         while (Observer.marketOpened()) {
-            int entranceCustomer = Utils.intRandom(2);
+            int entranceCustomer = Utils.intRandom(Observer.getBirthControlA());
 //            int entranceCustomer = Utils.intRandom(Observer.getBirthControl(t));
             for (int i = 0; i < entranceCustomer; i++) {
                 Buyer buyer = new Buyer(++buyerNumber);
