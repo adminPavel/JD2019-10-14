@@ -1,7 +1,6 @@
 package by.it.kharitonenko.jd02_02;
 
 import by.it.kharitonenko.jd02_02.Utils.BuyerQueue;
-import by.it.kharitonenko.jd02_02.Utils.CashierObserver;
 import by.it.kharitonenko.jd02_02.Utils.Observer;
 import by.it.kharitonenko.jd02_02.Utils.Utils;
 
@@ -18,8 +17,14 @@ public class Market {
         System.out.print("'+' symbol marks pensioner\n");
         Utils.sleep(2_000);
         System.out.println("MARKET IS OPEN");
-        CashierObserver.buyerQueueCheck();
-        CashierObserver.createCashiers();
+
+        List<Thread> threads = new ArrayList<>();
+        for (int i = 1; i <= 2; i++) {
+            Cashier cashier = new Cashier(i);
+            Thread thread = new Thread(cashier);
+            threads.add(thread);
+            thread.start();
+        }
 
         int buyerNumber = 0;
         while (Observer.marketOpened()) {
@@ -27,7 +32,7 @@ public class Market {
 //            int entranceCustomer = Utils.intRandom(Observer.getBirthControl(t));
             for (int i = 0; i < entranceCustomer; i++) {
                 Buyer buyer = new Buyer(++buyerNumber);
-                buyerList.add(buyer);
+                threads.add(buyer);
                 buyer.start();
             }
             Utils.sleep(1_000);
@@ -37,7 +42,7 @@ public class Market {
             System.out.println("===========================");
         }
 
-        for (Buyer buyer : buyerList) {
+        for (Thread buyer : threads) {
             buyer.join();
         }
 

@@ -7,10 +7,10 @@ import java.util.Random;
  */
 public class Utils {
     static final int MAX_ALLOWED = 100; //max allowed number of customers
-    static final int SPEED = 1;         // global speed, increase this value to speed up the program
+    static final int SPEED = 100;         // global speed, increase this value to speed up the program
     static final int TRIES = 6;         // how many times buyer will check catalogue before leaving
-                                        // if he can't decide on what to buy
-    static final Object MONITOR_OBSERVER = new Object();
+    // if he can't decide on what to buy
+    private static Random generator = new Random(System.nanoTime());
 
     public static int getGlobalSpeed() {
         return SPEED;
@@ -26,7 +26,7 @@ public class Utils {
     }
 
     public static int intRandom(int min, int max) {
-        return min + new Random().nextInt(max - min + 1);
+        return min + generator.nextInt(max - min + 1);
     }
 
     //returns random enum (goods)

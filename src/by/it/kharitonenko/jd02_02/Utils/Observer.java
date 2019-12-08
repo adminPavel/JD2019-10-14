@@ -2,9 +2,9 @@ package by.it.kharitonenko.jd02_02.Utils;
 
 public class Observer {
     //this variable counts ALL buyers
-    static int allBuyers = 0;
+    static volatile int allBuyers = 0;
     //this one counts only CURRENT buyers
-    static int numberOfBuyers = 0;
+    static volatile int numberOfBuyers = 0;
     //allowed customers count
     static int birthControl = 1;
     //all money market earned
