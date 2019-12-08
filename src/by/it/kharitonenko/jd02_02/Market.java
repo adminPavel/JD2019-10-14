@@ -11,7 +11,6 @@ import java.util.List;
 Change SPEED value in Utils class to control speed (higher value == faster)
  */
 public class Market {
-    public static List<Buyer> buyerList = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
         System.out.print("'+' symbol marks pensioner\n");

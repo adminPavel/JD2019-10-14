@@ -33,12 +33,12 @@ public class Observer {
     }
 
     public static synchronized int getBirthControlA() {
-        if (Utils.MAX_ALLOWED - allBuyers <= 2) {
-            return Utils.MAX_ALLOWED - allBuyers;
-        }
-        if (allBuyers > Utils.MAX_ALLOWED) {
-            return 0;
-        }
+//        if (Utils.MAX_ALLOWED - allBuyers < 3) {
+//            return Utils.MAX_ALLOWED - allBuyers;
+//        }
+//        if (allBuyers > Utils.MAX_ALLOWED) {
+//            return 0;
+//        }
         return Utils.intRandom(2);
     }
 
