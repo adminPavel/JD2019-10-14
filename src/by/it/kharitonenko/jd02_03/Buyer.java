@@ -27,6 +27,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         try {
             Utils.marketSemaphore.acquire();
             Observer.startedChoosing();
+            System.out.println(this + " started choosing goods.");
             chooseGoods();
         } catch (InterruptedException e) {
             e.printStackTrace();
