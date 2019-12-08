@@ -25,23 +25,22 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     }
 
     Buyer(int number) {
-        synchronized (Market.monitor) {
-            Observer.entranceAction(true);
-            StringBuilder nameGenerator = new StringBuilder();
-            int age = new Random().nextInt(4) + 1;
-            basket = new Basket();
-            customerSpeed = 1;
-            currentMoney = Utils.intRandom(4, 10); //starting money
-            if (age == 4) {
-                this.PENSIONER = true;
-                customerSpeed = 1.5;
-                nameGenerator.append("+"); //marks pensioner customer
-            } else {
-                this.PENSIONER = false;
-            }
-            nameGenerator.append("Buyer# ").append(number);
-            customerName = nameGenerator.toString();
+        Observer.buyerEntered();
+        StringBuilder nameGenerator = new StringBuilder();
+        int age = new Random().nextInt(4) + 1;
+        basket = new Basket();
+        customerSpeed = 1;
+        currentMoney = Utils.intRandom(4, 10); //starting money
+        if (age == 4) {
+            this.PENSIONER = true;
+            customerSpeed = 1.5;
+            nameGenerator.append("+"); //marks pensioner customer
+        } else {
+            this.PENSIONER = false;
         }
+        nameGenerator.append("Buyer# ").append(number);
+        customerName = nameGenerator.toString();
+
     }
 
     public void enterQueue() {
@@ -49,9 +48,9 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         BuyerQueue.add(this);
         synchronized (this) {
             try {
-                wait();
+                this.wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Unexpected error.");
             }
         }
         System.out.println(this + " finished with cashier.");
@@ -76,10 +75,8 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     @Override
     public void goOut() {
-        synchronized (Market.monitor) {
-            System.out.println(customerName + " left the market. $" + currentMoney + " left.");
-            Observer.entranceAction(false);
-        }
+        System.out.println(customerName + " left the market. $" + currentMoney + " left.");
+        Observer.buyerLeft();
     }
 
     @Override

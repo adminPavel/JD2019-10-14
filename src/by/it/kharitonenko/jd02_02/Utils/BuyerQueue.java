@@ -2,11 +2,11 @@ package by.it.kharitonenko.jd02_02.Utils;
 
 import by.it.kharitonenko.jd02_02.Buyer;
 
-import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedList;
 
 public class BuyerQueue {
-    private final static Deque<Buyer> buyerQueue = new ArrayDeque<>();
+    private final static Deque<Buyer> buyerQueue = new LinkedList<>();
 
     public static void add(Buyer buyer) {
         synchronized (buyerQueue) {
@@ -16,13 +16,11 @@ public class BuyerQueue {
 
     public static Buyer extract() {
         synchronized (buyerQueue) {
-            return buyerQueue.poll();
+            return buyerQueue.pollFirst();
         }
     }
 
     public static int getQueueSize() {
-        synchronized (buyerQueue) {
             return buyerQueue.size();
-        }
     }
 }

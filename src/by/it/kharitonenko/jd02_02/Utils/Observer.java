@@ -10,24 +10,29 @@ public class Observer {
     //all money market earned
     static int marketMoney = 0;
 
-    /**
-     * This method controls current number of customers in the market.
-     *
-     * @param entered true if customer entered the market; false if he left it
-     */
-    public static void entranceAction(boolean entered) {
-        synchronized (Utils.MONITOR_OBSERVER) {
-            if (entered) {
-                numberOfBuyers++;
-            } else numberOfBuyers--;
-        }
+    public static synchronized void buyerEntered() {
+        numberOfBuyers++;
+    }
+
+    public static synchronized void buyerLeft() {
+        numberOfBuyers--;
+        allBuyers++;
+    }
+
+    //check for work conditions
+    public static synchronized boolean marketOpened() {
+        return numberOfBuyers + allBuyers < Utils.MAX_ALLOWED;
+    }
+
+    public static boolean marketClosed() {
+        return allBuyers >= Utils.MAX_ALLOWED;
     }
 
     public static int countCurrentBuyers() {
         return numberOfBuyers;
     }
 
-    public static int getBirthControlA() {
+    public static synchronized int getBirthControlA() {
         if (Utils.MAX_ALLOWED - allBuyers <= 2) {
             return Utils.MAX_ALLOWED - allBuyers;
         }
@@ -37,36 +42,31 @@ public class Observer {
         return Utils.intRandom(2);
     }
 
-    public static int getBirthControl(int time) {
-        if (time / 60 > 0) {
-            time -= 60;
-        }
-        if (getAllBuyers() > Utils.MAX_ALLOWED) {
-            return 0;
-        }
-        int allowedNumber = birthControl;
-        if (numberOfBuyers > 30) {
-            birthControl = allowedNumber - Utils.intRandom(4);
-        }
-        if (time < 30) {
-            if (numberOfBuyers < time + 10 || allowedNumber < 20) allowedNumber += Utils.intRandom(2);
-        } else {
-            if (numberOfBuyers > 40 + (30 - time)) {
-                birthControl--;
-                return 0;
-            }
-        }
-        birthControl = allowedNumber;
-        return birthControl;
-    }
+    //saw
+//    public static int getBirthControl(int time) {
+//        if (time / 60 > 0) {
+//            time -= 60;
+//        }
+//        if (getAllBuyers() > Utils.MAX_ALLOWED) {
+//            return 0;
+//        }
+//        int allowedNumber = birthControl;
+//        if (numberOfBuyers > 30) {
+//            birthControl = allowedNumber - Utils.intRandom(4);
+//        }
+//        if (time < 30) {
+//            if (numberOfBuyers < time + 10 || allowedNumber < 20) allowedNumber += Utils.intRandom(2);
+//        } else {
+//            if (numberOfBuyers > 40 + (30 - time)) {
+//                birthControl--;
+//                return 0;
+//            }
+//        }
+//        birthControl = allowedNumber;
+//        return birthControl;
+//    }
 
     public static int getAllBuyers() {
         return allBuyers;
-    }
-
-    public static void addBuyer() {
-        synchronized (Utils.MONITOR_OBSERVER) {
-            allBuyers++;
-        }
     }
 }

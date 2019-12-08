@@ -35,11 +35,6 @@ public class Utils {
         return checklist[intRandom(checklist.length - 1)]; // choose random product
     }
 
-    //check for work conditions
-    public static boolean checkWork() {
-        return Observer.countCurrentBuyers() > 0 || Observer.getAllBuyers() <= 100;
-    }
-
     //thread sleep method
     public static void sleep(double time) {
         try {
