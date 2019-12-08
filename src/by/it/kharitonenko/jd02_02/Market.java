@@ -35,10 +35,6 @@ public class Market {
                 buyer.start();
             }
             Utils.sleep(1_000);
-            System.out.println("===========================");
-            System.out.println("CURRENT NUMBER OF CUSTOMERS: " + Observer.countCurrentBuyers());
-            System.out.println("CURRENT QUEUE SIZE: " + BuyerQueue.getQueueSize());
-            System.out.println("===========================");
         }
 
         for (Thread buyer : threads) {
