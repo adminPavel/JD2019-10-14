@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class Utils {
     static final int MAX_ALLOWED = 100; //max allowed number of customers
-    static final int SPEED = 100;         // global speed, increase this value to speed up the program
+    static final int SPEED = 30;         // global speed, increase this value to speed up the program
     static final int TRIES = 6;         // how many times buyer will check catalogue before leaving
     // if he can't decide on what to buy
     private static Random generator = new Random(System.nanoTime());

@@ -44,7 +44,6 @@ public class Market {
         System.out.println("Waiting till market is empty...");
 
         threadPool.shutdown();
-        //noinspection StatementWithEmptyBody
         while (!threadPool.awaitTermination(1, TimeUnit.MILLISECONDS));
 
         System.out.println("Market is closed!");
