@@ -18,7 +18,7 @@ public class Market {
         System.out.println("MARKET IS OPEN");
         List<Buyer> customers = new ArrayList<>();
         for (int t = 0; t < 120; t++) {
-            int entranceCustomer = Utils.intRandom(Observer.getBirthControl(t));
+            int entranceCustomer = Utils.intRandom(2);
             for (int i = 0; i < entranceCustomer; i++) {
                 Observer.addBuyer();
                 Buyer buyer = new Buyer(Observer.getAllBuyers());
