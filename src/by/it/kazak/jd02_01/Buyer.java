@@ -10,9 +10,10 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
     static Integer numberInTheShop = 0;
 
     Buyer(int number) {
-        super("Buyer №" + number + " ");
-        if (number % 4 == 0) this.pensioneer = true;
-        
+        super("Buyer № " + number);
+        if (number % 4 == 0) {
+            this.pensioneer = true;
+        }
     }
 
     @Override
@@ -45,11 +46,6 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
     @Override
-    public String toString() {
-        return getName() + " " + pensioneer;
-    }
-
-    @Override
     public void takeBacket() {
         if (pensioneer) Helper.sleepThread(Helper.random(750, 3000));
         Helper.sleepThread(Helper.random(500, 2000));
@@ -73,5 +69,11 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
             Double prise = listOfGoods.get(chosenGood);
             System.out.println(this + " Chosen: " + chosenGood + " " + prise);
         }
+    }
+
+    @Override
+    public String toString() {
+        if (this.pensioneer) return this.getName() + " pensioneer";
+        else return this.getName();
     }
 }

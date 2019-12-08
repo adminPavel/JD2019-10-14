@@ -1,4 +1,4 @@
-package by.it.kazak.jd02_01;
+package by.it.kazak.jd02_03;
 
 import java.util.Random;
 
@@ -6,8 +6,8 @@ class Helper {
 
     private static Random generator = new Random(System.nanoTime());
 
-    static int random(int max) {
-        return random(0, max);
+    static int random() {
+        return random(0, 2);
     }
 
     static int random(int start, int end) {

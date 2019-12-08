@@ -5,14 +5,13 @@ import java.util.List;
 
 public class Shop {
     public static void main(String[] args) {
-        System.out.println("The store has opened");
+        System.out.println("------------shop is opened---------------");
         List<Thread> buyers = new ArrayList<>();
-
         int numberBuyer = 0;
 
         for (int countMinuts = 0; countMinuts < 2; countMinuts++) {
             int time = 0;
-            while (time < Counter.finishTime) {
+            while (time < Counter.MINUTE) {
                 if (time <= 30) {
                     int count = Helper.random(2);
                     if (!(Buyer.numberInTheShop >= time + 10)) {
@@ -49,6 +48,6 @@ public class Shop {
                 e.printStackTrace();
             }
         }
-        System.out.println("The store was closed");
+        System.out.println("------------shop is closed-------------");
     }
 }

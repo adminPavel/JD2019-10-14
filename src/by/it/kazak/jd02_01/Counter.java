@@ -4,10 +4,9 @@ import java.util.HashMap;
 
 class Counter {
 
-    static int countBuyer = 0;
-    static int kSpeed = 10000;
-    final static int finishTime = 60;
-    private static HashMap<String, Double> products = new HashMap<String, Double>() {
+    static int K_SPEED = 10000;
+    final static int MINUTE = 60;
+    private static HashMap<String, Double> LIST_OF_GOODS = new HashMap<String, Double>() {
         {
             put("potato", 2.0);
             put("milk", 4.1);
@@ -21,7 +20,7 @@ class Counter {
     };
 
     static HashMap<String, Double> getGoods() {
-        return products;
+        return LIST_OF_GOODS;
     }
 
 }
