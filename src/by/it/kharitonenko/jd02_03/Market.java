@@ -17,6 +17,7 @@ public class Market {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.print("'+' symbol marks pensioner\n");
+        System.out.print("semaphore in buyer class");
         Utils.sleep(2_000);
         System.out.println("MARKET IS OPEN");
 
