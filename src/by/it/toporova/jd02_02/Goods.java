@@ -18,6 +18,17 @@ class Goods {
         priceList.put("килька", 4.2);
         priceList.put("яблоки", 2.0);
         priceList.put("яйца", 2.4);
-
     }
-}
+        //геттер размера списка товаров магазина
+        int getPriceListSize() {
+            return priceList.size();
+        }
+
+        //геттер цены товара из списка товаров магазина
+        double getPrice(String goods) {
+            if (priceList.containsKey(goods)){
+                return (int) Math.round(priceList.get(goods)*10)/10.0;
+            } else
+                return 0.0;
+        }
+    }

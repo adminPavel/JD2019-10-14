@@ -1,8 +1,8 @@
 package by.it.toporova.jd02_02;
 
 public class Buyer extends Thread implements IBuyer, IUseBasket {
-    private Basket basket = new Basket();
-    private boolean retired = false;//пенсионер
+    Basket basket = new Basket();
+    boolean retired = false;     //поле, помечающее пенсионеров
     private int buyerNumber;     //номер покупателя
 
 
@@ -10,11 +10,9 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     Buyer(int number) {
         super("buyer №" + number);
         this.buyerNumber = number;
-      //  Dispatcher.totalBuyersCount++;
-       // Dispatcher.buyersCount++;
-        if (Dispatcher.totalBuyersCount%4 == 0) {//выполняем условие, что каждый 4 - пенсионер
+        Dispatcher.newBuyer();
+        if (Helper.getRandom(1, 4) == 1) {
             this.retired = true;
-            Dispatcher.totalRetiredCount++;
             this.setName(this.getName() + "(retired)");
         }
     }
@@ -23,51 +21,89 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     public void run() {
         enterToMarket();
         takeBasket();
-        int goodsQuantity = Helper.getRandom(1, 4);//набор рандомного количества товаров от 1 до 4
-        for (int i = 0; i < goodsQuantity; i++) {//набираем количество определенных товаров
+        Goods goods = new Goods();
+        int priceListSize = goods.getPriceListSize();
+        int quantity = Helper.getRandom(1, 4);
+        for (int i = 0; i < quantity; i++) {
             chooseGoods();
-            putGoodsToBasket();
+            putGoodsToBasket(goods, priceListSize);
         }
+        goToQueue();
         goOut();
-        Dispatcher.buyersCount--;
+        Dispatcher.buyerLeaved(this);
+    }
+
+    //метод для кастования buyer'a к object'у
+    static Object getMonitor(Buyer buyer) {
+        return buyer;
+    }
+
+    //геттер для номера покупателя
+    int getBuyerNumber() {
+        return buyerNumber;
+    }
+
+    //покупатель отправляется в очередь
+    private void goToQueue() {
+        synchronized (Dispatcher.LOCK_CONSOLE) {
+            System.out.println(this + " went to the queue");
+        }
+        synchronized (this) {
+            try {
+                BuyerQueue.putToQueue(this);
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void enterToMarket() {
-        System.out.println(this.getName() + " entered the market");
-        System.out.flush();
+        synchronized (Dispatcher.LOCK_CONSOLE) {
+            System.out.println(this.getName() + " entered the market");
+        }
     }
 
     @Override
     public void chooseGoods() {
-        int timeout = Helper.getRandom(500, 2000); //время на каждую операцию от 0.5 до 2 секунд
-        System.out.println(this.getName() + " is choosing " + timeout);
-        Helper.sleep(retired ? (int) (timeout * 1.5) : timeout); //если клиент - пенсионер, то работы удлиняются в 1.5 раза.
-        System.out.flush();//гасим
+        int timeout = Helper.getRandom(500, 2000);
+        synchronized (Dispatcher.LOCK_CONSOLE) {
+            System.out.println(this.getName() + " is choosing goods " + timeout + " mlsec");
+        }
+        Helper.sleep(retired ? (int) (timeout * 1.5) : timeout);
     }
 
     @Override
     public void goOut() {
-        System.out.println(this.getName() + " exited the market");
-        System.out.flush();
+        synchronized (Dispatcher.LOCK_CONSOLE) {
+            System.out.println(this.getName() + " exited the market");
+        }
     }
 
     @Override
     public void takeBasket() {
-        System.out.println(this.getName() + " took basket");
+        synchronized (Dispatcher.LOCK_CONSOLE) {
+            System.out.println(this.getName() + " took basket");
+        }
         int timeToTakeBasket = Helper.getRandom(100, 200);
         Helper.sleep(retired ? (int) (timeToTakeBasket * 1.5) : timeToTakeBasket);
-        System.out.flush();
     }
 
     @Override
-    public void putGoodsToBasket() {
-        String goods = Helper.getRandomGoods();
-        System.out.println(this.getName() + " took " + goods);
-        System.out.flush();
+    public void putGoodsToBasket(Goods list_of_goods, int priceListSize) {
+        String goods = Helper.getRandomGoods(priceListSize);
+        synchronized (Dispatcher.LOCK_CONSOLE) {
+            System.out.println(this.getName() + " took " + goods);
+        }
         int timeToTakeGoods = Helper.getRandom(100, 200);
         Helper.sleep(retired ? (int) (timeToTakeGoods * 1.5) : timeToTakeGoods);
-        double price = Goods.priceList.get(goods);
+        double price = list_of_goods.getPrice(goods);
         this.basket.goods.put(goods, price);
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
     }
 }

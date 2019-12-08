@@ -13,8 +13,8 @@ class Helper {
         }
     }
 
-    static String getRandomGoods() {//рандомный набор товаров по списку
-        int goodNumber = getRandom(1, Goods.priceList.size());
+    static String getRandomGoods(int priceListSize) { //рандомізатор товара
+        int goodNumber = getRandom(1, priceListSize);
         switch (goodNumber){
             case 1: return "хлеб";
             case 2: return "молоко";
