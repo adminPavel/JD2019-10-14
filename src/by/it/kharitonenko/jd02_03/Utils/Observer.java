@@ -7,10 +7,24 @@ public class Observer {
     static final AtomicInteger allBuyers = new AtomicInteger(0);
     //this one counts only CURRENT buyers
     static final AtomicInteger numberOfBuyers = new AtomicInteger(0);
+    //choosing goods currently
+    static final AtomicInteger choosingGoodsNumber = new AtomicInteger(0);
     //allowed customers count
     static int birthControl = 1;
     //all money market earned
     static int marketMoney = 0;
+
+    public static synchronized void startedChoosing() {
+        choosingGoodsNumber.getAndIncrement();
+    }
+
+    public static synchronized void stoppedChoosing() {
+        choosingGoodsNumber.getAndDecrement();
+    }
+
+    public static synchronized int getChoosingGoodsNumber() {
+        return choosingGoodsNumber.get();
+    }
 
     public static synchronized void buyerEntered() {
         numberOfBuyers.getAndIncrement();

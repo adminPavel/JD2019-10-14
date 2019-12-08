@@ -19,7 +19,15 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     @Override
     public void run() {
         enterToMarket();
-        chooseGoods();
+        try {
+            Utils.marketSemaphore.acquire();
+            Observer.startedChoosing();
+            chooseGoods();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Utils.marketSemaphore.release();
+        Observer.stoppedChoosing();
         enterQueue();
         goOut();
     }

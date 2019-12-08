@@ -37,10 +37,11 @@ public class Market {
             }
             Utils.sleep(1_000);
             System.out.println("===========================");
-            System.out.println("CURRENT NUMBER OF CUSTOMERS: " + Observer.countCurrentBuyers());
-            System.out.println("CURRENT QUEUE SIZE: " + BuyerQueue.getQueueSize());
+            System.out.println("CHOOSING GOODS: " + Observer.getChoosingGoodsNumber());
+            System.out.println("QUEUE SIZE: " + BuyerQueue.getQueueSize());
             System.out.println("===========================");
         }
+        System.out.println("Waiting till market is empty...");
 
         threadPool.shutdown();
         //noinspection StatementWithEmptyBody
