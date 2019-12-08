@@ -1,4 +1,4 @@
-package by.it.bodukhin.jd02_02;
+package by.it.bodukhin.jd02_03;
 
 public class Cashier implements Runnable{
 
@@ -17,7 +17,7 @@ public class Cashier implements Runnable{
     public void run() {
         System.out.println(this+" cashier open");
         Buyer b;
-        while ((b=QueueBuyer.extractBuyer())!=null) {
+        while ((b= QueueBuyer.extractBuyer())!=null) {
             System.out.println(this + " service " + b);
             Helper.sleep(Helper.random(2000, 5000));
             System.out.println(b+" bought "+b.goodsInBacket);

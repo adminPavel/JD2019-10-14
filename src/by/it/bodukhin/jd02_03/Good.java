@@ -1,4 +1,4 @@
-package by.it.bodukhin.jd02_02;
+package by.it.bodukhin.jd02_03;
 
 public class Good {
 
