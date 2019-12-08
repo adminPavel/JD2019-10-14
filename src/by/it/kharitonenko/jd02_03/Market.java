@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /*
 Change SPEED value in Utils class to control speed (higher value == faster)
@@ -28,12 +29,12 @@ public class Market {
             threadPool.execute(cashier);
         }
 
-        int buyerNumber = 0;
+        AtomicInteger buyerNumber = new AtomicInteger(0);
         while (Observer.marketOpened()) {
             int entranceCustomer = Utils.intRandom(Observer.getBirthControlA());
 //            int entranceCustomer = Utils.intRandom(Observer.getBirthControl(t));
             for (int i = 0; i < entranceCustomer; i++) {
-                Buyer buyer = new Buyer(++buyerNumber);
+                Buyer buyer = new Buyer(buyerNumber.incrementAndGet());
                 buyer.start();
             }
             Utils.sleep(1_000);
