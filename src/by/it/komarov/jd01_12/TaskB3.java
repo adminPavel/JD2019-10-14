@@ -2,9 +2,20 @@ package by.it.komarov.jd01_12;
 
 import java.util.*;
 
-
 class TaskB3 {
-    static String process(ArrayList<String> peoples) {
+    public static void main(String[] args) {
+        Timer timer = new Timer();
+        String[] people = createArrayByNumber(4096);
+        System.out.println("Массив из " + people.length + " элементов готов. \n" + timer);
+        System.out.println("ArrayList готов. \n" + timer);
+        System.out.println("LinkedList готов. \n" + timer);
+        System.out.println(process(new ArrayList<>(Arrays.asList(people))));
+        System.out.println("ArrayList завершен. \n" + timer);
+        System.out.println(process(new LinkedList<>(Arrays.asList(people))));
+        System.out.println("LinkedList завершен. \n" + timer);
+    }
+
+    private static String process(ArrayList<String> peoples) {
         ListIterator<String> iterator = peoples.listIterator();
         int counter = 0;
         while (peoples.size() != 1) {
@@ -25,7 +36,7 @@ class TaskB3 {
         return peoples.get(0);
     }
 
-    static String process(LinkedList<String> peoples) {
+    private static String process(LinkedList<String> peoples) {
         Deque<String> peopleDeque = peoples;
         while (peopleDeque.size() != 1) {
             peopleDeque.addLast(peopleDeque.remove());
@@ -42,34 +53,5 @@ class TaskB3 {
         return result;
     }
 
-    public static void main(String[] args) {
-        Timer timer = new Timer();
-        String[] people = createArrayByNumber(4096);
-        System.out.println("Массив из " + people.length + " элементов готов. \n" + timer);
-        ArrayList<String> arrayPeople = new ArrayList<>(Arrays.asList(people));
-        System.out.println("ArrayList готов. \n" + timer);
-        LinkedList<String> linkedPeople = new LinkedList<>(Arrays.asList(people));
-        System.out.println("LinkedList готов. \n" + timer);
-        System.out.println(process(arrayPeople));
-        System.out.println("ArrayList метод завершен. \n" + timer);
-        System.out.println(process(linkedPeople));
-        System.out.println("LinkedList метод завершен. \n" + timer);
-    }
-
-    public static class Timer {
-        private long iniTime;
-        private Double Delta;
-
-        public Timer() {
-            iniTime = System.nanoTime();
-        }
-
-        public String toString() {
-            Delta = (double) (System.nanoTime() - iniTime) / 1000;
-            iniTime = System.nanoTime();
-
-            return "Время выполнения == " + Delta.toString() + " микросекунд";
-        }
-    }
 
 }

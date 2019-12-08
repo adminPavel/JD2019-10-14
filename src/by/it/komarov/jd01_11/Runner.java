@@ -23,8 +23,6 @@ public class Runner {
         m1.put(1, "e");
         System.out.println(m1);
 
-
-
         myList.add("First"); arList.add("First");
         myList.add("Second"); arList.add("Second");
         myList.add("Third"); arList.add("Third");
