@@ -37,10 +37,6 @@ public class Market {
                 buyer.start();
             }
             Utils.sleep(1_000);
-            System.out.println("===========================");
-            System.out.println("CHOOSING GOODS: " + Observer.getChoosingGoodsNumber());
-            System.out.println("QUEUE SIZE: " + BuyerQueue.getQueueSize());
-            System.out.println("===========================");
         }
         System.out.println("Waiting till market is empty...");
 
