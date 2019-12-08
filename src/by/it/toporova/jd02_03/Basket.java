@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Basket {
-    Map<String, Double> goods = new HashMap<>();
+    Map<String, Integer> goods = new HashMap<>();
 
     Basket() {
     }

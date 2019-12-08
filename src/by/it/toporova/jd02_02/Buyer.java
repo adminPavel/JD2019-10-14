@@ -6,12 +6,13 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     private int buyerNumber;     //номер покупателя
 
 
+
     Buyer(int number) {
         super("buyer №" + number);
         this.buyerNumber = number;
       //  Dispatcher.totalBuyersCount++;
        // Dispatcher.buyersCount++;
-        if (Helper.getRandom(1, 4) == 4) {//выполняем условие, что каждый 4 - пенсионер
+        if (Dispatcher.totalBuyersCount%4 == 0) {//выполняем условие, что каждый 4 - пенсионер
             this.retired = true;
             Dispatcher.totalRetiredCount++;
             this.setName(this.getName() + "(retired)");
