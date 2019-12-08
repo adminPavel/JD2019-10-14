@@ -1,10 +1,11 @@
 package by.it.yaroshenko.jd01_11;
 
+
 import java.util.*;
 
-public class ListA<T> implements List<T> {
-        private T[] elements = (T[]) new Object[]{};
-        private int size = 0;
+public class ListB<T> implements List<T> {
+    private T[] elements = (T[]) new Object[]{};
+    private int size = 0;
 
     @Override
     public boolean add(T t) {
@@ -34,7 +35,7 @@ public class ListA<T> implements List<T> {
         }
 
     }
-//    Первым параметром является массив-источник.
+    //    Первым параметром является массив-источник.
 //    Вторым параметром является позиция начала нового массива.
 //    Третий параметр — массив-назначения.
 //    Четвертый параметр является начальным положением целевого массива.
@@ -62,7 +63,15 @@ public class ListA<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        return false;
+        Object[] a = c.toArray();
+        int numNew = a.length;
+        int minCapacity = size + numNew;
+        if (minCapacity > elements.length) {
+            elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
+        }
+        System.arraycopy(a, 0, elements, size, numNew);
+        size += numNew;
+        return numNew != 0;
     }
 
     @Override
@@ -72,7 +81,9 @@ public class ListA<T> implements List<T> {
 
     @Override
     public T set(int index, T element) {
-        return null;
+        T oldValue = elements[index];
+        elements[index] = element;
+        return oldValue;
     }
 
     @Override
@@ -159,7 +170,7 @@ public class ListA<T> implements List<T> {
 
     }
 
- @Override
+    @Override
     public int lastIndexOf(Object o) {
         return 0;
     }
@@ -182,5 +193,4 @@ public class ListA<T> implements List<T> {
 
 
 }
-
 
