@@ -9,7 +9,7 @@ public class TaskB {
     public static void main(String[] args) {
         String path = getPath(TaskB.class);
         String fileName = path + ".java";
-        System.out.println(fileName);//comment
+        System.out.println(fileName);//comment one
         StringBuilder sb = new StringBuilder();
         try (BufferedReader sr = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -20,7 +20,10 @@ public class TaskB {
             e.printStackTrace();
         }
         System.out.println(remove(sb));
+        writeToFile(path, sb);
+    }
 
+    private static void writeToFile(String path, StringBuilder sb) {
         try (FileWriter f = new FileWriter(path+".txt")) {
             f.append(sb);
             f.write("\n");
