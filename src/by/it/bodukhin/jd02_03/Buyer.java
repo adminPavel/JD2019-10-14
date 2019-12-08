@@ -2,10 +2,13 @@ package by.it.bodukhin.jd02_03;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 class Buyer extends Thread implements IBuyer, IUseBacket {
 
     List<String> goodsInBacket = new ArrayList<>();
+
+    Semaphore sem = new Semaphore(20);
 
     private boolean pensioneer = false;
 
@@ -32,17 +35,20 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void chooseGoods() {
+        try {
+            sem.acquire();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(this+" started to choosed goods");
         if(pensioneer) Helper.sleep(Helper.random(750, 3000));
         int timeout = Helper.random(500,2000);
         Helper.sleep(timeout);
-        System.out.println(this+" finished to choosed goods");
 
     }
 
     @Override
     public void getToQueue() {
-        System.out.println(this+" entered to queue");
         QueueBuyer.add(this);
         synchronized (this){
             try {
@@ -57,9 +63,8 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void goOut() {
         System.out.println(this+" leave the market");
-        synchronized (Dispatcher.fakeMonitor){
-            Dispatcher.countCompeteBuyers++;
-        }
+        Dispatcher.countCompeteBuyers.getAndIncrement();
+
     }
 
     @Override
@@ -84,6 +89,8 @@ class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void putGoodsToBacket() {
+        System.out.println(this+" finished to choosed goods");
+        sem.release();
         double price = 0;
         int countOfGoods = Helper.random(1, 4);
         int timeToPut = Helper.random(500, 2000);

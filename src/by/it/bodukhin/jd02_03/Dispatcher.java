@@ -1,26 +1,32 @@
 package by.it.bodukhin.jd02_03;
 
-import java.util.ArrayList;
-import java.util.List;
+import by.it.akhmelev.jd02_03.Cashier;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Dispatcher extends Thread {
-    static final Integer fakeMonitor = 0;
     static final int PLAN = 100;
-    static volatile int countBuyer = 0;
-    static volatile int countCompeteBuyers = 0;
+    private final static AtomicInteger numberOfCashier = new AtomicInteger(1);
+    final static AtomicInteger countBuyer = new AtomicInteger(0);
+    final static AtomicInteger countCompeteBuyers = new AtomicInteger(0);
     static int kSpeed = 1000;
-    static List<Thread> cashiers = new ArrayList<>();
+    ExecutorService threadPool = Executors.newFixedThreadPool(5);
 
     @Override
     public void run() {
-        while (countCompeteBuyers < PLAN) {
-            if ((QueueBuyer.getCount() > cashiers.size() * 5) && (cashiers.size() < 5)) {
-                Thread cashier = new Thread(new Cashier(cashiers.size()+1));
-                cashiers.add(cashier);
-                cashier.start();
+        while (countCompeteBuyers.get() < PLAN) {
+                for (int i =numberOfCashier.get(); i <= 5; i++) {
+                    if (QueueBuyer.getCount() > (numberOfCashier.get()*5)) {
+                    Cashier cashier = new Cashier(i);
+                    threadPool.execute(cashier);
+                    numberOfCashier.getAndIncrement();
+                }
             }
             Helper.sleep(1000);
         }
+        //threadPool.shutdown();
     }
 }
 

@@ -6,19 +6,18 @@ import java.util.List;
 public class Market {
 
     public static void main(String[] args) throws InterruptedException {
-        List<Thread> buyerList = new ArrayList<>();
         System.out.println("Market opened");
+        List<Thread> buyerList = new ArrayList<>();
         new Dispatcher().start();
-        while (Dispatcher.countBuyer < Dispatcher.PLAN) {
+        while (Dispatcher.countBuyer.get() < Dispatcher.PLAN) {
             int currentCount = Helper.random(2);
                 for (int j = 0; j <= currentCount; j++) {
-                    if (Dispatcher.countBuyer == Dispatcher.PLAN) {
+                    if (Dispatcher.countBuyer.get() == Dispatcher.PLAN) {
                         break;
                     }
-                    Buyer buyer = new Buyer(++Dispatcher.countBuyer);
+                    Buyer buyer = new Buyer(Dispatcher.countBuyer.incrementAndGet());
                     buyerList.add(buyer);
                     buyer.start();
-
                 }
             Helper.sleep(1000);
         }

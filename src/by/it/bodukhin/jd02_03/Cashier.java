@@ -28,6 +28,5 @@ public class Cashier implements Runnable{
             }
         }
         System.out.println(this+" cashier closed");
-        Dispatcher.cashiers.remove(Thread.currentThread());
     }
 }
