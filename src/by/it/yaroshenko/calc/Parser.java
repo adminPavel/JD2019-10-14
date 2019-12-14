@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-    private Map<String, Integer> priority = new HashMap<>() {
+    private Map<String, Integer> priority = new HashMap<String, Integer>() {
         {
             this.put("=", 0);
             this.put("+", 1);

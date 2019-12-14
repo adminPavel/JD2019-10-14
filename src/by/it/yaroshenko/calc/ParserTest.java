@@ -145,4 +145,31 @@ class ParserTest {
         assertEquals("{{18.0, 26.0}, {29.0, 38.5}}", expectedValue.toString(), "Multiplication error");
     }
 
+    @Test
+    public void scalarTest() throws Exception {
+        Parser parser = new Parser();
+        Var expectedValue = parser.calc("A=7+8*0.5");
+        assertEquals("11.0", expectedValue.toString(), "Sum error");
+    }
+
+    @Test
+    public void scalarNumberTest() throws Exception {
+        Parser parser = new Parser();
+        Var expectedValue = parser.calc("-789.3");
+        assertEquals("-789.3", expectedValue.toString(), "Sum error");
+    }
+
+    @Test
+    public void VectorTest() throws Exception {
+        Parser parser = new Parser();
+        Var expectedValue = parser.calc("B={7,8,3,6}");
+        assertEquals("{7.0, 8.0, 3.0, 6.0}", expectedValue.toString(), "Sum error");
+    }
+
+    @Test
+    public void MatrixrTest() throws Exception {
+        Parser parser = new Parser();
+        Var expectedValue = parser.calc("C={{7.8,3.6},{6,4}}");
+        assertEquals("{{7.8, 3.6}, {6.0, 4.0}}", expectedValue.toString(), "Sum error");
+    }
 }
