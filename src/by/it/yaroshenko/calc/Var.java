@@ -57,12 +57,12 @@ abstract class Var implements Operation {
     static void save(){
         try (PrintWriter printWriter = new PrintWriter(getFileName())){
             for (Map.Entry<String, Var> pair : vars.entrySet()) {
-                printWriter.printf("%s=%s\n",pair.getKey(),pair.getValue().toString());
+                printWriter.printf("%s=%s\n", pair.getKey(), pair.getValue().toString());
             }
+
         }  catch (IOException e) {
         System.out.println("file error");
-    }
-        ;
+    };
     }
 
     static void load() {
