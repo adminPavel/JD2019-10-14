@@ -1,10 +1,8 @@
 package by.it.yaroshenko.testing;
-interface Student {
-    public void data();
-}
-class avi implements Student {
 
-    @Override
+class avi {
+
+
     public void data() {
         String name="avinash";
         int rollno=68;
