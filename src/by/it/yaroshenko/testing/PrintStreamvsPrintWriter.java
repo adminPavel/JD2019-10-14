@@ -19,9 +19,9 @@ public class PrintStreamvsPrintWriter {
 
             FileReader fileReader = new FileReader(dir() + "image.png");
             PrintWriter writer = new PrintWriter(dir() + "pw.png");
-            int c;
-            while ((c = fileReader) != -1) {
-                writer.write(c);
+            int a;
+            while ((a = fileReader.read()) != -1) {
+                writer.write(a);
             }
         writer.close();
         fileInputStream.close();
