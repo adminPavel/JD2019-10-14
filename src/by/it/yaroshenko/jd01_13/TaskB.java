@@ -30,9 +30,12 @@ public class TaskB {
                                     "class: %s\n" +
                                     "line: %s\n",
                             name, clname, number);
+                    System.out.println("getClassName() : " + element.getClassName());
+
                     break;
                 }
             }
+                System.out.println("TaskB.class.getName() : " + TaskB.class.getName());
                 //System.out.println("Вы ввели не число");
             }
 //        } catch (Exception e) {

@@ -18,8 +18,8 @@ public class Runner {
     }
 
     public static void main(String[] args) {
-        Var s = new Scalar(3.0);
-        Var s1 = new Scalar(4.0);
+        Var s = new Scalar(4.0);
+        Var s1 = new Scalar("3");
         Var v = new Vector(new double[]{1,2,3}); // закомментируйте вектор и/или
         Var m = new Matrix("{{1,2,3},{4,5,6},{7,8,9}}");
         Var m1 = new Matrix("{{1,2,3},{4,5,6},{7,8,9}}");
@@ -47,7 +47,7 @@ public class Runner {
         print(m.sub(m2)); //{{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}}
         print(m.mul(m)); //{{30.0, 36.0, 42.0}, {66.0, 81.0, 96.0}, {102.0, 126.0, 150.0}}
         print(m.mul(v)); //{14.0, 32.0, 50.0}
-
+        print(m.div(v));
 
     }
 }

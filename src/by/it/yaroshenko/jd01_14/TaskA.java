@@ -9,7 +9,7 @@ public class TaskA {
     private static String dir() {
         String path = System.getProperty("user.dir") + File.separator + "src" + File.separator;
         String clDir = TaskA.class.getName().replace(TaskA.class.getSimpleName(), "").replace(".", File.separator);
-        return path + clDir;
+        return  path + clDir;
     }
 
     public static void main(String[] args) {
@@ -45,8 +45,8 @@ public class TaskA {
                 new BufferedInputStream(
                         new FileInputStream(dir() + "dataTaskA.bin")))) {
             try (PrintWriter out2 = new PrintWriter(new FileWriter(dir() + "resultTaskA.txt"))) {
-                int c;
-                while ((c=dis.available()) > 0) {
+                //int c;
+                while ((dis.available()) > 0) {
                     objects.add(dis.readInt());
                 }
                 int count=0;

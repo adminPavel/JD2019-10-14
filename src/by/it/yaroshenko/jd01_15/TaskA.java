@@ -23,6 +23,7 @@ public class TaskA {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,13 +32,16 @@ public class TaskA {
 
     private static void pushTextToFile(int[][] array) {
         try {
-            PrintWriter fileWriter = new PrintWriter(dir()+"matrix.txt");
+            //PrintWriter fileWriter = new PrintWriter((dir()+"matrix.txt"));
+            FileWriter fileWriter = new FileWriter(dir()+"matrix.txt", true);
             for (int[] ints : array) {
+               // System.out.println();
                 for (int anInt : ints) {
-                    fileWriter.printf("%3d ", anInt);
-                    //System.out.printf("%3 ",);
+                    fileWriter.write(Integer.toString(anInt)+" "); //"%5d ",
+                   // System.out.printf("%3s ", Integer.toString(anInt));
+
                 }
-                fileWriter.printf("\n");
+                fileWriter.write("\n");
             }
             fileWriter.flush();
             fileWriter.close();

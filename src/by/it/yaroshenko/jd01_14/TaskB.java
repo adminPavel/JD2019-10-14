@@ -31,7 +31,7 @@ public class TaskB {
 
     private static void pushTextToFile(ArrayList<Object> objects) {
         try {
-            FileWriter fileWriter = new FileWriter(dir() + "resultTaskB.txt");
+            FileWriter fileWriter = new FileWriter(dir() + "resultTaskB.txt", true);
             for (Object object : objects) {
                 fileWriter.write(object+"\n");
                 System.out.println(object);
@@ -72,7 +72,7 @@ public class TaskB {
     private static void addList(ArrayList<Object> objects, File file) {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            String line = null;
+            String line;
             while ((line = bufferedReader.readLine()) != null) {
                 objects.add(line);
                 System.out.println(line);

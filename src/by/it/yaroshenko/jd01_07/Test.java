@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class Test {
     public static void main(String[] args) {
         String text = "{ { 1.0, 2.0, 7.0 }, { 3.0, 4.0, 7.0 }, { 5.0, 6.0, 7.0 } }";
-                int count=0;
+        int count=0;
         String[] str_array = text.split("},");
         String[] w=new String[0];
         StringBuilder sb = new StringBuilder(Arrays.toString(str_array));

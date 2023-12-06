@@ -24,12 +24,12 @@ public class TaskB1 {
 
         public static void count (String word) {
             Set<Map.Entry<String, Integer>> entries = hashMap.entrySet();
-            int hashCode = word.hashCode();
+            int hashCode = word.hashCode(); //хэш-код слова
             for (Map.Entry<String, Integer> entry : entries) {
-            if (entry.getKey().hashCode()==hashCode) {
-                Integer integer = entry.getValue();
-                integer++;
-                entry.setValue(integer);
+            if (entry.getKey().hashCode()==hashCode) { //если перебранный хэш-код ключа равен хэш-коду слова
+                Integer integer = entry.getValue(); //получаем значение
+                integer++; //   увеличиваем значение на 1
+                entry.setValue(integer); //устанавливаем увеличенное значчеение на 1 в сет
                 return;
             }
             }

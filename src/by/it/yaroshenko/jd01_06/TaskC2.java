@@ -13,6 +13,18 @@ public class TaskC2 {
         System.out.println(fast(Poem.text));
         long timesend_fast=System.currentTimeMillis();
         System.out.println(timesend_fast-timestart_fast);
+        //System.out.println(timesend-timestart);
+
+/*        StringBuilder strb = new StringBuilder();
+        String[] words = Poem.text.split("[^а-яA-ЯёЁ]+");
+        Random random=new Random(11);
+        while (strb.length()<100_000) {
+            strb.append(words[random.nextInt(words.length)]).append(" ");
+
+            System.out.println(words.length);
+            System.out.println(random.nextInt(words.length));
+            System.out.println(words[random.nextInt(words.length)]);
+        }*/
     }
     /**
      *Метод формирует String из случайных слов размером более 100тыс символов

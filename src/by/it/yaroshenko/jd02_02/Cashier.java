@@ -20,7 +20,7 @@ public class Cashier implements Runnable{
                 }
                 System.out.println(this+ " stop service for "+buyer);
             }
-            else Helper.sleep(1);
+            else Helper.sleep(1000);
         }
         System.out.println(this+" closed");
     }
