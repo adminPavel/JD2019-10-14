@@ -23,7 +23,7 @@ public class Test_jd01_14 {
         //читаем файл с числами
         try (DataInputStream inp = new DataInputStream
                 (new BufferedInputStream
-                        (new FileInputStream(dir(Test_jd01_14.class) + "dataTaskA.bin"))
+                        (new FileInputStream(dir(Test_jd01_14.class) + "by/it/yaroshenko/testingNew1/dataTaskA.bin"))
                 );
         ) {
             double sum = 0;
@@ -37,7 +37,7 @@ public class Test_jd01_14 {
             run.include(sb.toString().trim()); //проверка строки из 20 чисел
             run.include("avg=" + sum / count); //проверка вывода среднего арифметического
 
-            Scanner scanner = new Scanner(new File(dir(Test_jd01_14.class) + "resultTaskA.txt"));
+            Scanner scanner = new Scanner(new File(dir(Test_jd01_14.class) + "by/it/yaroshenko/testingNew1/resultTaskA.txt"));
             //проверка соответсвия вывода и содержимого файла отчета resultTaskA.txt
             while (scanner.hasNext()) {
                 run.include(scanner.nextLine());
