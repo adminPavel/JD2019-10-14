@@ -1,4 +1,4 @@
-package by.it.yaroshenko.jd02_03;
+package by.it.yaroshenko.testing;
 
 
     class ThisParametor {

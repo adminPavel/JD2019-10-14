@@ -40,10 +40,11 @@ class Geek3 extends Thread{
             System.out.println(
                     Thread.currentThread().getName()
                             + "...starts");
-            this.geek1.notify();
+            this.geek1.notifyAll();
             System.out.println(
                     Thread.currentThread().getName()
                             + "...notified");
+
         }
     }
 }
