@@ -1,30 +1,19 @@
 package by.it.yaroshenko.testingNew1;
 
-// Java Program to Demonstrate ExecutorService Interface
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-// Importing required classes
-import java.util.concurrent.*;
-
-// Class
-// Main class
 public class SimpleExecutor {
-
-    // Main driver method
-    public static void main(String[] args)
-    {
-        // Creating objects of CountDownLatch class
+    public static void main(String[] args) {
         CountDownLatch cd1 = new CountDownLatch(5);
         CountDownLatch cd2 = new CountDownLatch(5);
         CountDownLatch cd3 = new CountDownLatch(5);
         CountDownLatch cd4 = new CountDownLatch(5);
+        CountDownLatch cd5 = new CountDownLatch(5);
 
-        // Creating objects of ExecutorService class
-        ExecutorService es
-                = Executors.newFixedThreadPool(2);
-
-        // Display message only for better readability
+        ExecutorService es = Executors.newFixedThreadPool(2);
         System.out.println("Starting");
-
         // Executing the tasks
         es.execute(new MyThread(cd1, "A"));
         es.execute(new MyThread(cd2, "B"));
@@ -54,31 +43,16 @@ public class SimpleExecutor {
         System.out.println("Done");
     }
 }
-
-// Class 2
-// Helper class
 class MyThread implements Runnable {
-
-    // Class data members
-    String name;
-    CountDownLatch latch;
-
-    // Constructor
-    MyThread(CountDownLatch latch, String name)
-    {
-
-        // this keyword refers to current instance itself
-        this.name = name;
-        this.latch = latch;
-
-        new Thread(this);
-    }
-
-    // Method
-    // Called automatically when thread is started
-    public void run()
-    {
-
+        String name;
+        CountDownLatch latch;
+        MyThread (CountDownLatch latch, String name) {
+            this.latch = latch;
+            this.name = name;
+            new Thread(this);
+        }
+    @Override
+    public void run() {
         for (int i = 0; i < 5; i++) {
             System.out.println(name + ": " + i);
             latch.countDown();

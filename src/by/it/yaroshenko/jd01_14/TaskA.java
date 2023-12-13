@@ -23,7 +23,7 @@ public class TaskA {
         try {
             dataOutputStream = new DataOutputStream(
                     new BufferedOutputStream(
-                            new FileOutputStream(dir() + "dataTaskA.bin")));
+                            new FileOutputStream(dir() + "by/it/yaroshenko/testingNew1/dataTaskA.bin")));
             for (int i = 0; i < 20; i++) {
                 dataOutputStream.writeInt((int) Math.ceil(Math.random() * 20));
             }
@@ -43,8 +43,8 @@ public class TaskA {
     private static void printToFile() {
         try (DataInputStream dis = new DataInputStream(
                 new BufferedInputStream(
-                        new FileInputStream(dir() + "dataTaskA.bin")))) {
-            try (PrintWriter out2 = new PrintWriter(new FileWriter(dir() + "resultTaskA.txt"))) {
+                        new FileInputStream(dir() + "by/it/yaroshenko/testingNew1/dataTaskA.bin")))) {
+            try (PrintWriter out2 = new PrintWriter(new FileWriter(dir() + "by/it/yaroshenko/testingNew1/resultTaskA.txt"))) {
                 //int c;
                 while ((dis.available()) > 0) {
                     objects.add(dis.readInt());
